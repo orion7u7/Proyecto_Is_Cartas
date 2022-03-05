@@ -9,6 +9,16 @@ and open the template in the editor.
 */
 .derecha {
     float:right;
+    display: flex;
+}
+
+.derecha img{
     width: 30%;
 }
 
+.derecharow{
+    float: right;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
