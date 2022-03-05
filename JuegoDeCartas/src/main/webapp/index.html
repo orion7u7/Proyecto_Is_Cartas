@@ -23,23 +23,24 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="fas fa-user"></i></span>
                                 </div>
-                                <input type="text" class="form-control" placeholder="username">
-
+                                <input type="text" class="form-control admin oculto" placeholder="username" name="adminuser">
+                                <input type="text" class="form-control user" placeholder="username" name="playeruser">
                             </div>
                             <br>
                             <br>
-                            <div class="input-group form-group">
+                            <div class="input-group form-group adminpas oculto">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="fas fa-key"></i></span>
                                 </div>
-                                <input type="password" class="form-control" placeholder="password">
+                                <input type="password" class="form-control" placeholder="password" >
                             </div>
                             <br>
                             <br>
                             <br>
                             <div class="form-group">
                                 <input type="submit" value="Login" class="btn float-right login_btn">
-                                <input type="submit" value="User" class="btn float-right login_btn">
+                                <input type="button" value="User" class="btn float-right login_btn usuario oculto" />
+                                <input type="button" value="Admin" class="btn float-right login_btn administrador admin" />
                             </div>
                         </form>
                     </div>
@@ -47,5 +48,6 @@
                 </div>
             </div>
         </div>
+        <script src="scripts/index.js"></script>
     </body>
 </html>
