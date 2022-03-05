@@ -19,17 +19,16 @@
 
                     </div>
                     <div class="card-body">
-                        <form>
+                        <form class="admin oculto" method="post" action="Administrador.html">
                             <div class="input-group form-group">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="fas fa-user"></i></span>
                                 </div>
-                                <input type="text" class="form-control admin oculto" placeholder="username" name="adminuser">
-                                <input type="text" class="form-control user" placeholder="username" name="playeruser">
+                                <input type="text" class="form-control" placeholder="username" name="adminuser">
                             </div>
                             <br>
                             <br>
-                            <div class="input-group form-group adminpas oculto">
+                            <div class="input-group form-group">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="fas fa-key"></i></span>
                                 </div>
@@ -40,10 +39,23 @@
                             <br>
                             <div class="form-group">
                                 <input type="submit" value="Login" class="btn float-right login_btn">
-                                <input type="button" value="User" class="btn float-right login_btn usuario oculto" />
-                                <input type="button" value="Admin" class="btn float-right login_btn administrador admin" />
                             </div>
                         </form>
+                        <form class="user" method="post" action="usuario.html">
+                            <div class="input-group form-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                </div>
+                                <input type="text" class="form-control" placeholder="username" name="playeruser">
+                            </div>
+                            <br>
+                            <br>
+                            <div class="form-group">
+                                <input type="submit" value="Login" class="btn float-right login_btn">
+                            </div>
+                        </form>
+                        <input type="button" value="User" class="btn float-right login_btn usuario oculto" />
+                        <input type="button" value="Admin" class="btn float-right login_btn administrador admin" />
                     </div>
 
                 </div>
@@ -52,7 +64,7 @@
         <script src="scripts/index.js"></script>
 
         <footer class="w-100 d-flex align-items justify-content-center flex-wrap">
-            <p class="fs-5 px-3 pt-3">Design. &copy; Todos los derechos Reservados PowerCards Games- Unillanos</p>
+            <p class="fs-5 px-3 pt-3">PowerCards Games-Unillanos</p>
         </footer>
     </body>
 </html>
