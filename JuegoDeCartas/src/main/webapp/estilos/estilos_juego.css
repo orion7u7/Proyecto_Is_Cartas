@@ -7,8 +7,77 @@ and open the template in the editor.
     Created on : 4/03/2022, 10:16:43 p. m.
     Author     : Rey
 */
-.derecha {
-    float:right;
-    width: 30%;
+
+.fondo{
+    background-image: url('../imagenes/fondo_mesa.jpg');
+    background-size: 100% 100%;
+    background-position: center center;
 }
 
+.derecha {
+    float:right;
+    display: flex;
+    width: 10%;
+}
+
+.derecha img{
+    width: 100%;
+    margin-bottom: 0.5rem;
+    height: auto;
+}
+
+.derecharow{
+    display: flex;
+    flex-direction: column;
+}
+
+.arriba {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.arriba img{
+    width: 10%;
+    margin-bottom: 0.5rem;
+    height: auto;
+}
+
+.arribarow{
+    display: flex;
+    justify-content: center;
+}
+
+.izquierda {
+    display: flex;
+    width: 10%;
+    position: absolute;
+}
+
+.izquierda img{
+    width: 100%;
+    margin-bottom: 0.5rem;
+    height: auto;
+}
+
+.izquierdarow{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.abajo {
+    display: flex;
+    width: 100%;
+}
+
+.abajo img{
+    width: 10%;
+    margin-bottom: 0.5rem;
+    height: auto;
+}
+
+.abajorow{
+    display: flex;
+    justify-content: center;
+}
