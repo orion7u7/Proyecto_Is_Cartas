@@ -1,7 +1,6 @@
 .slideruser{
     width: 100%;
-    /*height: 600px;*/
-    margin: auto;
+    height: 600px;   
 }
 
 .slideruser ul{
@@ -19,7 +18,7 @@
 
 .slideruser img{
 	width: 100%;
-	height: 60%;
+	height: 65%;
 }
 
 @keyframes cambio{
@@ -37,4 +36,14 @@
 
 	85% {margin-left: -400%;}
 	100% {margin-left: -400%;}
+}
+
+footer{
+	background: #17202A;
+	min-height: 50px;
+}
+
+footer p{
+	color: #f3f3f3;
+	text-align: center;
 }
