@@ -7,6 +7,13 @@ and open the template in the editor.
     Created on : 4/03/2022, 10:16:43 p. m.
     Author     : Rey
 */
+
+.fondo{
+    background-image: url('../imagenes/fondo_mesa.jpg');
+    background-size: 100% 100%;
+    background-position: center center;
+}
+
 .derecha {
     float:right;
     display: flex;
