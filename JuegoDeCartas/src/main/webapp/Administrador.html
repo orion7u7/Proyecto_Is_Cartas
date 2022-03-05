@@ -19,9 +19,6 @@
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="#">Agregar Cartas</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="salas.html">Salas</a>
-                        </li>
                     </ul>
                 </div>
                 <div class="dropdown text-end">
@@ -75,6 +72,25 @@
                     <label for="validationCustom03" class="form-label">Logo</label>
                     <input type="file" class="form-control" aria-label="file example" required>
                     <div class="invalid-feedback">Example invalid form file feedback</div>
+                </div>
+                <div class="col-12">
+                    <button class="btn btn-primary" type="submit">Crear</button>
+                </div>
+            </form>
+        </div>
+        
+        <div class="container">
+            
+            <label>Crear Sala</label>
+             <form class="row g-3 needs-validation" novalidate>
+                <div class="col-md-3">
+                    <label for="validationCustom04" class="form-label">Juego</label>
+                    <select class="form-select" id="juego" required>
+                        <option selected disabled value="">Choose...</option>
+                        <option>Pokemon</option>
+                        <option>Yu-Gi-Oh!</option>
+                        <option>Dragon Ball</option>
+                    </select>
                 </div>
                 <div class="col-12">
                     <button class="btn btn-primary" type="submit">Crear</button>
