@@ -7,7 +7,9 @@ and open the template in the editor.
     Created on : 4/03/2022, 10:16:43 p. m.
     Author     : Rey
 */
-
+.btn btn-danger{
+    padding-left: 10px;
+}
 .fondo{
     background-image: url('../imagenes/fondo_mesa.jpg');
     background-size: 100% 100%;
