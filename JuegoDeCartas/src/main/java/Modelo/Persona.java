@@ -3,6 +3,9 @@ package Modelo;
 public class Persona {
 String nickname,contraseña,rol;
 
+    public Persona() {
+    }
+
     public Persona(String nickname, String contraseña, String rol) {
         this.nickname = nickname;
         this.contraseña = contraseña;
