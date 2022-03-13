@@ -1,4 +1,4 @@
-package com.is.modelo;
+package Modelo;
 
 public class Persona {
 String nickname,contraseña,rol;

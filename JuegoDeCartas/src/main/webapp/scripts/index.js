@@ -20,4 +20,8 @@ botonuser.addEventListener('click', (e) => {
     user.classList.remove('oculto');
 });
 
-
+function cargarElemento(url, elemento){
+    var request= new XMLHttpRequest();
+    request.open("GET",url,false);
+    request.send(null);
+}
