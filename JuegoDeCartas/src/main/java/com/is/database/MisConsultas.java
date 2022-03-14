@@ -1,6 +1,6 @@
 package com.is.database;
 
-import com.is.modelo.Juegos;
+import com.is.modelo.Carta;
 import com.is.modelo.Persona;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -76,6 +76,42 @@ public class MisConsultas {
 
     }
 
+    private boolean insertarCarta(Carta carta) throws SQLException {
+        int res = 0;
+        Connection conne = BaseDatos.getConecction();
+        PreparedStatement pstatement = null;
+        ResultSet resulSet = null;
+        String sql = "";
+        sql = "insert into powercards.persona (idCarta,nombre,descripcion,ataque,defensa,tipo,Juego_nombre,atributo,valor) VALUES (";
+        sql = sql + carta.getIdCarta();
+        sql = sql + "'" + carta.getNombre() + "'";
+        sql = sql + "'" + carta.getDescripcion() + "'";
+        sql = sql + carta.getAtaque();
+        sql = sql + carta.getDefensa();
+        sql = sql + "'" + carta.getTipo() + "'";
+        sql = sql + "'" + carta.getNombre_juego() + "'";
+        sql = sql + "'" + carta.getAtributo() + "'";
+        sql = sql + carta.getValor() + ")";
+
+        System.out.println("sql=" + sql);
+        pstatement = conne.prepareStatement(sql);
+        res = pstatement.executeUpdate();
+        try {
+            if (res == 1) {
+                conne.commit();
+                return true;
+            } else {
+                System.out.println("Error al actualizar");
+                conne.rollback();
+                return false;
+            }
+        } catch (SQLException ex) {
+            conne.rollback();
+            Logger.getLogger(Persona.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
+    }
+
     public Collection<Juegos> consulta_juego() {
         PreparedStatement pstatement = null;
         ResultSet resultSet = null;
@@ -102,5 +138,4 @@ public class MisConsultas {
         return listado;
 
     }
-
 }

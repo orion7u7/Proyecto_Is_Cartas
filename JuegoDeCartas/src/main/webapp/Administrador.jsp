@@ -1,3 +1,11 @@
+<%-- 
+    Document   : Administrador
+    Created on : 16/03/2022, 02:08:20 PM
+    Author     : HOMEPCTK
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
 
 <html>
     <head>
@@ -92,7 +100,7 @@
                     <input type="text" class="form-control" id="valoratri3">
                 </div>
                 <div class="col-12">
-                    <button class="btn btn-primary" type="submit">Crear</button>
+                    <button class="btn btn-primary" type="submit">Agregar Carta</button>
                 </div>
             </form>
         </div>
@@ -120,3 +128,4 @@
 
     </body>
 </html>
+
