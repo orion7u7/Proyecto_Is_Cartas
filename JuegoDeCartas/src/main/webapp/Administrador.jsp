@@ -3,7 +3,10 @@
     Created on : 16/03/2022, 02:08:20 PM
     Author     : HOMEPCTK
 --%>
-
+<%@page import="java.util.Collection"%>
+<%@page import="com.is.modelo.Juegos"%>
+<%@page import="java.util.LinkedList"%>
+<%@page import="com.is.database.MisConsultas"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 
@@ -30,15 +33,15 @@
                     </ul>
                 </div>
                 <div class="dropdown text-end">
-                        <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-                            <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
-                        </a>
-                        <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1" style="">
-                            <li><a class="dropdown-item" href="#">User</a></li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="index.html">Cerrar Sesion</a></li>
-                        </ul>
-                    </div>
+                    <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
+                    </a>
+                    <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1" style="">
+                        <li><a class="dropdown-item" href="#">User</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="index.html">Cerrar Sesion</a></li>
+                    </ul>
+                </div>
             </div>
         </nav>
         <div class="container">
@@ -63,9 +66,14 @@
                     <label for="validationCustom04" class="form-label">Juego</label>
                     <select class="form-select" id="juego" required>
                         <option selected disabled value="">Choose...</option>
-                        <option>Pokemon</option>
-                        <option>Yu-Gi-Oh!</option>
-                        <option>Dragon Ball</option>
+                        <%
+                            MisConsultas consul = new MisConsultas();
+
+                            Collection<Juegos> lista = consul.consulta_juego();
+                            for (Juegos juego : lista) {
+                                out.println("<option>" + juego.getNombre() + "</option>");
+                            }
+                        %>
                     </select>
                 </div>
                 <div class="col-md-3">
@@ -104,18 +112,20 @@
                 </div>
             </form>
         </div>
-        
+
         <div class="container">
-            
+
             <label>Crear Sala</label>
-             <form class="row g-3 needs-validation" novalidate>
+            <form class="row g-3 needs-validation" novalidate>
                 <div class="col-md-3">
                     <label for="validationCustom04" class="form-label">Juego</label>
                     <select class="form-select" id="juego" required>
                         <option selected disabled value="">Choose...</option>
-                        <option>Pokemon</option>
-                        <option>Yu-Gi-Oh!</option>
-                        <option>Dragon Ball</option>
+                        <%
+                            for (Juegos juego : lista) {
+                                out.println("<option>" + juego.getNombre() + "</option>");
+                            }
+                        %>
                     </select>
                 </div>
                 <div class="col-12">

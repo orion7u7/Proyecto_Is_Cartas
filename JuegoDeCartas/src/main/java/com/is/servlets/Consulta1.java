@@ -107,7 +107,7 @@ public class Consulta1 extends HttpServlet {
             for (Persona persona2 : persona) {
                 System.out.println(persona2.getNickname()+"   "+persona2.getContraseña());
                 if ((persona2.getNickname()).equals(user) && (persona2.getContraseña()).equals(pass)) {
-                    request.getRequestDispatcher("Administrador.html").include(request, response);
+                    request.getRequestDispatcher("Administrador.jsp").include(request, response);
                 } else {
                     request.getRequestDispatcher("index.jsp").include(request, response);
                 }

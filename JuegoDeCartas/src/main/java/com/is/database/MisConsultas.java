@@ -1,5 +1,6 @@
 package com.is.database;
 
+import com.is.modelo.Juegos;
 import com.is.modelo.Carta;
 import com.is.modelo.Persona;
 import java.sql.Connection;
@@ -8,6 +9,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.LinkedList;
 import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -116,7 +118,7 @@ public class MisConsultas {
         PreparedStatement pstatement = null;
         ResultSet resultSet = null;
         String sql = " SELECT *";
-        sql = sql + " FROM powercards.persona ";
+        sql = sql + " FROM powercards.juego ";
 
         Vector<Juegos> listado = new Vector<Juegos>();
         try {
@@ -128,8 +130,8 @@ public class MisConsultas {
                 Juegos juego = new Juegos();
                 juego.setNombre(resultSet.getString(1));
                 juego.setDescripcion(resultSet.getString(2));
-                juego.setTotal_cartas(Integer.parseInt(resultSet.getString(3)));
-
+                juego.setTotal_cartas(resultSet.getInt(3));
+                juego.setFoto(resultSet.getBytes(4));
                 listado.add(juego);
             }
         } catch (SQLException ex) {
