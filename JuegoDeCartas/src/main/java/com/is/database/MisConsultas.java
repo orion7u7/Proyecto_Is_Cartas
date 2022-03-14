@@ -1,10 +1,12 @@
 package com.is.database;
 
+import com.is.modelo.Juegos;
 import com.is.modelo.Persona;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Vector;
 import java.util.logging.Level;
@@ -69,6 +71,33 @@ public class MisConsultas {
             }
         } catch (SQLException ex) {
             Logger.getLogger(Persona.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return listado;
+
+    }
+
+    public Collection<Juegos> consulta_juego() {
+        PreparedStatement pstatement = null;
+        ResultSet resultSet = null;
+        String sql = " SELECT *";
+        sql = sql + " FROM powercards.persona ";
+
+        Vector<Juegos> listado = new Vector<Juegos>();
+        try {
+            Connection conne = BaseDatos.getConecction();
+            pstatement = conne.prepareStatement(sql);
+            resultSet = pstatement.executeQuery();
+            while (resultSet.next()) {
+
+                Juegos juego = new Juegos();
+                juego.setNombre(resultSet.getString(1));
+                juego.setDescripcion(resultSet.getString(2));
+                juego.setTotal_cartas(Integer.parseInt(resultSet.getString(3)));
+
+                listado.add(juego);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Juegos.class.getName()).log(Level.SEVERE, null, ex);
         }
         return listado;
 
