@@ -68,7 +68,7 @@ public class ModificarInformacion extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        Persona persona = new Persona(Double.parseDouble(request.getParameter("identificacion")),
+        Persona persona = new Persona(request.getParameter("identificacion"),
                 request.getParameter("nombres"), request.getParameter("apellidos"));
         persona.setDireccionEmail(request.getParameter("email"));
         persona.setUsuario(request.getParameter("usuario"));
@@ -102,12 +102,9 @@ public class ModificarInformacion extends HttpServlet {
         ResultSet resultSet = null;
         String sql = "";
         sql = "insert into personas values (";
-        sql = sql + persona.getIdentificacion() + ",";
-        sql = sql + "'" + persona.getNombres() + "',";
-        sql = sql + "'" + persona.getApellidos() + "',";
-        sql = sql + "'" + persona.getUsuario() + "',";
-        sql = sql + "'" + persona.getDireccionEmail() + "',";
-        sql = sql + "'" + persona.getTelefono() + "')";
+        sql = sql + persona.getNickname()+ ",";
+        sql = sql + "'" + persona.getContraseña()+ "',";
+        sql = sql + "'" + persona.getRol() + "')";
         System.out.println("sql=" + sql);
         pstatement = conne.prepareStatement(sql);
         res = pstatement.executeUpdate();
@@ -131,10 +128,9 @@ public class ModificarInformacion extends HttpServlet {
         out.println("<body>");
         out.println("<p>");
         for (Persona persona : misConsultas.consulta()) {
-            out.println("<p> ID=" + persona.getIdentificacion()
-                    + " nombres=" + persona.getNombres() + " apellidos="
-                    + persona.getApellidos() + " usuario=" + persona.getUsuario()
-                    + " email=" + persona.getDireccionEmail() + " telefono=" + persona.getTelefono());
+            out.println("<p> NickName=" + persona.getNickname()
+                    + " Contraseña=" + persona.getContraseña()+ " rol="
+                    + persona.getRol());
         }
         out.println("</p>");
         out.println("</body>");
@@ -164,12 +160,9 @@ public class ModificarInformacion extends HttpServlet {
         String sql = "";
 
         sql = "update personas set ";
-        sql = sql + "nombres= '" + persona.getNombres() + "',";
-        sql = sql + "apellidos= '" + persona.getApellidos() + "',";
-        sql = sql + "usuario= '" + persona.getUsuario() + "',";
-        sql = sql + "email= '" + persona.getDireccionEmail() + "',";
-        sql = sql + "telefono= '" + persona.getTelefono() + "'";
-        sql = sql + " where id= '" + persona.getIdentificacion() + "'";
+        sql = sql + "nombres= '" + persona.getContraseña() + "',";
+        sql = sql + "apellidos= '" + persona.getRol() + "',";
+        sql = sql + " where id= '" + persona.getNickname()+ "'";
 
         System.out.println("sql=" + sql);
         pstatement = conne.prepareStatement(sql);

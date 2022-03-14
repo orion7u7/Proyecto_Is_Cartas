@@ -19,8 +19,8 @@ public class MisConsultas {
     public Collection<Persona> consulta(String nombres) {
         PreparedStatement pstatement = null;
         ResultSet resultSet = null;
-        String sql = " SELECT id,nombres,apellidos,usuario,email,telefono  ";
-        sql = sql + " FROM personas where nombres like '%" + nombres + "%' ";
+        String sql = " SELECT * ";
+        sql = sql + " FROM persona where nickname like '%" + nombres + "%' ";
         sql = sql + " order by 1 asc ";
 
         System.out.println("sql=" + sql);
@@ -32,10 +32,10 @@ public class MisConsultas {
             resultSet = pstatement.executeQuery();
             while (resultSet.next()) {
 
-                Persona persona = new Persona(resultSet.getDouble(1), resultSet.getString(2), resultSet.getString(3));
-                persona.setDireccionEmail(resultSet.getString(4));
-                persona.setUsuario(resultSet.getString(5));
-                persona.setTelefono(resultSet.getString(6));
+                Persona persona = new Persona();
+                persona.setNickname(resultSet.getString(1));
+                persona.setContraseña(resultSet.getString(2));
+                persona.setRol(resultSet.getString(3));
 
                 listado.add(persona);
             }
@@ -49,8 +49,8 @@ public class MisConsultas {
     public Collection<Persona> consulta() {
         PreparedStatement pstatement = null;
         ResultSet resultSet = null;
-        String sql = " SELECT id,nombres,apellidos,usuario,email,telefono  ";
-        sql = sql + " FROM misclientes.personas ";
+        String sql = " SELECT nickname,contraseña,rol  ";
+        sql = sql + " FROM powercards.persona ";
         sql = sql + " order by 1 asc ";
 
         Vector<Persona> listado = new Vector<Persona>();
@@ -60,10 +60,10 @@ public class MisConsultas {
             resultSet = pstatement.executeQuery();
             while (resultSet.next()) {
 
-                Persona persona = new Persona(resultSet.getDouble(1), resultSet.getString(2), resultSet.getString(3));
-                persona.setDireccionEmail(resultSet.getString(4));
-                persona.setUsuario(resultSet.getString(5));
-                persona.setTelefono(resultSet.getString(6));
+                Persona persona = new Persona();
+                persona.setNickname(resultSet.getString(1));
+                persona.setContraseña(resultSet.getString(2));
+                persona.setRol(resultSet.getString(3));
 
                 listado.add(persona);
             }

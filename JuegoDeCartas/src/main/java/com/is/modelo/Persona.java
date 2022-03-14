@@ -2,77 +2,41 @@ package com.is.modelo;
 
 public class Persona {
 
-    Double identificacion;
-    String nombres;
-    String apellidos;
-    String usuario;
-    String direccionEmail;
-    String telefono;
+    
+    String nickname,rol,contraseña;
 
     public Persona() {
-        this.identificacion = 0.0;
-        this.nombres = "";
-        this.apellidos = "";
-        this.usuario = "";
-        this.direccionEmail = "";
-        this.telefono = "";
     }
 
-    public Persona(Double identificacion, String nombres, String apellidos) {
-        this.identificacion = identificacion;
-        this.nombres = nombres;
-        this.apellidos = apellidos;
-        this.usuario = "";
-        this.direccionEmail = "";
-        this.telefono = "";
+    public Persona(String nickname, String rol, String contraseña) {
+        this.nickname = nickname;
+        this.rol = rol;
+        this.contraseña = contraseña;
     }
 
-    public Double getIdentificacion() {
-        return identificacion;
+    public String getNickname() {
+        return nickname;
     }
 
-    public void setIdentificacion(Double identificacion) {
-        this.identificacion = identificacion;
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
     }
 
-    public String getNombres() {
-        return nombres;
+    public String getRol() {
+        return rol;
     }
 
-    public void setNombres(String nombres) {
-        this.nombres = nombres;
+    public void setRol(String rol) {
+        this.rol = rol;
     }
 
-    public String getApellidos() {
-        return apellidos;
+    public String getContraseña() {
+        return contraseña;
     }
 
-    public void setApellidos(String apellidos) {
-        this.apellidos = apellidos;
+    public void setContraseña(String contraseña) {
+        this.contraseña = contraseña;
     }
 
-    public String getUsuario() {
-        return usuario;
-    }
-
-    public void setUsuario(String usuario) {
-        this.usuario = usuario;
-    }
-
-    public String getDireccionEmail() {
-        return direccionEmail;
-    }
-
-    public void setDireccionEmail(String direccionEmail) {
-        this.direccionEmail = direccionEmail;
-    }
-
-    public String getTelefono() {
-        return telefono;
-    }
-
-    public void setTelefono(String telefono) {
-        this.telefono = telefono;
-    }
-
+    
 }

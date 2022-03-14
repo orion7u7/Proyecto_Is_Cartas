@@ -21,7 +21,7 @@
 
                     </div>
                     <div class="card-body">
-                        <form class="admin oculto" method="post" action="/index/login">
+                        <form class="admin oculto" method="post" action="Consulta1?menu=admin">
                             <div class="input-group form-group">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="fas fa-user"></i></span>
@@ -43,7 +43,7 @@
                                 <input type="submit" value="Login" name="btn-admin" class="btn float-right login_btn">
                             </div>
                         </form>
-                        <form class="user" method="post" action="usuario.html">
+                        <form class="user" method="post" action="Consulta1?menu=user">
                             <div class="input-group form-group">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="fas fa-user"></i></span>
