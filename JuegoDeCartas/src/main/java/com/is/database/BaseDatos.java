@@ -13,9 +13,9 @@ public class BaseDatos {
     public static Connection getConecction() throws SQLException {
 
         String ip = "localhost";
-        String basedatos = "powercards";
+        String basedatos = "misclientes";
         String usuario = "root";
-        String pass = "root";
+        String pass = "1237";
         String puerto = "3306";
         String url = "jdbc:mysql://" + ip + ":" + puerto + "/" + basedatos + "?serverTimezone=UTC&autoReconnect=true&useSSL=false";
 
