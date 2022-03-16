@@ -11,6 +11,7 @@ import com.is.modelo.Persona;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Collection;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -20,7 +21,6 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author oguev
  */
-
 public class Consulta1 extends HttpServlet {
 
     private MisConsultas misConsultas = new MisConsultas();
@@ -37,7 +37,7 @@ public class Consulta1 extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try ( PrintWriter out = response.getWriter()) {
+        try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
             out.println("<html>");
@@ -78,10 +78,9 @@ public class Consulta1 extends HttpServlet {
         out.println("<p>");
         System.out.println("texto=" + texto);
         for (Persona persona : misConsultas.consulta(texto)) {
-            out.println("<p> ID=" + persona.getIdentificacion()
-                    + " nombres=" + persona.getNombres() + " apellidos="
-                    + persona.getApellidos() + " usuario=" + persona.getUsuario()
-                    + " email=" + persona.getDireccionEmail() + " telefono=" + persona.getTelefono());
+            out.println("<p> ID=" + persona.getNickname()
+                    + " nombres=" + persona.getContraseña() + " apellidos="
+                    + persona.getRol());
         }
         out.println("</p>");
         out.println("</body>");
@@ -99,25 +98,20 @@ public class Consulta1 extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try ( PrintWriter out = response.getWriter()) {
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet Consulta1: get </title>");
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet Consulta1 at " + request.getContextPath() + "</h1>");
-            out.println("<p>");
-            String texto;
-            for (Persona persona : misConsultas.consulta()) {
-                out.println("<p> ID=" + persona.getIdentificacion()
-                        + " nombres=" + persona.getNombres() + " apellidos="
-                        + persona.getApellidos() + " usuario=" + persona.getUsuario()
-                        + " email=" + persona.getDireccionEmail() + " telefono=" + persona.getTelefono());
+        String user = request.getParameter("adminuser");
+        String pass = request.getParameter("pass");
+        String menu = request.getParameter("menu");
+        MisConsultas consulta = new MisConsultas();
+        Collection<Persona> persona = consulta.consulta();
+        if (menu.equals("admin")) {
+            if (persona.) {
+                
             }
-            out.println("</p>");
-            out.println("</body>");
-            out.println("</html>");
+        } else {
+            if (persona.equals(user)) {
+                request.getRequestDispatcher("Controlador?menu=Admin&accion=Listar").include(request, response);
+
+            }
         }
     }
 
