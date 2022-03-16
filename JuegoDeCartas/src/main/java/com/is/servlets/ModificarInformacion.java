@@ -70,9 +70,9 @@ public class ModificarInformacion extends HttpServlet {
             throws ServletException, IOException {
         Persona persona = new Persona(request.getParameter("identificacion"),
                 request.getParameter("nombres"), request.getParameter("apellidos"));
-        persona.setDireccionEmail(request.getParameter("email"));
-        persona.setUsuario(request.getParameter("usuario"));
-        persona.setTelefono(request.getParameter("telefono"));
+        //persona.setDireccionEmail(request.getParameter("email"));
+        //persona.setUsuario(request.getParameter("usuario"));
+        //persona.setTelefono(request.getParameter("telefono"));
         try {
             if (insertarPersona(persona) == true) {
                 response(response);

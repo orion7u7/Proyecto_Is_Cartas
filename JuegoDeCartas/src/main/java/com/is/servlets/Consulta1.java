@@ -104,14 +104,17 @@ public class Consulta1 extends HttpServlet {
         MisConsultas consulta = new MisConsultas();
         Collection<Persona> persona = consulta.consulta();
         if (menu.equals("admin")) {
-            if (persona.) {
-                
+            for (Persona persona2 : persona) {
+                if ((persona2.getNickname()).equals(user) && (persona2.getContraseña()).equals(pass)) {
+                    request.getRequestDispatcher("Administrador.html").include(request, response);
+                } else {
+                    request.getRequestDispatcher("index.jsp").include(request, response);
+                }
             }
         } else {
-            if (persona.equals(user)) {
-                request.getRequestDispatcher("Controlador?menu=Admin&accion=Listar").include(request, response);
 
-            }
+            request.getRequestDispatcher("usuario.html").include(request, response);
+
         }
     }
 
