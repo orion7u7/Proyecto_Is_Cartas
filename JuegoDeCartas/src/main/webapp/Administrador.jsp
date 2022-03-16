@@ -42,26 +42,26 @@
             </div>
         </nav>
         <div class="container">
-            <form class="row g-3 needs-validation" novalidate>
+            <form class="row g-3 needs-validation" novalidate action="ConsultaAdmin?menu=carta" method="post">
                 <div class="col-md-6">
                     <label for="validationCustom01" class="form-label">Nombre</label>
-                    <input type="text" class="form-control" id="nombre" required>
+                    <input type="text" class="form-control" id="nombre" name="nombre" required>
                 </div>
                 <div class="col-md-3">
                     <label for="validationCustom02" class="form-label">Ataque</label>
-                    <input type="text" class="form-control" id="ataque" required>
+                    <input type="text" class="form-control" id="ataque" name="ataque" required>
                 </div>
                 <div class="col-md-3">
                     <label for="validationCustom02" class="form-label">Defensa</label>
-                    <input type="text" class="form-control" id="defensa" required>
+                    <input type="text" class="form-control" id="defensa" name="defensa" required>
                 </div>
                 <div class="col-md-6">
                     <label for="validationCustom03" class="form-label">Descripción</label>
-                    <input type="text" class="form-control" id="descripcion">
+                    <input type="text" class="form-control" id="descripcion" name="descripcion" >
                 </div>
                 <div class="col-md-3">
                     <label for="validationCustom04" class="form-label">Juego</label>
-                    <select class="form-select" id="juego" required>
+                    <select class="form-select" id="juego" name="juego" required>
                         <option selected disabled value="">Choose...</option>
                         <option>Pokemon</option>
                         <option>Yu-Gi-Oh!</option>
@@ -70,7 +70,7 @@
                 </div>
                 <div class="col-md-3">
                     <label for="validationCustom04" class="form-label">Tipo de Carta</label>
-                    <select class="form-select" id="tipo" required>
+                    <select class="form-select" id="tipo" name="tipo" required>
                         <option selected disabled value="">Choose...</option>
                         <option>Especial</option>
                         <option>Duelo</option>
@@ -83,13 +83,13 @@
                 </div>
                 <div class="col-md-2">
                     <label for="validationCustom03" class="form-label">Atributo</label>
-                    <input type="text" class="form-control" id="atributo1">
+                    <input type="text" class="form-control" id="atributo1" name="atributo1">
                     <label for="validationCustom03" class="form-label">Valor</label>
                     <input type="text" class="form-control" id="valoratri1">
                 </div>
                 <div class="col-md-2">
                     <label for="validationCustom03" class="form-label">Atributo</label>
-                    <input type="text" class="form-control" id="atributo2">
+                    <input type="text" class="form-control" id="atributo2" >
                     <label for="validationCustom03" class="form-label">Valor</label>
                     <input type="text" class="form-control" id="valoratri2">
                 </div>

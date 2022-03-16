@@ -4,6 +4,8 @@
  */
 package com.is.servlets;
 
+import com.is.database.MisConsultas;
+import com.is.modelo.Carta;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -34,7 +36,7 @@ public class ConsultaAdmin extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet ConsultaAdmin</title>");            
+            out.println("<title>Servlet ConsultaAdmin</title>");
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet ConsultaAdmin at " + request.getContextPath() + "</h1>");
@@ -69,7 +71,33 @@ public class ConsultaAdmin extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        String menu = request.getParameter("menu");
+        if (menu.equals("carta")) {
+
+            String nombre = request.getParameter("nombre");
+            String descripcion = request.getParameter("descripcion");
+            int ataque = Integer.parseInt(request.getParameter("ataque"));
+            int defensa = Integer.parseInt(request.getParameter("defensa"));
+            String juego = request.getParameter("juego");
+            String tipo = request.getParameter("tipo");
+            System.out.println(tipo);    
+
+            Carta car = new Carta();
+            car.setAtaque(ataque);
+            car.setDefensa(defensa);
+            car.setNombre(nombre);
+            car.setTipo(tipo);
+            car.setDescripcion(descripcion);
+            car.setNombre_juego(juego);
+            MisConsultas ins = new MisConsultas();
+            try {
+                ins.Agregar(car);
+
+            } catch (Exception e) {
+            }
+            request.getRequestDispatcher("Administrador.jsp").include(request, response);
+
+        }
     }
 
     /**

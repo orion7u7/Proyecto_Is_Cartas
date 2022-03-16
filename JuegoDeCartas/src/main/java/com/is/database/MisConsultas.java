@@ -1,6 +1,7 @@
 package com.is.database;
 
 import com.is.modelo.Carta;
+import com.is.modelo.Juegos;
 import com.is.modelo.Persona;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -76,14 +77,14 @@ public class MisConsultas {
 
     }
 
-    private boolean insertarCarta(Carta carta) throws SQLException {
+    public boolean insertarCarta(Carta carta) throws SQLException {
         int res = 0;
         Connection conne = BaseDatos.getConecction();
         PreparedStatement pstatement = null;
         ResultSet resulSet = null;
         String sql = "";
-        sql = "insert into powercards.persona (idCarta,nombre,descripcion,ataque,defensa,tipo,Juego_nombre,atributo,valor) VALUES (";
-        sql = sql + carta.getIdCarta();
+        sql = "insert into powercards.persona (nombre,descripcion,ataque,defensa,tipo,Juego_nombre,atributo,valor) VALUES (";
+
         sql = sql + "'" + carta.getNombre() + "'";
         sql = sql + "'" + carta.getDescripcion() + "'";
         sql = sql + carta.getAtaque();
@@ -110,6 +111,27 @@ public class MisConsultas {
             Logger.getLogger(Persona.class.getName()).log(Level.SEVERE, null, ex);
         }
         return false;
+    }
+int r;
+    public int Agregar(Carta carta) {
+        String sentencia = "INSERT INTO powercards.carta (nombre,descripcion,ataque,defensa,tipo,Juego_nombre,atributo,valor) VALUES (?,?,?,?,?,?,?,?)";
+        try {
+            PreparedStatement ps = null;
+            Connection con = BaseDatos.getConecction();
+            ps = con.prepareStatement(sentencia);
+            ps.setString(1, carta.getNombre());
+            ps.setString(2, carta.getDescripcion());
+            ps.setInt(3, carta.getAtaque());
+            ps.setInt(4, carta.getDefensa());
+            ps.setString(5, carta.getTipo());
+            ps.setString(6, carta.getNombre_juego());
+            ps.setString(7, carta.getAtributo());
+            ps.setInt(8, carta.getValor());
+            ps.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(MisConsultas.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return r;
     }
 
     public Collection<Juegos> consulta_juego() {
