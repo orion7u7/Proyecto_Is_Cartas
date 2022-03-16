@@ -105,6 +105,7 @@ public class Consulta1 extends HttpServlet {
         Collection<Persona> persona = consulta.consulta();
         if (menu.equals("admin")) {
             for (Persona persona2 : persona) {
+                System.out.println(persona2.getNickname()+"   "+persona2.getContraseña());
                 if ((persona2.getNickname()).equals(user) && (persona2.getContraseña()).equals(pass)) {
                     request.getRequestDispatcher("Administrador.html").include(request, response);
                 } else {
