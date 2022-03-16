@@ -98,7 +98,7 @@ public class Consulta1 extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String user = request.getParameter("adminuser");
+        String user = request.getParameter("user");
         String pass = request.getParameter("pass");
         String menu = request.getParameter("menu");
         MisConsultas consulta = new MisConsultas();
