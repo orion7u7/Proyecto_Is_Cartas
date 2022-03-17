@@ -16,28 +16,30 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `sala`
+-- Table structure for table `contiene`
 --
 
-DROP TABLE IF EXISTS `sala`;
+DROP TABLE IF EXISTS `contiene`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `sala` (
-  `id` int NOT NULL,
-  `Juego_nombre` varchar(45) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `fk_Sala_Juego1_idx` (`Juego_nombre`),
-  CONSTRAINT `fk_Sala_Juego1` FOREIGN KEY (`Juego_nombre`) REFERENCES `juego` (`nombre`)
+CREATE TABLE `contiene` (
+  `Persona_nickname` varchar(250) NOT NULL,
+  `Sala_id` int NOT NULL,
+  PRIMARY KEY (`Persona_nickname`,`Sala_id`),
+  KEY `fk_Persona_has_Sala_Sala1_idx` (`Sala_id`),
+  KEY `fk_Persona_has_Sala_Persona_idx` (`Persona_nickname`),
+  CONSTRAINT `fk_Persona_has_Sala_Persona` FOREIGN KEY (`Persona_nickname`) REFERENCES `persona` (`nickname`),
+  CONSTRAINT `fk_Persona_has_Sala_Sala1` FOREIGN KEY (`Sala_id`) REFERENCES `sala` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `sala`
+-- Dumping data for table `contiene`
 --
 
-LOCK TABLES `sala` WRITE;
-/*!40000 ALTER TABLE `sala` DISABLE KEYS */;
-/*!40000 ALTER TABLE `sala` ENABLE KEYS */;
+LOCK TABLES `contiene` WRITE;
+/*!40000 ALTER TABLE `contiene` DISABLE KEYS */;
+/*!40000 ALTER TABLE `contiene` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -49,4 +51,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-03-16 18:13:47
+-- Dump completed on 2022-03-16 19:13:23

@@ -130,6 +130,7 @@ int r;
             ps.setString(7, carta.getAtributo());
             ps.setInt(8, carta.getValor());
             ps.executeUpdate();
+            System.out.println("Hecho");
         } catch (SQLException ex) {
             Logger.getLogger(MisConsultas.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -150,7 +151,7 @@ int r;
             while (resultSet.next()) {
 
                 Juegos juego = new Juegos();
-                juego.setNombre(resultSet.getString(1));
+                juego.setNombre(resultSet.getString(1));  
                 juego.setDescripcion(resultSet.getString(2));
                 juego.setTotal_cartas(resultSet.getInt(3));
                 juego.setFoto(resultSet.getBytes(4));

@@ -16,28 +16,36 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `juego`
+-- Table structure for table `carta`
 --
 
-DROP TABLE IF EXISTS `juego`;
+DROP TABLE IF EXISTS `carta`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `juego` (
+CREATE TABLE `carta` (
+  `idCarta` int NOT NULL AUTO_INCREMENT,
   `nombre` varchar(45) NOT NULL,
   `descripcion` varchar(250) NOT NULL,
-  `total_cartas` int NOT NULL,
-  PRIMARY KEY (`nombre`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+  `ataque` int DEFAULT NULL,
+  `defensa` int DEFAULT NULL,
+  `tipo` varchar(45) NOT NULL,
+  `Juego_nombre` varchar(45) NOT NULL,
+  `atributo` varchar(45) DEFAULT NULL,
+  `valor` int DEFAULT NULL,
+  PRIMARY KEY (`idCarta`,`Juego_nombre`),
+  UNIQUE KEY `idCarta_UNIQUE` (`idCarta`),
+  KEY `fk_Carta_Juego1_idx` (`Juego_nombre`),
+  CONSTRAINT `fk_Carta_Juego1` FOREIGN KEY (`Juego_nombre`) REFERENCES `juego` (`nombre`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `juego`
+-- Dumping data for table `carta`
 --
 
-LOCK TABLES `juego` WRITE;
-/*!40000 ALTER TABLE `juego` DISABLE KEYS */;
-INSERT INTO `juego` VALUES ('Dragon Ball','Dragon Ball es un manga escrito e ilustrado por Akira Toriyama',50),('Pokemon','Son videojuegos de rol desarrollados por Game Freak y publicados para videoconsolas portátiles de Nintendo.',50),('Yu-Gi-Oh!','Es un juego de cartas coleccionables de origen japonés desarrollado y publicado por Konami.',50);
-/*!40000 ALTER TABLE `juego` ENABLE KEYS */;
+LOCK TABLES `carta` WRITE;
+/*!40000 ALTER TABLE `carta` DISABLE KEYS */;
+/*!40000 ALTER TABLE `carta` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -49,4 +57,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-03-16 18:13:48
+-- Dump completed on 2022-03-16 19:13:00
