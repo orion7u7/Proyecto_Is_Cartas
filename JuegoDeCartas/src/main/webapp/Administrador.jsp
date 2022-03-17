@@ -90,10 +90,10 @@
                     <div class="invalid-feedback">Example invalid form file feedback</div>
                 </div>
                 <div class="col-md-2">
-                    <label for="validationCustom03" class="form-label">Atributo</label>
+                    <label for="validationCustom03" class="form-label" >Atributo</label>
                     <input type="text" class="form-control" id="atributo1" name="atributo1">
-                    <label for="validationCustom03" class="form-label">Valor</label>
-                    <input type="text" class="form-control" id="valoratri1">
+                    <label for="validationCustom03" class="form-label" >Valor</label>
+                    <input type="text" class="form-control" id="valoratri1" name="valor1">
                 </div>
                 <div class="col-md-2">
                     <label for="validationCustom03" class="form-label">Atributo</label>

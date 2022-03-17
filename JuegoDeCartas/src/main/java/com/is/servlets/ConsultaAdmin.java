@@ -73,15 +73,18 @@ public class ConsultaAdmin extends HttpServlet {
             throws ServletException, IOException {
         String menu = request.getParameter("menu");
         if (menu.equals("carta")) {
-
+            
             String nombre = request.getParameter("nombre");
             String descripcion = request.getParameter("descripcion");
             int ataque = Integer.parseInt(request.getParameter("ataque"));
             int defensa = Integer.parseInt(request.getParameter("defensa"));
             String juego = request.getParameter("juego");
             String tipo = request.getParameter("tipo");
-            System.out.println(tipo);    
-
+            int valor = Integer.parseInt(request.getParameter("valor1"));
+            String atributo = request.getParameter("atributo1");
+            
+            System.out.println(tipo);
+            
             Carta car = new Carta();
             car.setAtaque(ataque);
             car.setDefensa(defensa);
@@ -89,14 +92,17 @@ public class ConsultaAdmin extends HttpServlet {
             car.setTipo(tipo);
             car.setDescripcion(descripcion);
             car.setNombre_juego(juego);
+            car.setAtributo(atributo);
+            car.setValor(valor);
             MisConsultas ins = new MisConsultas();
             try {
                 ins.Agregar(car);
-
+                
             } catch (Exception e) {
+                System.out.println("Error");
             }
             request.getRequestDispatcher("Administrador.jsp").include(request, response);
-
+            
         }
     }
 

@@ -99,12 +99,13 @@ public class MisConsultas {
         System.out.println("sql=" + sql);
         pstatement = conne.prepareStatement(sql);
         res = pstatement.executeUpdate();
+        System.out.println(res);
         try {
             if (res == 1) {
                 conne.commit();
                 return true;
             } else {
-                System.out.println("Error al actualizar");
+                System.out.println("Error al insertar");
                 conne.rollback();
                 return false;
             }
