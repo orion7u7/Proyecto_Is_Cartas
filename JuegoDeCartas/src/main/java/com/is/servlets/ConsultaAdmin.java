@@ -97,7 +97,7 @@ public class ConsultaAdmin extends HttpServlet {
             MisConsultas ins = new MisConsultas();
             try {
                 ins.Agregar(car);
-                
+                System.out.println("entro");
             } catch (Exception e) {
                 System.out.println("Error");
             }

@@ -52,7 +52,6 @@ public class MisConsultas {
     }
 
     public Collection<Persona> consulta() {
-        PreparedStatement pstatement = null;
         ResultSet resultSet = null;
         String sql = " SELECT nickname,contraseña,rol  ";
         sql = sql + " FROM powercards.persona ";
@@ -61,8 +60,8 @@ public class MisConsultas {
         Vector<Persona> listado = new Vector<Persona>();
         try {
             Connection conne = BaseDatos.getConecction();
-            pstatement = conne.prepareStatement(sql);
-            resultSet = pstatement.executeQuery();
+            ps = conne.prepareStatement(sql);
+            resultSet = ps.executeQuery();
             while (resultSet.next()) {
 
                 Persona persona = new Persona();
@@ -115,11 +114,12 @@ public class MisConsultas {
         }
         return false;
     }
-int r;
+    int r;
+    PreparedStatement ps = null;
+
     public int Agregar(Carta carta) {
         String sentencia = "INSERT INTO powercards.carta (nombre,descripcion,ataque,defensa,tipo,Juego_nombre,atributo,valor) VALUES (?,?,?,?,?,?,?,?)";
         try {
-            PreparedStatement ps = null;
             Connection con = BaseDatos.getConecction();
             ps = con.prepareStatement(sentencia);
             ps.setString(1, carta.getNombre());
@@ -139,7 +139,7 @@ int r;
     }
 
     public Collection<Juegos> consulta_juego() {
-        PreparedStatement pstatement = null;
+
         ResultSet resultSet = null;
         String sql = " SELECT *";
         sql = sql + " FROM powercards.juego ";
@@ -147,12 +147,12 @@ int r;
         Vector<Juegos> listado = new Vector<Juegos>();
         try {
             Connection conne = BaseDatos.getConecction();
-            pstatement = conne.prepareStatement(sql);
-            resultSet = pstatement.executeQuery();
+            ps = conne.prepareStatement(sql);
+            resultSet = ps.executeQuery();
             while (resultSet.next()) {
 
                 Juegos juego = new Juegos();
-                juego.setNombre(resultSet.getString(1));  
+                juego.setNombre(resultSet.getString(1));
                 juego.setDescripcion(resultSet.getString(2));
                 juego.setTotal_cartas(resultSet.getInt(3));
                 juego.setFoto(resultSet.getBytes(4));

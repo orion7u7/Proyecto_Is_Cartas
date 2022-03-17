@@ -7,7 +7,7 @@
 <%@page import="com.is.modelo.Juegos"%>
 <%@page import="java.util.LinkedList"%>
 <%@page import="com.is.database.MisConsultas"%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page contentType="text/html; charset=UTF-8" %>
 <!DOCTYPE html>
 
 <html>
@@ -52,15 +52,15 @@
                 </div>
                 <div class="col-md-3">
                     <label for="validationCustom02" class="form-label">Ataque</label>
-                    <input type="text" class="form-control" id="ataque" name="ataque" required>
+                    <input type="number" class="form-control" id="ataque" name="ataque" required>
                 </div>
                 <div class="col-md-3">
                     <label for="validationCustom02" class="form-label">Defensa</label>
-                    <input type="text" class="form-control" id="defensa" name="defensa" required>
+                    <input type="number" class="form-control" id="defensa" name="defensa" required>
                 </div>
                 <div class="col-md-6">
                     <label for="validationCustom03" class="form-label">Descripción</label>
-                    <input type="text" class="form-control" id="descripcion" name="descripcion" >
+                    <input type="text" class="form-control" id="descripcion" name="descripcion" required>
                 </div>
                 <div class="col-md-3">
                     <label for="validationCustom04" class="form-label">Juego</label>
@@ -86,20 +86,20 @@
                 </div>
                 <div class="col-md-6">
                     <label for="validationCustom03" class="form-label">Logo</label>
-                    <input type="file" class="form-control" aria-label="file example" required>
+                    <input type="file" class="form-control" aria-label="file example" >
                     <div class="invalid-feedback">Example invalid form file feedback</div>
                 </div>
                 <div class="col-md-2">
                     <label for="validationCustom03" class="form-label" >Atributo</label>
-                    <input type="text" class="form-control" id="atributo1" name="atributo1">
+                    <input type="text" class="form-control" id="atributo1" name="atributo1" required>
                     <label for="validationCustom03" class="form-label" >Valor</label>
-                    <input type="text" class="form-control" id="valoratri1" name="valor1">
+                    <input type="number" class="form-control" id="valoratri1" name="valor1" required>
                 </div>
                 <div class="col-md-2">
                     <label for="validationCustom03" class="form-label">Atributo</label>
-                    <input type="text" class="form-control" id="atributo2" >
+                    <input type="text" class="form-control" id="atributo2">
                     <label for="validationCustom03" class="form-label">Valor</label>
-                    <input type="text" class="form-control" id="valoratri2">
+                    <input type="text" class="form-control" id="valoratri2" >
                 </div>
                 <div class="col-md-2">
                     <label for="validationCustom03" class="form-label">Atributo</label>
@@ -135,7 +135,28 @@
         </div>
 
         <script src="boostrap/js/bootstrap.min.js"></script>
+        <script>
+            // Example starter JavaScript for disabling form submissions if there are invalid fields
+            (function () {
+                'use strict'
 
+                // Fetch all the forms we want to apply custom Bootstrap validation styles to
+                var forms = document.querySelectorAll('.needs-validation')
+
+                // Loop over them and prevent submission
+                Array.prototype.slice.call(forms)
+                        .forEach(function (form) {
+                            form.addEventListener('submit', function (event) {
+                                if (!form.checkValidity()) {
+                                    event.preventDefault()
+                                    event.stopPropagation()
+                                }
+
+                                form.classList.add('was-validated')
+                            }, false)
+                        })
+            })()
+        </script>
     </body>
 </html>
 
