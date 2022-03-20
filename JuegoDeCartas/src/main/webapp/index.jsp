@@ -22,7 +22,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="fas fa-user"></i></span>
                                 </div>
-                                <input type="text" class="form-control" name="user" placeholder="username" >
+                                <input type="text" class="form-control" name="user" placeholder="username" required>
                             </div>
                             <br>
                             <br>
@@ -30,7 +30,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="fas fa-key"></i></span>
                                 </div>
-                                <input type="password" class="form-control" name="pass" placeholder="password" >
+                                <input type="password" class="form-control" name="pass" placeholder="password" required>
                             </div>
                             <br>
                             <br>
@@ -44,7 +44,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="fas fa-user"></i></span>
                                 </div>
-                                <input type="text" class="form-control" placeholder="username" name="playeruser">
+                                <input type="text" class="form-control" placeholder="username" name="playeruser" required>
                             </div>
                             <br>
                             <br>

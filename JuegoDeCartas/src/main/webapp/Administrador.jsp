@@ -37,7 +37,7 @@
                     <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1" style="">
                         <li><a class="dropdown-item" href="#">User</a></li>
                         <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="index.jsp">Cerrar Sesion</a></li>
+                        <li><a class="dropdown-item" href="session?menu=cerrar">Cerrar Sesion</a></li>
                     </ul>
                 </div>
             </div>

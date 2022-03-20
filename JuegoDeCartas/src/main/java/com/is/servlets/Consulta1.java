@@ -8,6 +8,7 @@ package com.is.servlets;
 import com.is.database.BaseDatos;
 import com.is.database.MisConsultas;
 import com.is.modelo.Persona;
+import com.is.modelo.Usuario;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -16,6 +17,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -105,11 +107,16 @@ public class Consulta1 extends HttpServlet {
         Collection<Persona> persona = consulta.consulta();
         if (menu.equals("admin")) {
             for (Persona persona2 : persona) {
-                System.out.println(persona2.getNickname()+"   "+persona2.getContraseña());
+                System.out.println(persona2.getNickname() + "   " + persona2.getContraseña());
                 if ((persona2.getNickname()).equals(user) && (persona2.getContraseña()).equals(pass)) {
-                    request.getRequestDispatcher("Administrador.jsp").include(request, response);
+                    Usuario usu = new Usuario(persona2.getNickname(), persona2.getContraseña());
+                    HttpSession session = request.getSession();
+                    session.setAttribute("usuario", usu);
+                    request.getRequestDispatcher("session?menu=iniciar").include(request, response);
+
                 } else {
                     request.getRequestDispatcher("index.jsp").include(request, response);
+
                 }
             }
         } else {
