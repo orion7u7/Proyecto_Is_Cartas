@@ -173,9 +173,9 @@ public class MisConsultas {
         String sql = "";
         sql = "insert into powercards.persona VALUES (";
 
-        sql = sql + "'" + per.getNickname()+ "'";
-        sql = sql + "'" + per.getContraseña()+ "'";
-        sql = sql +  "jugador)";
+        sql = sql + "'" + per.getNickname()+ "',";
+        sql = sql + "'" + per.getContraseña()+ "',";
+        sql = sql +  "'jugador')";
 
         System.out.println("sql=" + sql);
         pstatement = conne.prepareStatement(sql);

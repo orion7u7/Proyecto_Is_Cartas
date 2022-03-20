@@ -121,7 +121,7 @@ public class Consulta1 extends HttpServlet {
         } else {
             Persona per = new Persona();
             per.setNickname(jugador);
-            per.setNickname("");
+            per.setContraseña("");
             for (Persona persona3 : persona) {
                 if ((persona3.getNickname()).equals(jugador)) {
                     request.getRequestDispatcher("index.jsp").forward(request, response);
@@ -130,11 +130,9 @@ public class Consulta1 extends HttpServlet {
                         consulta.insertarUser(per);
                     } catch (Exception e) {
                     }
-                    request.getRequestDispatcher("index.jsp").forward(request, response);
-
+                    request.getRequestDispatcher("usuario.jsp").forward(request, response);
                 }
             }
-            request.getRequestDispatcher("usuario.jsp").forward(request, response);
         }
     }
 
