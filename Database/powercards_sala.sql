@@ -25,6 +25,7 @@ DROP TABLE IF EXISTS `sala`;
 CREATE TABLE `sala` (
   `id` int NOT NULL,
   `Juego_nombre` varchar(45) NOT NULL,
+  `cant_jug` int DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_Sala_Juego1_idx` (`Juego_nombre`),
   CONSTRAINT `fk_Sala_Juego1` FOREIGN KEY (`Juego_nombre`) REFERENCES `juego` (`nombre`)
@@ -49,4 +50,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-03-16 19:13:24
+-- Dump completed on 2022-03-20 14:02:40

@@ -36,7 +36,7 @@ CREATE TABLE `carta` (
   UNIQUE KEY `idCarta_UNIQUE` (`idCarta`),
   KEY `fk_Carta_Juego1_idx` (`Juego_nombre`),
   CONSTRAINT `fk_Carta_Juego1` FOREIGN KEY (`Juego_nombre`) REFERENCES `juego` (`nombre`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -45,6 +45,7 @@ CREATE TABLE `carta` (
 
 LOCK TABLES `carta` WRITE;
 /*!40000 ALTER TABLE `carta` DISABLE KEYS */;
+INSERT INTO `carta` VALUES (1,'asd','asd',123,131,'asd','Pokemon','asd',1);
 /*!40000 ALTER TABLE `carta` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -57,4 +58,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-03-16 19:13:24
+-- Dump completed on 2022-03-20 14:02:41
