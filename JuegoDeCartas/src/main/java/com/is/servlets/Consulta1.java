@@ -65,8 +65,7 @@ public class Consulta1 extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        //processRequest(request, response);
-        response(response, request.getParameter("nombres"));
+        processRequest(request, response);
     }
 
     private void response(HttpServletResponse resp, String texto) throws IOException {
@@ -107,22 +106,20 @@ public class Consulta1 extends HttpServlet {
         Collection<Persona> persona = consulta.consulta();
         if (menu.equals("admin")) {
             for (Persona persona2 : persona) {
-                System.out.println(persona2.getNickname() + "   " + persona2.getContraseña());
                 if ((persona2.getNickname()).equals(user) && (persona2.getContraseña()).equals(pass)) {
                     Usuario usu = new Usuario(persona2.getNickname(), persona2.getContraseña());
                     HttpSession session = request.getSession();
                     session.setAttribute("usuario", usu);
-                    request.getRequestDispatcher("session?menu=iniciar").include(request, response);
+                    request.getRequestDispatcher("session").forward(request, response);
 
                 } else {
-                    request.getRequestDispatcher("index.jsp").include(request, response);
+                    request.getRequestDispatcher("index.jsp").forward(request, response);
 
                 }
             }
         } else {
 
-            request.getRequestDispatcher("usuario.jsp").include(request, response);
-
+            request.getRequestDispatcher("usuario.jsp").forward(request, response);
         }
     }
 

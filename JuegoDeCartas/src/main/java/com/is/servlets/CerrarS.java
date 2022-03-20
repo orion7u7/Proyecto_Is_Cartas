@@ -4,8 +4,6 @@
  */
 package com.is.servlets;
 
-import com.is.modelo.Persona;
-import com.is.modelo.Usuario;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -18,7 +16,7 @@ import javax.servlet.http.HttpSession;
  *
  * @author HOMEPCTK
  */
-public class session extends HttpServlet {
+public class CerrarS extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -31,18 +29,9 @@ public class session extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String menu = request.getParameter("menu");
         HttpSession session = request.getSession();
-
-        Usuario usu = (Usuario) session.getAttribute("usuario");
-        if (usu == null) {
-            request.getRequestDispatcher("index.jsp").forward(request, response);
-        } else {
-            request.getRequestDispatcher("Administrador.jsp").forward(request, response);
-        }
-
-        
-
+        session.removeAttribute("usuario");
+        request.getRequestDispatcher("index.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

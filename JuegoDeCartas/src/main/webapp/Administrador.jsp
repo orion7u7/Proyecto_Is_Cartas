@@ -35,9 +35,9 @@
                         <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
                     </a>
                     <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1" style="">
-                        <li><a class="dropdown-item" href="#">User</a></li>
+                        <li><a class="dropdown-item"><%  %></a></li>
                         <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="session?menu=cerrar">Cerrar Sesion</a></li>
+                        <li><a class="dropdown-item" href="CerrarS">Cerrar Sesion</a></li>
                     </ul>
                 </div>
             </div>
