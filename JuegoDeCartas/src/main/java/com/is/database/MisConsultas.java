@@ -164,4 +164,37 @@ public class MisConsultas {
         return listado;
 
     }
+
+    public boolean insertarUser(Persona per) throws SQLException {
+        int res = 0;
+        Connection conne = BaseDatos.getConecction();
+        PreparedStatement pstatement = null;
+        ResultSet resulSet = null;
+        String sql = "";
+        sql = "insert into powercards.persona VALUES (";
+
+        sql = sql + "'" + per.getNickname()+ "'";
+        sql = sql + "'" + per.getContraseña()+ "'";
+        sql = sql +  "jugador)";
+
+        System.out.println("sql=" + sql);
+        pstatement = conne.prepareStatement(sql);
+        res = pstatement.executeUpdate();
+        System.out.println(res);
+        try {
+            if (res == 1) {
+                conne.commit();
+                return true;
+            } else {
+                System.out.println("Error al insertar");
+                conne.rollback();
+                return false;
+            }
+        } catch (SQLException ex) {
+            conne.rollback();
+            Logger.getLogger(Persona.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
+    }
+
 }

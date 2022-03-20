@@ -100,6 +100,7 @@ public class Consulta1 extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String user = request.getParameter("user");
+        String jugador = request.getParameter("jugador");
         String pass = request.getParameter("pass");
         String menu = request.getParameter("menu");
         MisConsultas consulta = new MisConsultas();
@@ -118,7 +119,21 @@ public class Consulta1 extends HttpServlet {
                 }
             }
         } else {
+            Persona per = new Persona();
+            per.setNickname(jugador);
+            per.setNickname("");
+            for (Persona persona3 : persona) {
+                if ((persona3.getNickname()).equals(jugador)) {
+                    request.getRequestDispatcher("index.jsp").forward(request, response);
+                } else {
+                    try {
+                        consulta.insertarUser(per);
+                    } catch (Exception e) {
+                    }
+                    request.getRequestDispatcher("index.jsp").forward(request, response);
 
+                }
+            }
             request.getRequestDispatcher("usuario.jsp").forward(request, response);
         }
     }
