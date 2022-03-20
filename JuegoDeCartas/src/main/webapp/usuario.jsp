@@ -1,13 +1,7 @@
-<!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
+
 <html>
     <head>
         <title>Usuario</title>
-        <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="boostrap/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
         <link rel="stylesheet" href="estilos/estilos.css">
@@ -20,14 +14,14 @@ and open the template in the editor.
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container-fluid">
             	<
-                <a class="navbar-brand" href="usuario.html" style="font-weight: bolder; color: #63A4EC">PowerCards</a>
+                <a class="navbar-brand" href="usuario.jsp" style="font-weight: bolder; color: #63A4EC">PowerCards</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="salas.html">Salas</a>
+                            <a class="nav-link active" aria-current="page" href="salas.jsp">Salas</a>
                         </li>
 
                     </ul>
@@ -38,7 +32,7 @@ and open the template in the editor.
                         <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1" style="">
                             <li><a class="dropdown-item" href="#">User</a></li>
                             <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="#">Cerrar Sesion</a></li>
+                            <li><a class="dropdown-item" href="index.jsp">Cerrar Sesion</a></li>
                         </ul>
                     </div>
                 </div>
@@ -75,7 +69,7 @@ and open the template in the editor.
 
         <section>
             <div class="w-50 mx-auto text-center" style="margin-top: 20px;">
-                <h1 class="p-3 fs-2 border-top border-4"><span class="text-primary">Bienvenido!</span>, aqu√≠ te garantizamos la experiencia de disfrutar</h1>
+                <h1 class="p-3 fs-2 border-top border-4"><span class="text-primary">Bienvenido!</span>, aquÌ te garantizamos la experiencia de disfrutar</h1>
                 <p class="p-3 fs-4"><span class="text-primary">Comienza ya</span>, que tus amigos te esperan para iniciar una nueva partida. Yugi Oh, Dragon Ball, Pokemon.</p>
             </div>
         </section>
@@ -110,7 +104,7 @@ and open the template in the editor.
                     <img src="imagenes/Intro/Intro_4.png" alt="Desarrollo" width="180" height="160">
                     <div>
                         <h3 class="fs-5 mt-4 px-4 pb-1">Eficiencia</h3>
-                        <p class="px-4">Los juegos lanzados en nuestra Web est√°n creados para soportar multijugador.</p>
+                        <p class="px-4">Los juegos lanzados en nuestra Web est·n creados para soportar multijugador.</p>
                     </div>
                 </div>
             </div>
@@ -119,8 +113,8 @@ and open the template in the editor.
 
         <section>
             <div class="w-50 mx-auto text-center" style="padding: 20px;">
-                <h1 class="p-3 fs-2 border-top border-4 border-bottom"><span class="text-primary">Juega!</span>, disfruta al m√°ximo</h1>
-                <p class="p-3 fs-4"><span class="text-primary">Comienza ya</span>, Solo escoje una tem√°tica de juego.</p>
+                <h1 class="p-3 fs-2 border-top border-4 border-bottom"><span class="text-primary">Juega!</span>, disfruta al m·ximo</h1>
+                <p class="p-3 fs-4"><span class="text-primary">Comienza ya</span>, Solo escoje una tem·tica de juego.</p>
             </div>
 
             <div class="mt-5 text-center" style="padding: 0px 0 30px 0; margin-top: -30px !important;">

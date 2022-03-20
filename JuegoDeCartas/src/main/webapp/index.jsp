@@ -1,13 +1,10 @@
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
 <html>
     <head>
         <title>Login Page</title>
         <link href="boostrap/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
         <link rel="stylesheet" href="estilos/estilos.css">
         <script src="boostrap/js/bootstrap.min.js"></script>
-        <!--Fontawesome CDN-->
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 
         <link rel="stylesheet" href="estilos/style.css"/>
@@ -18,7 +15,6 @@
                 <div class="card">
                     <div class="card-header">
                         <h3>Iniciar</h3>
-
                     </div>
                     <div class="card-body">
                         <form class="admin oculto" method="post" action="Consulta1?menu=admin">

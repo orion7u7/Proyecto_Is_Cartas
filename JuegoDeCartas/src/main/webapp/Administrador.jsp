@@ -7,13 +7,11 @@
 <%@page import="com.is.modelo.Juegos"%>
 <%@page import="java.util.LinkedList"%>
 <%@page import="com.is.database.MisConsultas"%>
-<%@ page contentType="text/html; charset=UTF-8" %>
 <!DOCTYPE html>
 
 <html>
     <head>
         <title>Administrador</title>
-        <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="boostrap/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
         <link rel="stylesheet" href="estilos/estilos.css">
@@ -39,7 +37,7 @@
                     <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1" style="">
                         <li><a class="dropdown-item" href="#">User</a></li>
                         <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="index.html">Cerrar Sesion</a></li>
+                        <li><a class="dropdown-item" href="index.jsp">Cerrar Sesion</a></li>
                     </ul>
                 </div>
             </div>
@@ -59,7 +57,7 @@
                     <input type="number" class="form-control" id="defensa" name="defensa" required>
                 </div>
                 <div class="col-md-6">
-                    <label for="validationCustom03" class="form-label">DescripciÃ³n</label>
+                    <label for="validationCustom03" class="form-label">Descripción</label>
                     <input type="text" class="form-control" id="descripcion" name="descripcion" required>
                 </div>
                 <div class="col-md-3">

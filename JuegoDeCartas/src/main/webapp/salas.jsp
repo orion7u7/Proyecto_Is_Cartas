@@ -1,11 +1,6 @@
-<!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
+
 <html>
-    <head>
+     <head>
         <title>Salas</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="boostrap/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
@@ -15,14 +10,14 @@ and open the template in the editor.
     <body>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container-fluid">
-                <a class="navbar-brand" href="usuario.html" style="font-weight: bolder; color: #63A4EC">PowerCards</a>
+                <a class="navbar-brand" href="usuario.jsp" style="font-weight: bolder; color: #63A4EC">PowerCards</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="usuario.html">Inicio</a>
+                            <a class="nav-link active" aria-current="page" href="usuario.jsp">Inicio</a>
                         </li>
                         
                     </ul>
@@ -59,12 +54,12 @@ and open the template in the editor.
                                     <div class="card-body">
                                         <h5 class="card-title">Pokemon</h5>
                                         <p class="card-text">
-                                            Son videojuegos de rol desarrollados por Game Freak y publicados para videoconsolas port√°tiles de Nintendo.
+                                            Son videojuegos de rol desarrollados por Game Freak y publicados para videoconsolas port·tiles de Nintendo.
                                         </p>
                                         Jugadores activos: <label for="inputEmail4">4/4</label>
                                         <br>
                                         <br>
-                                        <a href="juego.html" class="btn btn-primary">Ingresar</a>
+                                        <a href="juego.jsp" class="btn btn-primary">Ingresar</a>
                                     </div>
                                 </div>
                             </div>
@@ -84,7 +79,7 @@ and open the template in the editor.
                                         Jugadores activos: <label for="inputEmail4">1/4</label>
                                         <br>
                                         <br>
-                                        <a href="juego.html" class="btn btn-primary">Ingresar</a>
+                                        <a href="juego.jsp" class="btn btn-primary">Ingresar</a>
                                     </div>
                                 </div>
                             </div>
@@ -99,12 +94,12 @@ and open the template in the editor.
                                     <div class="card-body">
                                         <h5 class="card-title">Yu-Gi-Oh!</h5>
                                         <p class="card-text">
-                                            Es un juego de cartas coleccionables de origen japon√©s desarrollado y publicado por Konami.
+                                            Es un juego de cartas coleccionables de origen japonÈs desarrollado y publicado por Konami.
                                         </p>
                                         Jugadores activos: <label for="inputEmail4">2/4</label>
                                         <br>
                                         <br>
-                                        <a href="juego.html" class="btn btn-primary">Ingresar</a>
+                                        <a href="juego.jsp" class="btn btn-primary">Ingresar</a>
                                     </div>
                                 </div>
                             </div>

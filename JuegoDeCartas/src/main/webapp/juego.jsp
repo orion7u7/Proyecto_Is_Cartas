@@ -1,9 +1,4 @@
-<!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
+
 <html>
     <head>
         <title>Juego Online</title>
@@ -16,7 +11,7 @@ and open the template in the editor.
     <body>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container-fluid">
-                <a class="navbar-brand" href="usuario.html" style="font-weight: bolder; color: #63A4EC">PowerCards</a>
+                <a class="navbar-brand" href="usuario.jsp" style="font-weight: bolder; color: #63A4EC">PowerCards</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -24,12 +19,12 @@ and open the template in the editor.
                     <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
 
                         <li class="nav-item">
-                            <a class="nav-link" href="juego.html">Juego</a>
+                            <a class="nav-link" href="juego.jsp">Juego</a>
                         </li>
 
                     </ul>
                     <a href="#" class="btn btn-warning">Pausar</a>
-                    <a href="salas.html" class="btn btn-danger">Abandonar partida</a> 
+                    <a href="salas.jsp" class="btn btn-danger">Abandonar partida</a> 
                     <div class="dropdown text-end">
                         <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
                             <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">

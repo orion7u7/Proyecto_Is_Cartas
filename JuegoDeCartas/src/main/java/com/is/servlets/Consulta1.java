@@ -114,7 +114,7 @@ public class Consulta1 extends HttpServlet {
             }
         } else {
 
-            request.getRequestDispatcher("usuario.html").include(request, response);
+            request.getRequestDispatcher("usuario.jsp").include(request, response);
 
         }
     }
