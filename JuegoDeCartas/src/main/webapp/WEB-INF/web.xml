@@ -29,10 +29,6 @@
         <url-pattern>/ConsultaAdmin</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>ControlerIMG</servlet-name>
-        <url-pattern>/ControlerIMG</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
         <servlet-name>Consulta2</servlet-name>
         <url-pattern>/Consulta2</url-pattern>
     </servlet-mapping>
