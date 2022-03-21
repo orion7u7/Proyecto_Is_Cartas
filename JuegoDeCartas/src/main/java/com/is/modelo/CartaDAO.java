@@ -13,8 +13,11 @@ import java.io.OutputStream;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.http.HttpServletResponse;
 
 /**
@@ -22,20 +25,21 @@ import javax.servlet.http.HttpServletResponse;
  * @author Laptop
  */
 public class CartaDAO {
-    BaseDatos cn= new BaseDatos();
+
+    BaseDatos cn = new BaseDatos();
     Connection con;
     PreparedStatement ps;
     ResultSet rs;
-    
-    public List listar(){
-        List<Cartaj>lista= new ArrayList<>();
-        String sql="select *from carta";
+
+    public List listar() {
+        List<Cartaj> lista = new ArrayList<>();
+        String sql = "select *from carta";
         try {
-            con=cn.getConecction();
-            ps=con.prepareStatement(sql);
-            rs=ps.executeQuery();
-            while(rs.next()){
-                Cartaj c= new Cartaj();
+            con = cn.getConecction();
+            ps = con.prepareStatement(sql);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                Cartaj c = new Cartaj();
                 c.setIdCarta(rs.getInt(1));
                 c.setNombre(rs.getString(2));
                 c.setDescripcion(rs.getString(3));
@@ -48,41 +52,41 @@ public class CartaDAO {
                 c.setFoto(rs.getBinaryStream(10));
                 lista.add(c);
             }
-        } catch (Exception e){
+        } catch (Exception e) {
         }
         return lista;
     }
-    
-    public void listarImg(int idCarta, HttpServletResponse response){
-        String sql= "select *from carta where id="+idCarta;
-        InputStream inputStream= null;
-        OutputStream outputStream= null;
-        BufferedInputStream bufferedInputStream= null;
-        BufferedOutputStream bufferedOutputStream= null;
+
+    public void listarImg(int idCarta, HttpServletResponse response) {
+        String sql = "select *from carta where id=" + idCarta;
+        InputStream inputStream = null;
+        OutputStream outputStream = null;
+        BufferedInputStream bufferedInputStream = null;
+        BufferedOutputStream bufferedOutputStream = null;
         response.setContentType("image/*");
-        try{
-            outputStream=response.getOutputStream();
-            con=cn.getConecction();
-            ps=con.prepareStatement(sql);
-            rs=ps.executeQuery();
-            if(rs.next()){
-                inputStream=rs.getBinaryStream("foto");
+        try {
+            outputStream = response.getOutputStream();
+            con = cn.getConecction();
+            ps = con.prepareStatement(sql);
+            rs = ps.executeQuery();
+            if (rs.next()) {
+                inputStream = rs.getBinaryStream("foto");
             }
-            bufferedInputStream= new BufferedInputStream(inputStream);
-            bufferedOutputStream= new BufferedOutputStream(outputStream);
-            int i=0;
-            while((i=bufferedInputStream.read())!=-1){
+            bufferedInputStream = new BufferedInputStream(inputStream);
+            bufferedOutputStream = new BufferedOutputStream(outputStream);
+            int i = 0;
+            while ((i = bufferedInputStream.read()) != -1) {
                 bufferedOutputStream.write(i);
             }
-        } catch (Exception e){
+        } catch (Exception e) {
         }
     }
-    
-    public void agregar(Cartaj c){
-        String sql="insert into powercards.carta(nombre,descripcion,ataque,defensa,tipo,Juego_nombre,atributo,valor,foto) values(?,?,?,?,?,?,?,?,?)";
+
+    public void agregar(Cartaj c) {
+        String sql = "insert into powercards.carta(nombre,descripcion,ataque,defensa,tipo,Juego_nombre,atributo,valor,foto) values(?,?,?,?,?,?,?,?,?)";
         try {
-            con=cn.getConecction();
-            ps=con.prepareStatement(sql);
+            con = cn.getConecction();
+            ps = con.prepareStatement(sql);
             ps.setString(1, c.getNombre());
             ps.setString(2, c.getDescripcion());
             ps.setInt(3, c.getAtaque());
@@ -96,5 +100,43 @@ public class CartaDAO {
         } catch (Exception e) {
         }
     }
-    
+
+    public boolean agregar2(Cartaj c) throws SQLException {
+        int res = 0;
+        Connection conne = BaseDatos.getConecction();
+        PreparedStatement pstatement = null;
+        ResultSet resulSet = null;
+        String sql = "";
+        sql = "insert into powercards.persona VALUES (";
+
+        sql = sql + "'" + c.getNombre() + "',";
+        sql = sql + "'" + c.getDescripcion() + "',";
+        sql = sql + "'" + c.getAtaque() + "',";
+        sql = sql + "'" + c.getDefensa() + "',";
+        sql = sql + "'" + c.getTipo() + "',";
+        sql = sql + "'" + c.getJuego_nombre() + "',";
+        sql = sql + "'" + c.getAtributo() + "',";
+        sql = sql + "'" + c.getValor() + "',";
+        sql = sql + "'" + c.getFoto();
+        sql = sql + ")";
+
+        System.out.println("sql=" + sql);
+        pstatement = conne.prepareStatement(sql);
+        res = pstatement.executeUpdate();
+        System.out.println(res);
+        try {
+            if (res == 1) {
+                conne.commit();
+                return true;
+            } else {
+                System.out.println("Error al insertar");
+                conne.rollback();
+                return false;
+            }
+        } catch (SQLException ex) {
+            conne.rollback();
+            Logger.getLogger(Persona.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
+    }
 }

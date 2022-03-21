@@ -16,10 +16,6 @@ import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-/**
- *
- * @author pc-eis
- */
 public class MisConsultas {
 
     public Collection<Persona> consulta(String nombres) {
@@ -79,7 +75,6 @@ public class MisConsultas {
 
     }
 
-    //aqui
     public Collection<Cartaj> consultac() {
         PreparedStatement pstatement = null;
         ResultSet resultSet = null;
@@ -93,67 +88,9 @@ public class MisConsultas {
         }
         return null;
     }
-    //hasta aqui
-
-    public boolean insertarCarta(Cartaj carta) throws SQLException {
-        int res = 0;
-        Connection conne = BaseDatos.getConecction();
-        PreparedStatement pstatement = null;
-        ResultSet resulSet = null;
-        String sql = "";
-        sql = "insert into powercards.carta (nombre,descripcion,ataque,defensa,tipo,Juego_nombre,atributo,valor) VALUES (";
-
-        sql = sql + "'" + carta.getNombre() + "'";
-        sql = sql + "'" + carta.getDescripcion() + "'";
-        sql = sql + carta.getAtaque();
-        sql = sql + carta.getDefensa();
-        sql = sql + "'" + carta.getTipo() + "'";
-        sql = sql + "'" + carta.getJuego_nombre()+ "'";
-        sql = sql + "'" + carta.getAtributo() + "'";
-        sql = sql + carta.getValor() + ")";
-
-        System.out.println("sql=" + sql);
-        pstatement = conne.prepareStatement(sql);
-        res = pstatement.executeUpdate();
-        System.out.println(res);
-        try {
-            if (res == 1) {
-                conne.commit();
-                return true;
-            } else {
-                System.out.println("Error al insertar");
-                conne.rollback();
-                return false;
-            }
-        } catch (SQLException ex) {
-            conne.rollback();
-            Logger.getLogger(Persona.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return false;
-    }
-    int r;
+   
     PreparedStatement ps = null;
 
-    public int Agregar(Carta carta) {
-        String sentencia = "INSERT INTO powercards.carta (nombre,descripcion,ataque,defensa,tipo,Juego_nombre,atributo,valor) VALUES (?,?,?,?,?,?,?,?)";
-        try {
-            Connection con = BaseDatos.getConecction();
-            ps = con.prepareStatement(sentencia);
-            ps.setString(1, carta.getNombre());
-            ps.setString(2, carta.getDescripcion());
-            ps.setInt(3, carta.getAtaque());
-            ps.setInt(4, carta.getDefensa());
-            ps.setString(5, carta.getTipo());
-            ps.setString(6, carta.getNombre_juego());
-            ps.setString(7, carta.getAtributo());
-            ps.setInt(8, carta.getValor());
-            ps.executeUpdate();
-            System.out.println("Hecho");
-        } catch (SQLException ex) {
-            Logger.getLogger(MisConsultas.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return r;
-    }
 
     public Collection<Juegos> consulta_juego() {
 

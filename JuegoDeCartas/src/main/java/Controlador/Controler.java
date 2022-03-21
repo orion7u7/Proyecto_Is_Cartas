@@ -105,7 +105,10 @@ public class Controler extends HttpServlet {
                 c.setAtributo(atributo);
                 c.setValor(valor);
                 c.setFoto(inputStream);
-                dao.agregar(c);
+                try {
+                    dao.agregar2(c);
+                } catch (Exception e) {
+                }
                 request.getRequestDispatcher("Administrador.jsp").forward(request, response);
                 
                 break;
