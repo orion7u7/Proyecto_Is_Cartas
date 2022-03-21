@@ -1,6 +1,6 @@
 var username;
 var area;
-var websocket = new WebSocket("ws://localhost:8090/JuegoDeCartas/myWebSocketEndpoint");
+var websocket = new WebSocket("ws://localhost:8080/JuegoDeCartas/myWebSocketEndpoint");
 
 websocket.onmessage = function (evt) {
     area = document.getElementById("area");
@@ -8,11 +8,12 @@ websocket.onmessage = function (evt) {
 };
 
 function join() {
-    console.log("entro");
-    username = document.getElementById("username").value;
+    
+    username = document.getElementById("usuario").value;
+    console.log(username+" entra");
     websocket.send("*** " + username + " se ha unido!!");
 }
 
-function send_message() {
-    websocket.send(username + ": ");
+function send_message(cart) {
+    websocket.send(username + ": " +cart);
 }
