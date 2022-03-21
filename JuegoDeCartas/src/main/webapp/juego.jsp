@@ -12,7 +12,10 @@
 
     </head>
     <body>
-
+        <%!
+            private int accesos = 0;
+            private String usuario = "user";
+        %>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container-fluid">
                 <a class="navbar-brand" href="usuario.jsp" style="font-weight: bolder; color: #63A4EC">PowerCards</a>
@@ -64,18 +67,31 @@
                     }
                 }
             }
-            for (int i = 0; i < a.length; i++) {
-                System.out.print(a[i] + " ");
+            if(accesos<=4){
+                ++accesos;
+            }else{
+                
             }
         %>
         <div class="fondo">
             <div class="arriba">
                 <div class="arribarow">
-                    <%
-                        for (int i = 1; i < 4; i++) {
+                    <% 
+                        System.out.println(accesos);
+                        if (accesos == 1) {
+
+                            for (int i = 1; i < 4; i++) {
                     %>
 
                     <img id="<%=a[i]%>" value="<%=a[i]%>" src="imagenes/jojo/<%=a[i]%>.jpg" onclick="send_message();"/>
+                    <%
+                        }
+                    } else {
+                    %>
+                    <img id="puesta1" src="imagenes/Reverso.jpg"/>
+                    <img id="puesta2" src="imagenes/Reverso.jpg"/>
+                    <img id="puesta3" src="imagenes/Reverso.jpg"/>
+                    <img id="puesta4" src="imagenes/Reverso.jpg"/>
                     <%
                         }
                     %>
@@ -83,11 +99,19 @@
             </div>
             <div id="carata1" class="izquierda">
                 <div class="izquierdarow">
-                    <%
-                        for (int i = 4; i < 7; i++) {
+                    <%  if (accesos == 2) {
+                            for (int i = 4; i < 7; i++) {
                     %>
 
                     <img id="<%=a[i]%>" value="<%=a[i]%>" src="imagenes/jojo/<%=a[i]%>.jpg" onclick="send_message();"/>
+                    <%
+                        }
+                    } else {
+                    %>
+                    <img id="puesta1" src="imagenes/Reverso.jpg"/>
+                    <img id="puesta2" src="imagenes/Reverso.jpg"/>
+                    <img id="puesta3" src="imagenes/Reverso.jpg"/>
+                    <img id="puesta4" src="imagenes/Reverso.jpg"/>
                     <%
                         }
                     %>
@@ -95,11 +119,20 @@
             </div>
             <div id="carata2" class="derecha">
                 <div class="derecharow">
-                    <%
-                        for (int i = 7; i < 10; i++) {
+                    <%  if (accesos == 3) {
+                            for (int i = 7; i < 10; i++) {
                     %>
 
                     <img id="<%=a[i]%>" value="<%=a[i]%>" src="imagenes/jojo/<%=a[i]%>.jpg" onclick="send_message();"/>
+                    <%
+                        }
+                        
+                    } else {
+                    %>
+                    <img id="puesta1" src="imagenes/Reverso.jpg"/>
+                    <img id="puesta2" src="imagenes/Reverso.jpg"/>
+                    <img id="puesta3" src="imagenes/Reverso.jpg"/>
+                    <img id="puesta4" src="imagenes/Reverso.jpg"/>
                     <%
                         }
                     %>
@@ -107,10 +140,10 @@
             </div>
             <div id="carata3" class="centro">
                 <div class="centrorow">
-                    <img id="puesta1" src="imagenes/carta1.jpeg"/>
-                    <img id="puesta2" src="imagenes/carta4.jpeg"/>
-                    <img id="puesta3" src="imagenes/carta5.jpeg"/>
-                    <img id="puesta4" src="imagenes/carta5.jpeg"/>
+                    <img id="puesta1" src="imagenes/Reverso.jpg"/>
+                    <img id="puesta2" src="imagenes/Reverso.jpg"/>
+                    <img id="puesta3" src="imagenes/Reverso.jpg"/>
+                    <img id="puesta4" src="imagenes/Reverso.jpg"/>
                 </div>
             </div>
             <div id="carata4" class="textoa">
@@ -120,16 +153,24 @@
             </div>
             <div id="carata5" class="abajo">
                 <div class="abajorow">
-                    <%
-                        for (int i = 10; i < 13; i++) {
+                    <%  if (accesos == 4) {
+                            for (int i = 10; i < 13; i++) {
                     %>
 
                     <img id="<%=a[i]%>" value="<%=a[i]%>" src="imagenes/jojo/<%=a[i]%>.jpg" onclick="send_message();"/>
                     <%
                         }
+                    } else {
+                    %>
+                    <img id="puesta1" src="imagenes/Reverso.jpg"/>
+                    <img id="puesta2" src="imagenes/Reverso.jpg"/>
+                    <img id="puesta3" src="imagenes/Reverso.jpg"/>
+                    <img id="puesta4" src="imagenes/Reverso.jpg"/>
+                    <%
+                        }
                     %>
                 </div>
-                
+
             </div>
 
         </div>
