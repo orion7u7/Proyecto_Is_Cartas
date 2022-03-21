@@ -45,14 +45,10 @@
             </div>
         </nav>
         <% int aux;
-            int[] a = new int[4];
+            int[] a = new int[14];
             Set<Integer> set = new HashSet<>();
-
-//
-// Agregar números sin repetir
-//
             for (int i = 0; i < a.length;) {
-                int n = (int) (Math.random() * 7);
+                int n = (int) (Math.random() * 36);
                 if (set.contains(n)) {
                     continue;
                 }
@@ -76,10 +72,10 @@
             <div class="arriba">
                 <div class="arribarow">
                     <%
-                        for (int i = 1; i < a.length; i++) {
+                        for (int i = 1; i < 4; i++) {
                     %>
 
-                    <img id="<%=a[i]%>" value="<%=a[i]%>" src="imagenes/dragonball/carta<%=a[i]%>.jpg" onclick="send_message();"/>
+                    <img id="<%=a[i]%>" value="<%=a[i]%>" src="imagenes/jojo/<%=a[i]%>.jpg" onclick="send_message();"/>
                     <%
                         }
                     %>
@@ -87,16 +83,26 @@
             </div>
             <div id="carata1" class="izquierda">
                 <div class="izquierdarow">
-                    <img src="imagenes/carta1.jpeg"/>
-                    <img src="imagenes/carta4.jpeg"/>
-                    <img src="imagenes/carta5.jpeg"/>
+                    <%
+                        for (int i = 4; i < 7; i++) {
+                    %>
+
+                    <img id="<%=a[i]%>" value="<%=a[i]%>" src="imagenes/jojo/<%=a[i]%>.jpg" onclick="send_message();"/>
+                    <%
+                        }
+                    %>
                 </div>
             </div>
             <div id="carata2" class="derecha">
                 <div class="derecharow">
-                    <img src="imagenes/carta2.jpeg"/>
-                    <img src="imagenes/carta3.jpeg"/>
-                    <img src="imagenes/carta4.jpeg"/>
+                    <%
+                        for (int i = 7; i < 10; i++) {
+                    %>
+
+                    <img id="<%=a[i]%>" value="<%=a[i]%>" src="imagenes/jojo/<%=a[i]%>.jpg" onclick="send_message();"/>
+                    <%
+                        }
+                    %>
                 </div>
             </div>
             <div id="carata3" class="centro">
@@ -114,10 +120,16 @@
             </div>
             <div id="carata5" class="abajo">
                 <div class="abajorow">
-                    <img src="imagenes/carta1.jpeg"/>
-                    <img src="imagenes/carta1.jpeg"/>
-                    <img src="imagenes/carta1.jpeg"/>
+                    <%
+                        for (int i = 10; i < 13; i++) {
+                    %>
+
+                    <img id="<%=a[i]%>" value="<%=a[i]%>" src="imagenes/jojo/<%=a[i]%>.jpg" onclick="send_message();"/>
+                    <%
+                        }
+                    %>
                 </div>
+                
             </div>
 
         </div>
