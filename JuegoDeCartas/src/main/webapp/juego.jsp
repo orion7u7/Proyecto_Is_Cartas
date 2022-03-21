@@ -27,6 +27,8 @@
                         </li>
 
                     </ul>
+                    <input type="hidden" id="usuario" value="<%request.getAttribute("jugars");%>"/>
+                    <input class="btn btn-success" onclick="join();" value="Entrar" type="button">
                     <a href="#" class="btn btn-warning">Pausar</a>
                     <a href="salas.jsp" class="btn btn-danger">Abandonar partida</a> 
                     <div class="dropdown text-end">
@@ -77,27 +79,27 @@
                         for (int i = 1; i < a.length; i++) {
                     %>
 
-                    <img id="<%=a[i]%>" src="imagenes/dragonball/carta<%=a[i]%>.jpg" onclick="send_message();"/>
+                    <img id="<%=a[i]%>" value="<%=a[i]%>" src="imagenes/dragonball/carta<%=a[i]%>.jpg" onclick="send_message();"/>
                     <%
                         }
                     %>
                 </div>
             </div>
-            <div class="izquierda">
+            <div id="carata1" class="izquierda">
                 <div class="izquierdarow">
                     <img src="imagenes/carta1.jpeg"/>
                     <img src="imagenes/carta4.jpeg"/>
                     <img src="imagenes/carta5.jpeg"/>
                 </div>
             </div>
-            <div class="derecha">
+            <div id="carata2" class="derecha">
                 <div class="derecharow">
                     <img src="imagenes/carta2.jpeg"/>
                     <img src="imagenes/carta3.jpeg"/>
                     <img src="imagenes/carta4.jpeg"/>
                 </div>
             </div>
-            <div class="centro">
+            <div id="carata3" class="centro">
                 <div class="centrorow">
                     <img id="puesta1" src="imagenes/carta1.jpeg"/>
                     <img id="puesta2" src="imagenes/carta4.jpeg"/>
@@ -105,12 +107,12 @@
                     <img id="puesta4" src="imagenes/carta5.jpeg"/>
                 </div>
             </div>
-            <div class="textoa">
+            <div id="carata4" class="textoa">
                 <div class="textorow">
                     <input id="area" type="textarea" class="form-control" name="resumen" placeholder="juegos" readonly>
                 </div>
             </div>
-            <div class="abajo">
+            <div id="carata5" class="abajo">
                 <div class="abajorow">
                     <img src="imagenes/carta1.jpeg"/>
                     <img src="imagenes/carta1.jpeg"/>

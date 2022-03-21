@@ -6,7 +6,7 @@
         <link href="boostrap/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
         <link rel="stylesheet" href="estilos/estilos.css">
         <script src="boostrap/js/bootstrap.min.js"></script>
-        <script src="scripts/webSocket.js"></script>
+
     </head>
     <body>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -57,7 +57,7 @@
                                         Jugadores activos: <label for="inputEmail4">4/4</label>
                                         <br>
                                         <br>
-                                        <input type="hidden" id="usuario" value="<%=request.getSession().getAttribute("user")%>" />
+                                        
                                         <a href="juego.jsp" class="btn btn-primary"><button class="btn btn-primary" onclick="join();">Ingresar</button></a>
                                     </div>
                                 </div>
@@ -110,5 +110,6 @@
         <footer class="w-100 d-flex align-items justify-content-center flex-wrap">
             <p class="fs-5 px-3 pt-3">Design. &copy; Todos los derechos Reservados PowerCards Games- Unillanos</p>
         </footer>
+        <script src="scripts/webSocket.js"></script>
     </body>
 </html>

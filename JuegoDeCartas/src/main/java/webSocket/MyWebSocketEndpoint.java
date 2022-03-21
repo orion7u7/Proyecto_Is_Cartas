@@ -11,6 +11,7 @@ public class MyWebSocketEndpoint {
 
     @OnMessage
     public void message(String message, Session client) throws IOException, EncodeException {
+        System.out.println(message);
         for (Session openSession : client.getOpenSessions()) {
             openSession.getBasicRemote().sendText(message);
         }

@@ -112,6 +112,7 @@ public class Consulta1 extends HttpServlet {
                     request.setAttribute("succes", 1);
                 } else {
                     request.setAttribute("succes", 0);
+                    request.setAttribute("jugars", jugador);
                     request.getRequestDispatcher("index.jsp").include(request, response);
                 }
             }
