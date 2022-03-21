@@ -81,7 +81,7 @@
                                             Visualizar set de cartas del juego Dragon Ball.
                                         </p>
                                         <br>
-                                        <a href="#" class="btn btn-primary">Visualizar Cartas</a>
+                                        <a href="VistaCartasDragonBall.jsp" class="btn btn-primary">Visualizar Cartas</a>
                                     </div>
                                 </div>
                             </div>

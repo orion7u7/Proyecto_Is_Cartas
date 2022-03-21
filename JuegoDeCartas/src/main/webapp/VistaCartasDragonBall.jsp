@@ -1,15 +1,14 @@
 <%-- 
-    Document   : VistaCartasPokemon
-    Created on : 20 mar. 2022, 17:55:33
+    Document   : VistaCartasDragonBall
+    Created on : 21 mar. 2022, 15:09:14
     Author     : Laptop
 --%>
-
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Cartas Pokemon</title>
+        <title>Cartas Dragon Ball</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="boostrap/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
         <link rel="stylesheet" href="estilos/estilos.css">
@@ -42,7 +41,6 @@
                 </div>
             </div>
         </nav>
-        
         
         
         <div id="carouselMultiItemExample" class="carousel slide carousel-dark text-center" data-mdb-ride="carousel" >
@@ -91,8 +89,6 @@
                     </div>
                 </center>
 
-                
-                
             <!--</div> -->
             <!-- Inner -->
         </div>
