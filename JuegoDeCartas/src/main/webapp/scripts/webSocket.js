@@ -1,5 +1,5 @@
 var username;
-var websocket = new WebSocket("ws://" + document.location.hostname + ":" + document.location.port + document.location.pathname + "myWebSocketEndpoint");
+var websocket = new WebSocket("ws://http://localhost:8090/JuegoDeCartas/myWebSocketEndpoint");
 
 websocket.onmessage = function(evt) { 
 	area.innerHTML += evt.data + "\n";

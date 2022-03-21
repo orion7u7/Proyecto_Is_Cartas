@@ -9,7 +9,7 @@
         <link rel="stylesheet" href="estilos/estilos.css">
         <script src="boostrap/js/bootstrap.min.js"></script>
         <link rel="stylesheet" href="estilos/estilos_juego.css"/>
-        <script src="scripts/webSocket.js"></script>
+
     </head>
     <body>
 
@@ -119,6 +119,6 @@
             </div>
 
         </div>
-
+        <script src="scripts/webSocket.js"></script>
     </body>
 </html>
