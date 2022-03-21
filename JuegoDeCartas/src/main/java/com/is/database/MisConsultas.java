@@ -50,9 +50,8 @@ public class MisConsultas {
 
     public Collection<Persona> consulta() {
         ResultSet resultSet = null;
-        String sql = " SELECT nickname,contraseña,rol  ";
+        String sql = " SELECT *";
         sql = sql + " FROM powercards.persona ";
-        sql = sql + " order by 1 asc ";
 
         Vector<Persona> listado = new Vector<Persona>();
         try {
