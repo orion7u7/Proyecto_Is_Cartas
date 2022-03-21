@@ -1,30 +1,15 @@
-var webSocket;
-var messages = document.getElementById("messages");
+var username;
+var websocket = new WebSocket("ws://" + document.location.hostname + ":" + document.location.port + document.location.pathname + "myWebSocketEndpoint");
 
+websocket.onmessage = function(evt) { 
+	area.innerHTML += evt.data + "\n";
+};
 
-function openSocket() {
-    // Crear una nueva instancia de la WebSocket
-    webSocket = new WebSocket("ws://localhost:8080/JuegoDeCartas/myWebSocketEndpoint");
-}
-websocket.onmessage = function processMessage(message) {
-    var jsonData = JSON.parse(message.data);
-    if (jsonData.message !== null){
-        //recepcion mesaje poner en div (luego)
-        //messageTextArea.value += jsonData.message + "\n";
-    }
-        
+function join() {
+    username = usuario.value;
+    websocket.send("*** " + username + " se ha unido!!");
 }
 
-function send() {
-    var text = document.getElementById("id").value;
-    webSocket.send(text);
+function send_message() {
+    websocket.send(username + ": " );
 }
-
-function closeSocket() {
-    webSocket.close();
-}
-
-function writeResponse(text) {
-    messages.innerHTML += "<br/>" + text;
-}
-

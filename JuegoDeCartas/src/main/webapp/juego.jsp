@@ -34,9 +34,9 @@
                             <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
                         </a>
                         <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1" style="">
-                            <li><a class="dropdown-item" href="#">User</a></li>
+                            <li><a class="dropdown-item" >User</a></li>
                             <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="#">Cerrar Sesion</a></li>
+                            <li><a class="dropdown-item" href="CerrarS">Cerrar Sesion</a></li>
                         </ul>
                     </div>
                 </div>
@@ -77,7 +77,7 @@
                         for (int i = 1; i < a.length; i++) {
                     %>
 
-                    <img id="<%=a[i]%>" src="imagenes/dragonball/carta<%=a[i]%>.jpg" onclick="send();"/>
+                    <img id="<%=a[i]%>" src="imagenes/dragonball/carta<%=a[i]%>.jpg" onclick="send_message();"/>
                     <%
                         }
                     %>
@@ -99,10 +99,15 @@
             </div>
             <div class="centro">
                 <div class="centrorow">
-                    <img src="imagenes/carta1.jpeg"/>
-                    <img src="imagenes/carta4.jpeg"/>
-                    <img src="imagenes/carta5.jpeg"/>
-                    <img src="imagenes/carta5.jpeg"/>
+                    <img id="puesta1" src="imagenes/carta1.jpeg"/>
+                    <img id="puesta2" src="imagenes/carta4.jpeg"/>
+                    <img id="puesta3" src="imagenes/carta5.jpeg"/>
+                    <img id="puesta4" src="imagenes/carta5.jpeg"/>
+                </div>
+            </div>
+            <div class="textoa">
+                <div class="textorow">
+                    <input id="area" type="textarea" class="form-control" name="resumen" placeholder="juegos" readonly>
                 </div>
             </div>
             <div class="abajo">

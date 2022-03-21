@@ -106,17 +106,35 @@ public class Consulta1 extends HttpServlet {
         Collection<Persona> persona = consulta.consulta();
         if (menu.equals("admin")) {
             for (Persona persona2 : persona) {
-                System.out.println(persona2.getNickname()+"   "+persona2.getContraseña());
                 if ((persona2.getNickname()).equals(user) && (persona2.getContraseña()).equals(pass)) {
-                    request.getRequestDispatcher("Administrador.jsp").include(request, response);
+                    request.getSession().setAttribute("user", user);
+                    response.sendRedirect(request.getContextPath() + "/session");
+                    request.setAttribute("succes", 1);
                 } else {
+                    request.setAttribute("succes", 0);
                     request.getRequestDispatcher("index.jsp").include(request, response);
                 }
             }
         } else {
+            Persona per = new Persona();
+            per.setNickname(jugador);
+            per.setContraseña("");
+            for (Persona persona3 : persona) {
+                if ((persona3.getNickname()).equals(jugador)) {
+                    System.out.println(persona3.getNickname());
+                    System.out.println(jugador);
+                    request.getRequestDispatcher("index.jsp").forward(request, response);
+                    request.setAttribute("succes", 2);
+                } else {
+                    try {
+                        consulta.insertarUser(per);
+                    } catch (Exception e) {
+                    }
+                    request.getSession().setAttribute("user", jugador);
+                    request.getRequestDispatcher("usuario.jsp").forward(request, response);
 
-            request.getRequestDispatcher("usuario.jsp").include(request, response);
-
+                }
+            }
         }
     }
 

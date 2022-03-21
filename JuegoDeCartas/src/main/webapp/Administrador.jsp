@@ -17,6 +17,12 @@
         <link rel="stylesheet" href="estilos/estilos.css">
     </head>
     <body>
+        <%
+            response.setHeader("Cache-Control","no-cache,no-store,must-revalidate");
+            if (session.getAttribute("user")==null) {
+                response.sendRedirect("index.jsp");
+            }
+        %>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#" style="font-weight: bolder; color: #63A4EC">Administrador</a>
@@ -37,7 +43,7 @@
                     <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1" style="">
                         <li><a class="dropdown-item" href="#">User</a></li>
                         <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="index.jsp">Cerrar Sesion</a></li>
+                        <li><a class="dropdown-item" href="CerrarS">Cerrar Sesion</a></li>
                     </ul>
                 </div>
             </div>
@@ -64,9 +70,8 @@
                     <label for="validationCustom04" class="form-label">Juego</label>
                     <select class="form-select" id="juego" name="selectJuego" required>
                         <option selected disabled value="">Choose...</option>
-                        <%
-                            MisConsultas consul = new MisConsultas();
-
+                        <%                            MisConsultas consul = new MisConsultas();
+                            
                             Collection<Juegos> lista = consul.consulta_juego();
                             for (Juegos juego : lista) {
                                 out.println("<option>" + juego.getNombre() + "</option>");
@@ -120,7 +125,7 @@
                     <label for="validationCustom04" class="form-label">Juego</label>
                     <select class="form-select" id="juego" required>
                         <option selected disabled value="">Choose...</option>
-                        <%
+                        <%    
                             for (Juegos juego : lista) {
                                 out.println("<option>" + juego.getNombre() + "</option>");
                             }
@@ -138,10 +143,10 @@
             // Example starter JavaScript for disabling form submissions if there are invalid fields
             (function () {
                 'use strict'
-
+                
                 // Fetch all the forms we want to apply custom Bootstrap validation styles to
                 var forms = document.querySelectorAll('.needs-validation')
-
+                
                 // Loop over them and prevent submission
                 Array.prototype.slice.call(forms)
                         .forEach(function (form) {
@@ -150,7 +155,7 @@
                                     event.preventDefault()
                                     event.stopPropagation()
                                 }
-
+                                
                                 form.classList.add('was-validated')
                             }, false)
                         })
