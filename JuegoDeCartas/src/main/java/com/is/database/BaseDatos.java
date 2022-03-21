@@ -15,7 +15,7 @@ public class BaseDatos {
         String ip = "localhost";
         String basedatos = "powercards";
         String usuario = "root";
-        String pass = "root";
+        String pass = "1234";
         String puerto = "3306";
         String url = "jdbc:mysql://" + ip + ":" + puerto + "/" + basedatos + "?serverTimezone=UTC&autoReconnect=true&useSSL=false";
 
