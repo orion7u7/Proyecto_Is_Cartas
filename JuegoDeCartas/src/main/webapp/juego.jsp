@@ -148,7 +148,7 @@
             </div>
             <div id="carata4" class="textoa">
                 <div class="textorow">
-                    <input id="area" type="textarea" class="form-control" name="resumen" placeholder="juegos" readonly>
+                    <textarea id="area" name="area" placeholder="juegos" readonly></textarea>
                 </div>
             </div>
             <div id="carata5" class="abajo">
