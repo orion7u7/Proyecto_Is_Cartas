@@ -107,18 +107,18 @@ public class CartaDAO {
         PreparedStatement pstatement = null;
         ResultSet resulSet = null;
         String sql = "";
-        sql = "insert into powercards.persona VALUES (";
+        sql = "insert into powercards.carta VALUES (";
 
         sql = sql + "'" + c.getNombre() + "',";
         sql = sql + "'" + c.getDescripcion() + "',";
-        sql = sql + "'" + c.getAtaque() + "',";
-        sql = sql + "'" + c.getDefensa() + "',";
+        sql = sql + "" + c.getAtaque() + ",";
+        sql = sql + "" + c.getDefensa() + ",";
         sql = sql + "'" + c.getTipo() + "',";
         sql = sql + "'" + c.getJuego_nombre() + "',";
         sql = sql + "'" + c.getAtributo() + "',";
-        sql = sql + "'" + c.getValor() + "',";
+        sql = sql + "" + c.getValor() + ",";
         sql = sql + "'" + c.getFoto();
-        sql = sql + ")";
+        sql = sql + "')";
 
         System.out.println("sql=" + sql);
         pstatement = conne.prepareStatement(sql);
