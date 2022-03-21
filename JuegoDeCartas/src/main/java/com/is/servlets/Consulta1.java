@@ -112,28 +112,29 @@ public class Consulta1 extends HttpServlet {
                     request.setAttribute("succes", 1);
                 } else {
                     request.setAttribute("succes", 0);
-                    request.setAttribute("jugars", jugador);
                     request.getRequestDispatcher("index.jsp").include(request, response);
                 }
             }
         } else {
-            Persona per = new Persona();
-            per.setNickname(jugador);
-            per.setContraseña("");
+
             for (Persona persona3 : persona) {
                 if ((persona3.getNickname()).equals(jugador)) {
+
                     System.out.println(persona3.getNickname());
                     System.out.println(jugador);
                     request.getRequestDispatcher("index.jsp").forward(request, response);
                     request.setAttribute("succes", 2);
                 } else {
                     try {
+                        Persona per = new Persona();
+                        per.setNickname(jugador);
+                        per.setContraseña("");
                         consulta.insertarUser(per);
                     } catch (Exception e) {
                     }
                     request.getSession().setAttribute("user", jugador);
                     request.getRequestDispatcher("usuario.jsp").forward(request, response);
-
+                    request.setAttribute("jugars", jugador);
                 }
             }
         }

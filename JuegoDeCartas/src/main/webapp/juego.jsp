@@ -31,7 +31,7 @@
 
                     </ul>
                     <input type="hidden" id="usuario" value="<%request.getAttribute("jugars");%>"/>
-                    <input class="btn btn-success" onclick="join();" value="Entrar" type="button">
+                    <input id="entrarW" class="btn btn-success" onclick="join('entrarW');" value="Entrar" type="button">
                     <a href="#" class="btn btn-warning">Pausar</a>
                     <a href="salas.jsp" class="btn btn-danger">Abandonar partida</a> 
                     <div class="dropdown text-end">
