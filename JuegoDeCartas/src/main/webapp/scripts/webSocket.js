@@ -1,30 +1,20 @@
-var webSocket;
-var messages = document.getElementById("messages");
+var username;
+var websocket = new WebSocket("ws://" + document.location.hostname + ":" + document.location.port + document.location.pathname + "chatroom");
 
+websocket.onmessage = function(evt) { 
+	chatRoomField.innerHTML += evt.data + "\n";
+};
 
-function openSocket() {
-    // Crear una nueva instancia de la WebSocket
-    webSocket = new WebSocket("ws://localhost:8080/JuegoDeCartas/myWebSocketEndpoint");
-}
-websocket.onmessage = function processMessage(message) {
-    var jsonData = JSON.parse(message.data);
-    if (jsonData.message !== null){
-        //recepcion mesaje poner en div (luego)
-        //messageTextArea.value += jsonData.message + "\n";
-    }
-        
-}
-
-function send() {
-    var text = document.getElementById("id").value;
-    webSocket.send(text);
+function join() {
+    username = newUserField.value;
+    websocket.send("*** " + username + " se ha unido!!");
+    newUserField.disabled = true;
+    newUserButton.disabled = true;
+    chatRoomField.disabled = false;
+    sendField.disabled = false;
+    sendButton.disabled = false;
 }
 
-function closeSocket() {
-    webSocket.close();
+function send_message() {
+    websocket.send(username + ": " + sendField.value);
 }
-
-function writeResponse(text) {
-    messages.innerHTML += "<br/>" + text;
-}
-

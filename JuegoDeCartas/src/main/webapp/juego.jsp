@@ -99,10 +99,15 @@
             </div>
             <div class="centro">
                 <div class="centrorow">
-                    <img src="imagenes/carta1.jpeg"/>
-                    <img src="imagenes/carta4.jpeg"/>
-                    <img src="imagenes/carta5.jpeg"/>
-                    <img src="imagenes/carta5.jpeg"/>
+                    <img id="puesta1" src="imagenes/carta1.jpeg"/>
+                    <img id="puesta2" src="imagenes/carta4.jpeg"/>
+                    <img id="puesta3" src="imagenes/carta5.jpeg"/>
+                    <img id="puesta4" src="imagenes/carta5.jpeg"/>
+                </div>
+            </div>
+            <div class="textoa">
+                <div class="textorow">
+                    <input id="area" type="textarea" class="form-control" name="resumen" placeholder="juegos" readonly>
                 </div>
             </div>
             <div class="abajo">

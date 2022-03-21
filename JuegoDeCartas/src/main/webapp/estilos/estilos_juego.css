@@ -82,7 +82,13 @@ and open the template in the editor.
     display: flex;
     justify-content: center;
 }
-
+.textoa{
+    width: 500px;
+    -webkit-transform: translate(105%, 600%);
+}
+.textorow{
+    width:50%;
+}
 .abajo {
     display: flex;
     width: 100%;
