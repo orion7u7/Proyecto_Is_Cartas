@@ -1,4 +1,5 @@
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
     <head>
         <title>Login Page</title>
@@ -32,6 +33,12 @@
                                 </div>
                                 <input type="password" class="form-control" name="pass" placeholder="password" >
                             </div>
+                            <c:if test="${succes==0}">
+                                <br>
+                                <div class="alert alert-danger" role="alert">
+                                    Usuario o contraseña incorrectos
+                                </div>
+                            </c:if>
                             <br>
                             <br>
                             <br>

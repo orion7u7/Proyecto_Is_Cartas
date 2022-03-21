@@ -1,5 +1,5 @@
 var username;
-var websocket = new WebSocket("ws://" + document.location.hostname + ":" + document.location.port + document.location.pathname + "chatroom");
+var websocket = new WebSocket("ws://" + document.location.hostname + ":" + document.location.port + document.location.pathname + "myWebSocketEndpoint");
 
 websocket.onmessage = function(evt) { 
 	chatRoomField.innerHTML += evt.data + "\n";
