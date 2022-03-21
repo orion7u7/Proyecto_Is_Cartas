@@ -179,7 +179,7 @@ public class Controler extends HttpServlet {
         ResultSet resultSet = null;
         System.out.println(MisConsultas.consultaid());
         String sql = "";
-        sql = "insert into carta(idCarta,nombre,descripcion,ataque,defensa,tipo,Juego_nombre,atributo,valor,foto) values (";
+        sql = "insert into carta values (";
         sql = sql + (MisConsultas.consultaid() + 1) + ",";
         sql = sql + "'" + carta.getNombre() + "',";
         sql = sql + "'" + carta.getDescripcion() + "',";
@@ -188,10 +188,10 @@ public class Controler extends HttpServlet {
         sql = sql + "'" + carta.getTipo() + "',";
         sql = sql + "'" + carta.getJuego_nombre() + "',";
         sql = sql + "'" + carta.getAtributo() + "',";
-        sql = sql + carta.getValor() + ",?)";
+        sql = sql + carta.getValor() + ",";
+        sql = sql + "'" + carta.getFoto() + "')";
         System.out.println("sql=" + sql);
         pstatement = conne.prepareStatement(sql);
-        pstatement.setBlob(1, carta.getFoto());
         res = pstatement.executeUpdate();
         if (res == 1) {
             conne.commit();
