@@ -48,10 +48,10 @@
         <div id="carouselMultiItemExample" class="carousel slide carousel-dark text-center" data-mdb-ride="carousel" >
             
             <!-- Inner -->
-            <div class="carousel-inner py-4">
+            <!--<div class="carousel-inner py-4">-->
                 <!-- Single item -->
                 <center>
-                    <div>
+                    <div style="width: 100%">
                         <form action="Controler" method="POST">
                             <input type="submit" name="accion" value="Listar">
                         </form>
@@ -93,7 +93,7 @@
 
                 
                 
-            </div>
+            <!--</div> -->
             <!-- Inner -->
         </div>
         

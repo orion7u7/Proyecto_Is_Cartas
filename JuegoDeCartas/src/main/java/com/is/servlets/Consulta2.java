@@ -6,6 +6,7 @@
 package com.is.servlets;
 
 import com.is.database.MisConsultas;
+import com.is.modelo.Cartaj;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -32,7 +33,7 @@ public class Consulta2 extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
+        //response.setContentType("text/html;charset=UTF-8");
         try ( PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
@@ -42,6 +43,11 @@ public class Consulta2 extends HttpServlet {
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet Consulta2 at " + request.getContextPath() + "</h1>");
+            
+            out.println("<p>");
+            String texto;
+            
+            out.println("<p>");
             out.println("</body>");
             out.println("</html>");
         }

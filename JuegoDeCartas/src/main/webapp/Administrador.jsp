@@ -43,7 +43,7 @@
             </div>
         </nav>
         <div class="container">
-            <form class="row g-3 needs-validation" novalidate action="Controler" method="POST" enctype="multipart/form-data">
+            <form class="row g-3 needs-validation" action="Controler" method="POST" enctype="multipart/form-data" novalidate>
                 <div class="col-md-6">
                     <label for="validationCustom01" class="form-label">Nombre</label>
                     <input type="text" class="form-control" id="nombre" name="txtnombre" required>
@@ -62,7 +62,7 @@
                 </div>
                 <div class="col-md-3">
                     <label for="validationCustom04" class="form-label">Juego</label>
-                    <select class="form-select" id="juego" name="juego" required>
+                    <select class="form-select" id="juego" name="selectJuego" required>
                         <option selected disabled value="">Choose...</option>
                         <%
                             MisConsultas consul = new MisConsultas();
@@ -76,7 +76,7 @@
                 </div>
                 <div class="col-md-3">
                     <label for="validationCustom04" class="form-label">Tipo de Carta</label>
-                    <select class="form-select" id="tipo" name="tipo" required>
+                    <select class="form-select" id="tipo" name="selectTipo" required>
                         <option selected disabled value="">Choose...</option>
                         <option>Especial</option>
                         <option>Duelo</option>
@@ -106,8 +106,8 @@
                     <input type="text" class="form-control" id="valoratri3">
                 </div>
                 <div class="col-12">
-                    <!--<button class="btn btn-primary" type="submit">Agregar Carta</button>-->
-                    <input type="submit" name="accion" value="Guardar">
+                    <button class="btn btn-primary" type="submit" name="accion" value="Guardar">Agregar Carta</button>
+                    
                 </div>
             </form>
         </div>

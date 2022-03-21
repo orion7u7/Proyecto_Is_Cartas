@@ -94,20 +94,20 @@ public class MisConsultas {
     }
     //hasta aqui
 
-    public boolean insertarCarta(Carta carta) throws SQLException {
+    public boolean insertarCarta(Cartaj carta) throws SQLException {
         int res = 0;
         Connection conne = BaseDatos.getConecction();
         PreparedStatement pstatement = null;
         ResultSet resulSet = null;
         String sql = "";
-        sql = "insert into powercards.persona (nombre,descripcion,ataque,defensa,tipo,Juego_nombre,atributo,valor) VALUES (";
+        sql = "insert into powercards.carta (nombre,descripcion,ataque,defensa,tipo,Juego_nombre,atributo,valor) VALUES (";
 
         sql = sql + "'" + carta.getNombre() + "'";
         sql = sql + "'" + carta.getDescripcion() + "'";
         sql = sql + carta.getAtaque();
         sql = sql + carta.getDefensa();
         sql = sql + "'" + carta.getTipo() + "'";
-        sql = sql + "'" + carta.getNombre_juego() + "'";
+        sql = sql + "'" + carta.getJuego_nombre()+ "'";
         sql = sql + "'" + carta.getAtributo() + "'";
         sql = sql + carta.getValor() + ")";
 

@@ -87,26 +87,26 @@ public class Controler extends HttpServlet {
                 break;
             case "Guardar":
                 String nombre=request.getParameter("txtnombre");
-                //int ataque=parseInt(request.getParameter("txtataque"));
-                //int defensa=parseInt(request.getParameter("txtdefensa"));
+                int ataque=Integer.parseInt(request.getParameter("txtataque"));
+                int defensa=Integer.parseInt(request.getParameter("txtdefensa"));
                 String descripcion=request.getParameter("txtdescripcion");
-                //String Juego_nombre=request.getParameter("");
-                //String tipo=request.getParameter("");
+                String Juego_nombre=request.getParameter("selectJuego");
+                String tipo=request.getParameter("selectTipo");
                 String atributo=request.getParameter("txtatributo1");
-                //int valor=parseInt(request.getParameter("txtvalor1"));
-                Part part=request.getPart("filefoto");
-                InputStream inputStream= part.getInputStream();
+                int valor=Integer.parseInt(request.getParameter("txtvalor1"));
+                Part part= request.getPart("filefoto");
+                InputStream inputStream=part.getInputStream();
                 c.setNombre(nombre);
+                c.setAtaque(ataque);
+                c.setDefensa(defensa);
                 c.setDescripcion(descripcion);
-                //c.setAtaque(0);
-                //c.setDefensa(0);
-                //c.setTipo(atributo);
-                //c.setJuego_nombre(nombre);
+                c.setJuego_nombre(Juego_nombre);
+                c.setTipo(tipo);
                 c.setAtributo(atributo);
-                //c.setValor(0);
+                c.setValor(valor);
                 c.setFoto(inputStream);
                 dao.agregar(c);
-                request.getRequestDispatcher("Administrador.jsp");
+                request.getRequestDispatcher("Administrador.jsp").forward(request, response);
                 
                 break;
             default:
