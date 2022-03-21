@@ -5,12 +5,22 @@
  */
 package Controlador;
 
+import com.is.database.BaseDatos;
+import com.is.database.MisConsultas;
 import com.is.modelo.CartaDAO;
 import com.is.modelo.Cartaj;
+import com.is.modelo.Persona;
+import com.is.servlets.ModificarInformacion;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintWriter;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.http.HttpServlet;
@@ -24,8 +34,10 @@ import javax.servlet.http.Part;
  */
 @MultipartConfig
 public class Controler extends HttpServlet {
-    CartaDAO dao= new CartaDAO();
-    Cartaj c= new Cartaj();
+
+    private MisConsultas MisConsultas = new MisConsultas();
+    CartaDAO dao = new CartaDAO();
+
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -43,7 +55,7 @@ public class Controler extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet Controler</title>");            
+            out.println("<title>Servlet Controler</title>");
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet Controler at " + request.getContextPath() + "</h1>");
@@ -78,24 +90,64 @@ public class Controler extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String accion=request.getParameter("accion");
-        switch(accion){
+        Cartaj c = new Cartaj();
+        String nombre = request.getParameter("txtnombre");
+        int ataque = Integer.parseInt(request.getParameter("txtataque"));
+        int defensa = Integer.parseInt(request.getParameter("txtdefensa"));
+        String descripcion = request.getParameter("txtdescripcion");
+        String Juego_nombre = request.getParameter("selectJuego");
+        String tipo = request.getParameter("selectTipo");
+        String atributo = request.getParameter("txtatributo1");
+        int valor = Integer.parseInt(request.getParameter("txtvalor1"));
+        Part part = request.getPart("filefoto");
+        InputStream inputStream = part.getInputStream();
+        c.setNombre(nombre);
+        c.setAtaque(ataque);
+        c.setDefensa(defensa);
+        c.setDescripcion(descripcion);
+        c.setJuego_nombre(Juego_nombre);
+        c.setTipo(tipo);
+        c.setAtributo(atributo);
+        c.setValor(valor);
+        c.setFoto(inputStream);
+        try {
+            if (insertarCarta(c) == true) {
+                response(response);
+            } else {
+                PrintWriter out = response.getWriter();
+                out.println("<!DOCTYPE html>");
+                out.println("<html>");
+                out.println("<head>");
+                out.println("<title> Servlet Consulta: Get </title>");
+                out.println("</head>");
+                out.println("<body>");
+                out.println("<p>");
+                out.println("<p>Error al intentar la informacion de la persona</p>");
+                out.println("</p>");
+                out.println("</body>");
+                out.println("</html>");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ModificarInformacion.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        /*String accion = request.getParameter("accion");
+        switch (accion) {
             case "Listar":
-                List<Cartaj>lista=dao.listar();
-                request.setAttribute("lista",lista);
+                List<Cartaj> lista = dao.listar();
+                request.setAttribute("lista", lista);
                 request.getRequestDispatcher("VistaCartasPokemon.jsp").forward(request, response);
                 break;
             case "Guardar":
-                String nombre=request.getParameter("txtnombre");
-                int ataque=Integer.parseInt(request.getParameter("txtataque"));
-                int defensa=Integer.parseInt(request.getParameter("txtdefensa"));
-                String descripcion=request.getParameter("txtdescripcion");
-                String Juego_nombre=request.getParameter("selectJuego");
-                String tipo=request.getParameter("selectTipo");
-                String atributo=request.getParameter("txtatributo1");
-                int valor=Integer.parseInt(request.getParameter("txtvalor1"));
-                Part part= request.getPart("filefoto");
-                InputStream inputStream=part.getInputStream();
+                String nombre = request.getParameter("txtnombre");
+                int ataque = Integer.parseInt(request.getParameter("txtataque"));
+                int defensa = Integer.parseInt(request.getParameter("txtdefensa"));
+                String descripcion = request.getParameter("txtdescripcion");
+                String Juego_nombre = request.getParameter("selectJuego");
+                String tipo = request.getParameter("selectTipo");
+                String atributo = request.getParameter("txtatributo1");
+                int valor = Integer.parseInt(request.getParameter("txtvalor1"));
+                Part part = request.getPart("filefoto");
+                InputStream inputStream = part.getInputStream();
                 c.setNombre(nombre);
                 c.setAtaque(ataque);
                 c.setDefensa(defensa);
@@ -110,12 +162,62 @@ public class Controler extends HttpServlet {
                 } catch (Exception e) {
                 }
                 request.getRequestDispatcher("Administrador.jsp").forward(request, response);
-                
+
                 break;
             default:
                 request.getRequestDispatcher("Controler?accion=Listar").forward(request, response);
                 break;
+        }*/
+    }
+
+    public boolean insertarCarta(Cartaj carta) throws SQLException {
+        int res = 0;
+        Connection conne = BaseDatos.getConecction();
+        PreparedStatement pstatement = null;
+        ResultSet resultSet = null;
+        System.out.println(MisConsultas.consultaid());
+        String sql = "";
+        sql = "insert into carta values (";
+        sql = sql + (MisConsultas.consultaid() + 1) + ",";
+        sql = sql + "'" + carta.getNombre() + "',";
+        sql = sql + "'" + carta.getDescripcion() + "',";
+        sql = sql + carta.getAtaque() + ",";
+        sql = sql + carta.getDefensa() + ",";
+        sql = sql + "'" + carta.getJuego_nombre() + "',";
+        sql = sql + "'" + carta.getAtributo() + "',";
+        sql = sql + carta.getValor() + ",";
+        sql = sql + "'" + carta.getFoto() + "')";
+        System.out.println("sql=" + sql);
+        pstatement = conne.prepareStatement(sql);
+        res = pstatement.executeUpdate();
+        if (res == 1) {
+            conne.commit();
+            return true;
+        } else {
+            System.out.println("Error al insertar");
+            conne.rollback();
+            return false;
         }
+    }
+
+    private void response(HttpServletResponse resp) throws IOException {
+        PrintWriter out = resp.getWriter();
+        out.println("<!DOCTYPE html>");
+        out.println("<html>");
+        out.println("<head>");
+        out.println("<title>Servlet Consulta1: get </title>");
+        out.println("</head>");
+        out.println("<body>");
+        out.println("<p>");
+        for (Cartaj carta : MisConsultas.consultac()) {
+            out.println("<p> ID=" + carta.getIdCarta()
+                    + " nombres=" + carta.getNombre() + " apellidos="
+                    + carta.getDescripcion() + " usuario=" + carta.getTipo()
+                    + " email=" + carta.getJuego_nombre() + " telefono=" + carta.getFoto());
+        }
+        out.println("</p>");
+        out.println("</body>");
+        out.println("</html>");
     }
 
     /**

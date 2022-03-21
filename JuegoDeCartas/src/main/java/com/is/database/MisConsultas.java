@@ -75,7 +75,7 @@ public class MisConsultas {
 
     }
 
-    public Collection<Cartaj> consultac() {
+    public static Collection<Cartaj> consultac() {
         PreparedStatement pstatement = null;
         ResultSet resultSet = null;
         String sql = "select *from carta";
@@ -88,9 +88,8 @@ public class MisConsultas {
         }
         return null;
     }
-   
-    PreparedStatement ps = null;
 
+    PreparedStatement ps = null;
 
     public Collection<Juegos> consulta_juego() {
 
@@ -149,6 +148,32 @@ public class MisConsultas {
             Logger.getLogger(Persona.class.getName()).log(Level.SEVERE, null, ex);
         }
         return false;
+    }
+
+    public int consultaid() {
+        PreparedStatement pstatement = null;
+        ResultSet resultSet = null;
+        String sql = " SELECT *";
+        sql = sql + " FROM powercards.carta ";
+        sql = sql + " order by idCarta asc";
+        int id = 0;
+        Vector<Cartaj> listado = new Vector<Cartaj>();
+        try {
+            Connection conne = BaseDatos.getConecction();
+            pstatement = conne.prepareStatement(sql);
+            resultSet = pstatement.executeQuery();
+            while (resultSet.next()) {
+
+                Cartaj carta = new Cartaj();
+                carta.setIdCarta(resultSet.getInt(1));
+
+                listado.add(carta);
+                id = carta.getIdCarta();
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Persona.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return id;
     }
 
 }
