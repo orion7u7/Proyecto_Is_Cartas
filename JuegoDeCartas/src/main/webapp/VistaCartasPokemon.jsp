@@ -27,7 +27,7 @@
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="Administrador.jsp">Administración</a>
                         </li>
-                        
+
                     </ul>
                     <div class="dropdown text-end">
                         <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
@@ -42,65 +42,65 @@
                 </div>
             </div>
         </nav>
-        
-        
-        
+
+
+
         <div id="carouselMultiItemExample" class="carousel slide carousel-dark text-center" data-mdb-ride="carousel" >
-            
+
             <!-- Inner -->
             <!--<div class="carousel-inner py-4">-->
-                <!-- Single item -->
-                <center>
-                    <div style="width: 100%">
-                        <form action="Controler" method="POST">
-                            <input type="submit" name="accion" value="Listar">
-                        </form>
-                        <table>
-                            <thead>
+            <!-- Single item -->
+            <center>
+                <div style="width: 100%">
+                    <form action="Controler" method="POST">
+                        <input type="submit" name="accion" value="Listar">
+                    </form>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Nombre</th>
+                                <th>Descripción</th>
+                                <th>Ataque</th>
+                                <th>defensa</th>
+                                <th>Tipo</th>
+                                <th>Juego</th>
+                                <th>Atributo</th>
+                                <th>Valor</th>
+                                <th>Foto</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <c:forEach var="dato" items="${lista}">
                                 <tr>
-                                    <th>Id</th>
-                                    <th>Nombre</th>
-                                    <th>Descripción</th>
-                                    <th>Ataque</th>
-                                    <th>defensa</th>
-                                    <th>Tipo</th>
-                                    <th>Juego</th>
-                                    <th>Atributo</th>
-                                    <th>Valor</th>
-                                    <th>Foto</th>
+                                    <td>${dato.getIdCarta()}</td>
+                                    <td>${dato.getNombre()}</td>
+                                    <td>${dato.getDescripcion()}</td>
+                                    <td>${dato.getAtaque()}</td>
+                                    <td>${dato.getDefensa()}</td>
+                                    <td>${dato.getTipo()}</td>
+                                    <td>${dato.getJuego_nombre()}</td>
+                                    <td>${dato.getAtributo()}</td>
+                                    <td>${dato.getValor()}</td>
+                                    <td><img src="ControlerIMG?id=${dato.getIdCarta()}" width="250px" height="230px"></td>
                                 </tr>
-                            </thead>
-                            <tbody>
-                                <c:forEach var="dato" items="${lista}">
-                                    <tr>
-                                        <td>${dato.getIdCarta()}</td>
-                                        <td>${dato.getNombre()}</td>
-                                        <td>${dato.getDescripcion()}</td>
-                                        <td>${dato.getAtaque()}</td>
-                                        <td>${dato.getDefensa()}</td>
-                                        <td>${dato.getTipo()}</td>
-                                        <td>${dato.getJuego_nombre()}</td>
-                                        <td>${dato.getAtributo()}</td>
-                                        <td>${dato.getValor()}</td>
-                                        <td><img src="ControlerIMG?id=${dato.getIdCarta()}" width="250px" height="230px"></td>
-                                    </tr>
-                                </c:forEach>
-                                
-                            </tbody>
-                        </table>
-                    </div>
-                </center>
+                            </c:forEach>
 
-                
-                
+                        </tbody>
+                    </table>
+                </div>
+            </center>
+
+
+
             <!--</div> -->
             <!-- Inner -->
         </div>
-        
-        
-        
-        
-        
+
+
+
+
+
         <footer class="w-100 d-flex align-items justify-content-center flex-wrap">
             <p class="fs-5 px-3 pt-3">Design. &copy; Todos los derechos Reservados PowerCards Games- Unillanos</p>
         </footer>
