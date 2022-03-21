@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 8.0.28, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.23, for Win64 (x86_64)
 --
--- Host: localhost    Database: powercards
+-- Host: 127.0.0.1    Database: powercards
 -- ------------------------------------------------------
--- Server version	8.0.28
+-- Server version	8.0.23
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -26,17 +26,18 @@ CREATE TABLE `carta` (
   `idCarta` int NOT NULL AUTO_INCREMENT,
   `nombre` varchar(45) NOT NULL,
   `descripcion` varchar(250) NOT NULL,
-  `ataque` int DEFAULT NULL,
-  `defensa` int DEFAULT NULL,
+  `ataque` int NOT NULL,
+  `defensa` int NOT NULL,
   `tipo` varchar(45) NOT NULL,
   `Juego_nombre` varchar(45) NOT NULL,
   `atributo` varchar(45) DEFAULT NULL,
   `valor` int DEFAULT NULL,
+  `foto` longblob,
   PRIMARY KEY (`idCarta`,`Juego_nombre`),
   UNIQUE KEY `idCarta_UNIQUE` (`idCarta`),
   KEY `fk_Carta_Juego1_idx` (`Juego_nombre`),
   CONSTRAINT `fk_Carta_Juego1` FOREIGN KEY (`Juego_nombre`) REFERENCES `juego` (`nombre`)
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -45,7 +46,7 @@ CREATE TABLE `carta` (
 
 LOCK TABLES `carta` WRITE;
 /*!40000 ALTER TABLE `carta` DISABLE KEYS */;
-INSERT INTO `carta` VALUES (1,'asd','asd',123,131,'asd','Pokemon','asd',1);
+INSERT INTO `carta` VALUES (21,'ejemplo','jejejeje',100,150,'especial','Pokemon','atr',200,NULL);
 /*!40000 ALTER TABLE `carta` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -58,4 +59,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-03-20 14:02:41
+-- Dump completed on 2022-03-21  8:46:11
