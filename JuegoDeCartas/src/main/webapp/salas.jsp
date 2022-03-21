@@ -1,11 +1,12 @@
 
 <html>
-     <head>
+    <head>
         <title>Salas</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="boostrap/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
         <link rel="stylesheet" href="estilos/estilos.css">
         <script src="boostrap/js/bootstrap.min.js"></script>
+        <script src="scripts/webSocket.js"></script>
     </head>
     <body>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -19,7 +20,7 @@
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="usuario.jsp">Inicio</a>
                         </li>
-                        
+
                     </ul>
                     <div class="dropdown text-end">
                         <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
@@ -37,7 +38,7 @@
 
         <!-- Carousel wrapper -->
         <div id="carouselMultiItemExample" class="carousel slide carousel-dark text-center" data-mdb-ride="carousel" >
-            
+
             <!-- Inner -->
             <div class="carousel-inner py-4">
                 <!-- Single item -->
@@ -59,7 +60,7 @@
                                         Jugadores activos: <label for="inputEmail4">4/4</label>
                                         <br>
                                         <br>
-                                        <a href="juego.jsp" class="btn btn-primary">Ingresar</a>
+                                        <a href="juego.jsp" class="btn btn-primary"><button onclick="openSocket();">Ingresar</button></a>
                                     </div>
                                 </div>
                             </div>

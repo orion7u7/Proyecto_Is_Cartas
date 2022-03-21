@@ -44,7 +44,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="fas fa-user"></i></span>
                                 </div>
-                                <input type="text" class="form-control"  name="jugador" placeholder="username" name="playeruser" required>
+                                <input type="text" class="form-control" name="playeruser" placeholder="username" required>
                             </div>
                             <br>
                             <br>

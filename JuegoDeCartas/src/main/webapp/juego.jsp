@@ -1,4 +1,6 @@
 
+<%@page import="java.util.Set"%>
+<%@page import="java.util.HashSet"%>
 <html>
     <head>
         <title>Juego Online</title>
@@ -7,8 +9,10 @@
         <link rel="stylesheet" href="estilos/estilos.css">
         <script src="boostrap/js/bootstrap.min.js"></script>
         <link rel="stylesheet" href="estilos/estilos_juego.css"/>
+        <script src="scripts/webSocket.js"></script>
     </head>
     <body>
+
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container-fluid">
                 <a class="navbar-brand" href="usuario.jsp" style="font-weight: bolder; color: #63A4EC">PowerCards</a>
@@ -38,13 +42,45 @@
                 </div>
             </div>
         </nav>
+        <% int aux;
+            int[] a = new int[4];
+            Set<Integer> set = new HashSet<>();
 
+//
+// Agregar números sin repetir
+//
+            for (int i = 0; i < a.length;) {
+                int n = (int) (Math.random() * 7);
+                if (set.contains(n)) {
+                    continue;
+                }
+                a[i++] = n;
+                set.add(n);
+            }
+            for (int i = 0; i < a.length; i++) {
+                for (int j = i + 1; j < a.length; j++) {
+                    if (a[i] > a[j]) {
+                        aux = a[i];
+                        a[i] = a[j];
+                        a[j] = aux;
+                    }
+                }
+            }
+            for (int i = 0; i < a.length; i++) {
+                System.out.print(a[i] + " ");
+            }
+        %>
         <div class="fondo">
             <div class="arriba">
                 <div class="arribarow">
-                    <img src="imagenes/carta1.jpeg"/>
-                    <img src="imagenes/carta2.jpeg"/>
-                    <img src="imagenes/carta3.jpeg"/>
+                    <%
+                        for (int i = 1; i < a.length; i++) {
+                    %>
+
+                    <img id="<%=a[i]%>" src="imagenes/dragonball/carta<%=a[i]%>.jpg" onclick="send();"/>
+                    <%
+                        }
+                    %>
                 </div>
             </div>
             <div class="izquierda">
@@ -61,6 +97,14 @@
                     <img src="imagenes/carta4.jpeg"/>
                 </div>
             </div>
+            <div class="centro">
+                <div class="centrorow">
+                    <img src="imagenes/carta1.jpeg"/>
+                    <img src="imagenes/carta4.jpeg"/>
+                    <img src="imagenes/carta5.jpeg"/>
+                    <img src="imagenes/carta5.jpeg"/>
+                </div>
+            </div>
             <div class="abajo">
                 <div class="abajorow">
                     <img src="imagenes/carta1.jpeg"/>
@@ -68,6 +112,7 @@
                     <img src="imagenes/carta1.jpeg"/>
                 </div>
             </div>
+
         </div>
 
     </body>
