@@ -99,6 +99,7 @@ public class Consulta1 extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String user = request.getParameter("user");
+        String jugador = request.getParameter("playeruser");
         String pass = request.getParameter("pass");
         String menu = request.getParameter("menu");
         MisConsultas consulta = new MisConsultas();
