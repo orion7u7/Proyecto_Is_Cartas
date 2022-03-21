@@ -22,7 +22,7 @@ import javax.servlet.http.HttpServletResponse;
  * @author oguev
  */
 public class Consulta1 extends HttpServlet {
-
+    
     private MisConsultas misConsultas = new MisConsultas();
 
     /**
@@ -66,7 +66,7 @@ public class Consulta1 extends HttpServlet {
         //processRequest(request, response);
         response(response, request.getParameter("nombres"));
     }
-
+    
     private void response(HttpServletResponse resp, String texto) throws IOException {
         PrintWriter out = resp.getWriter();
         out.println("<!DOCTYPE html>");
@@ -108,7 +108,7 @@ public class Consulta1 extends HttpServlet {
             for (Persona persona2 : persona) {
                 if ((persona2.getNickname()).equals(user) && (persona2.getContraseña()).equals(pass)) {
                     request.getSession().setAttribute("user", user);
-                    request.getRequestDispatcher("Administrador.jsp").include(request, response);
+                    response.sendRedirect(request.getContextPath() + "/session");
                     request.setAttribute("succes", 1);
                 } else {
                     request.setAttribute("succes", 0);
@@ -116,9 +116,9 @@ public class Consulta1 extends HttpServlet {
                 }
             }
         } else {
-
+            
             request.getRequestDispatcher("usuario.jsp").include(request, response);
-
+            
         }
     }
 
