@@ -2,6 +2,7 @@ package com.is.database;
 
 import com.is.modelo.Juegos;
 import com.is.modelo.Carta;
+import com.is.modelo.Cartaj; //aquí
 import com.is.modelo.Juegos;
 import com.is.modelo.Persona;
 import java.sql.Connection;
@@ -77,6 +78,21 @@ public class MisConsultas {
         return listado;
 
     }
+    //aqui
+    public Collection<Cartaj> consultac(){
+        PreparedStatement pstatement = null;
+        ResultSet resultSet = null;
+        String sql= "select *from carta";
+        
+        Vector<Cartaj>listar= new Vector<Cartaj>();
+        try{
+            Connection conne= BaseDatos.getConecction();
+        } catch (SQLException ex){
+        
+        }
+        return null;
+    }
+    //hasta aqui
 
     public boolean insertarCarta(Carta carta) throws SQLException {
         int res = 0;

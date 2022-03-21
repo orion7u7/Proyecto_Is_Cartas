@@ -26,7 +26,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Agregar Cartas</a>
+                            <a class="nav-link active" aria-current="page" href="VistaSalasCartas.jsp">Agregar Cartas</a>
                         </li>
                     </ul>
                 </div>
@@ -43,22 +43,22 @@
             </div>
         </nav>
         <div class="container">
-            <form class="row g-3 needs-validation" novalidate action="ConsultaAdmin?menu=carta" method="post">
+            <form class="row g-3 needs-validation" novalidate action="Controler" method="POST" enctype="multipart/form-data">
                 <div class="col-md-6">
                     <label for="validationCustom01" class="form-label">Nombre</label>
-                    <input type="text" class="form-control" id="nombre" name="nombre" required>
+                    <input type="text" class="form-control" id="nombre" name="txtnombre" required>
                 </div>
                 <div class="col-md-3">
                     <label for="validationCustom02" class="form-label">Ataque</label>
-                    <input type="number" class="form-control" id="ataque" name="ataque" required>
+                    <input type="number" class="form-control" id="ataque" name="txtataque" required>
                 </div>
                 <div class="col-md-3">
                     <label for="validationCustom02" class="form-label">Defensa</label>
-                    <input type="number" class="form-control" id="defensa" name="defensa" required>
+                    <input type="number" class="form-control" id="defensa" name="txtdefensa" required>
                 </div>
                 <div class="col-md-6">
                     <label for="validationCustom03" class="form-label">Descripción</label>
-                    <input type="text" class="form-control" id="descripcion" name="descripcion" required>
+                    <input type="text" class="form-control" id="descripcion" name="txtdescripcion" required>
                 </div>
                 <div class="col-md-3">
                     <label for="validationCustom04" class="form-label">Juego</label>
@@ -84,14 +84,14 @@
                 </div>
                 <div class="col-md-6">
                     <label for="validationCustom03" class="form-label">Logo</label>
-                    <input type="file" class="form-control" aria-label="file example" >
+                    <input type="file" class="form-control" aria-label="file example" name="filefoto" >
                     <div class="invalid-feedback">Example invalid form file feedback</div>
                 </div>
                 <div class="col-md-2">
                     <label for="validationCustom03" class="form-label" >Atributo</label>
-                    <input type="text" class="form-control" id="atributo1" name="atributo1" required>
+                    <input type="text" class="form-control" id="atributo1" name="txtatributo1" required>
                     <label for="validationCustom03" class="form-label" >Valor</label>
-                    <input type="number" class="form-control" id="valoratri1" name="valor1" required>
+                    <input type="number" class="form-control" id="valoratri1" name="txtvalor1" required>
                 </div>
                 <div class="col-md-2">
                     <label for="validationCustom03" class="form-label">Atributo</label>
@@ -106,7 +106,8 @@
                     <input type="text" class="form-control" id="valoratri3">
                 </div>
                 <div class="col-12">
-                    <button class="btn btn-primary" type="submit">Agregar Carta</button>
+                    <!--<button class="btn btn-primary" type="submit">Agregar Carta</button>-->
+                    <input type="submit" name="accion" value="Guardar">
                 </div>
             </form>
         </div>
