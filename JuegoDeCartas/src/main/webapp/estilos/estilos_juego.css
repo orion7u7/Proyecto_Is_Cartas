@@ -83,11 +83,9 @@ and open the template in the editor.
     justify-content: center;
 }
 .textoa{
-    width: 500px;
-    -webkit-transform: translate(105%, 600%);
-}
-.textorow{
-    width:50%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }
 .abajo {
     display: flex;

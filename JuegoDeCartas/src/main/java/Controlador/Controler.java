@@ -90,51 +90,62 @@ public class Controler extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        Cartaj c = new Cartaj();
-        String nombre = request.getParameter("txtnombre");
-        int ataque = Integer.parseInt(request.getParameter("txtataque"));
-        int defensa = Integer.parseInt(request.getParameter("txtdefensa"));
-        String descripcion = request.getParameter("txtdescripcion");
-        String Juego_nombre = request.getParameter("selectJuego");
-        String tipo = request.getParameter("selectTipo");
-        String atributo = request.getParameter("txtatributo1");
-        int valor = Integer.parseInt(request.getParameter("txtvalor1"));
-        Part part = request.getPart("filefoto");
-        InputStream inputStream = part.getInputStream();
-        c.setNombre(nombre);
-        c.setAtaque(ataque);
-        c.setDefensa(defensa);
-        c.setDescripcion(descripcion);
-        c.setJuego_nombre(Juego_nombre);
-        c.setTipo(tipo);
-        c.setAtributo(atributo);
-        c.setValor(valor);
-        c.setFoto(inputStream);
-        try {
-            if (insertarCarta(c) == true) {
+
+        String accion = request.getParameter("accion");
+        switch (accion) {
+            case "Listar":
                 List<Cartaj> lista = dao.listar();
                 request.setAttribute("lista", lista);
                 request.getRequestDispatcher("VistaCartasPokemon.jsp").forward(request, response);
-            } else {
-                PrintWriter out = response.getWriter();
-                out.println("<!DOCTYPE html>");
-                out.println("<html>");
-                out.println("<head>");
-                out.println("<title> Servlet Consulta: Get </title>");
-                out.println("</head>");
-                out.println("<body>");
-                out.println("<p>");
-                out.println("<p>Error al intentar la informacion de la persona</p>");
-                out.println("</p>");
-                out.println("</body>");
-                out.println("</html>");
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(ModificarInformacion.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        /*String accion = request.getParameter("accion");
-        switch (accion) {
-            case "Listar":
+                break;
+            case "Guardar":
+                Cartaj c = new Cartaj();
+                String nombre = request.getParameter("txtnombre");
+                int ataque = Integer.parseInt(request.getParameter("txtataque"));
+                int defensa = Integer.parseInt(request.getParameter("txtdefensa"));
+                String descripcion = request.getParameter("txtdescripcion");
+                String Juego_nombre = request.getParameter("selectJuego");
+                String tipo = request.getParameter("selectTipo");
+                String atributo = request.getParameter("txtatributo1");
+                int valor = Integer.parseInt(request.getParameter("txtvalor1"));
+                Part part = request.getPart("filefoto");
+                InputStream inputStream = part.getInputStream();
+                c.setNombre(nombre);
+                c.setAtaque(ataque);
+                c.setDefensa(defensa);
+                c.setDescripcion(descripcion);
+                c.setJuego_nombre(Juego_nombre);
+                c.setTipo(tipo);
+                c.setAtributo(atributo);
+                c.setValor(valor);
+                c.setFoto(inputStream);
+                try {
+                    if (insertarCarta(c) == true) {
+                        lista = dao.listar();
+                        request.setAttribute("lista", lista);
+                        request.getRequestDispatcher("VistaCartasPokemon.jsp").forward(request, response);
+                    } else {
+                        PrintWriter out = response.getWriter();
+                        out.println("<!DOCTYPE html>");
+                        out.println("<html>");
+                        out.println("<head>");
+                        out.println("<title> Servlet Consulta: Get </title>");
+                        out.println("</head>");
+                        out.println("<body>");
+                        out.println("<p>");
+                        out.println("<p>Error al intentar la informacion de la persona</p>");
+                        out.println("</p>");
+                        out.println("</body>");
+                        out.println("</html>");
+                    }
+                } catch (SQLException ex) {
+                    Logger.getLogger(ModificarInformacion.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                break;
+            default:
+                request.getRequestDispatcher("Controler?accion=Listar").forward(request, response);
+                break;
+            /*
                 List<Cartaj> lista = dao.listar();
                 request.setAttribute("lista", lista);
                 request.getRequestDispatcher("VistaCartasPokemon.jsp").forward(request, response);
@@ -170,6 +181,8 @@ public class Controler extends HttpServlet {
                 request.getRequestDispatcher("Controler?accion=Listar").forward(request, response);
                 break;
         }*/
+        }
+
     }
 
     public boolean insertarCarta(Cartaj carta) throws SQLException {

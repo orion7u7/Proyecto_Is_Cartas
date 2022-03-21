@@ -67,16 +67,16 @@
                     }
                 }
             }
-            if(accesos<=4){
+            if (accesos <= 4) {
                 ++accesos;
-            }else{
-                
+            } else {
+
             }
         %>
         <div class="fondo">
             <div class="arriba">
                 <div class="arribarow">
-                    <% 
+                    <%
                         System.out.println(accesos);
                         if (accesos == 1) {
 
@@ -126,7 +126,7 @@
                     <img id="<%=a[i]%>" value="<%=a[i]%>" src="imagenes/jojo/<%=a[i]%>.jpg" onclick="send_message();"/>
                     <%
                         }
-                        
+
                     } else {
                     %>
                     <img id="puesta1" src="imagenes/Reverso.jpg"/>
@@ -144,11 +144,6 @@
                     <img id="puesta2" src="imagenes/Reverso.jpg"/>
                     <img id="puesta3" src="imagenes/Reverso.jpg"/>
                     <img id="puesta4" src="imagenes/Reverso.jpg"/>
-                </div>
-            </div>
-            <div id="carata4" class="textoa">
-                <div class="textorow">
-                    <input id="area" type="textarea" class="form-control" name="resumen" placeholder="juegos" readonly>
                 </div>
             </div>
             <div id="carata5" class="abajo">
@@ -172,7 +167,11 @@
                 </div>
 
             </div>
-
+            <div id="carata4" class="textoa">
+                <div class="textorow">
+                    <textarea id="area" name="area" placeholder="juegos" readonly></textarea>
+                </div>
+            </div>
         </div>
         <script src="scripts/webSocket.js"></script>
     </body>
