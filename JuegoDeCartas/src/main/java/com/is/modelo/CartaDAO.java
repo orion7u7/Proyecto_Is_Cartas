@@ -83,7 +83,7 @@ public class CartaDAO {
     }
 
     public void agregar(Cartaj c) {
-        String sql = "insert into powercards.carta(nombre,descripcion,ataque,defensa,tipo,Juego_nombre,atributo,valor,foto) values(?,?,?,?,?,?,?,?,?)";
+        String sql = "insert into carta(nombre,descripcion,ataque,defensa,tipo,Juego_nombre,atributo,valor,foto) values(?,?,?,?,?,?,?,?,?)";
         try {
             con = cn.getConecction();
             ps = con.prepareStatement(sql);
