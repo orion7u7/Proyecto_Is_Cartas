@@ -3,7 +3,6 @@
     Created on : 20 mar. 2022, 17:36:20
     Author     : Laptop
 --%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -64,7 +63,7 @@
                                             Visualizar set de Cartas del Juego Pokemon.
                                         </p>
                                         <br>
-                                        <a href="#" class="btn btn-primary">Visualizar Cartas</a>
+                                        <a href="VistaCartasPokemon.jsp" class="btn btn-primary">Visualizar Cartas</a>
                                     </div>
                                 </div>
                             </div>
