@@ -112,7 +112,9 @@ public class Controler extends HttpServlet {
         c.setFoto(inputStream);
         try {
             if (insertarCarta(c) == true) {
-                response(response);
+                List<Cartaj> lista = dao.listar();
+                request.setAttribute("lista", lista);
+                request.getRequestDispatcher("VistaCartasPokemon.jsp").forward(request, response);
             } else {
                 PrintWriter out = response.getWriter();
                 out.println("<!DOCTYPE html>");
@@ -183,6 +185,7 @@ public class Controler extends HttpServlet {
         sql = sql + "'" + carta.getDescripcion() + "',";
         sql = sql + carta.getAtaque() + ",";
         sql = sql + carta.getDefensa() + ",";
+        sql = sql + "'" + carta.getTipo() + "',";
         sql = sql + "'" + carta.getJuego_nombre() + "',";
         sql = sql + "'" + carta.getAtributo() + "',";
         sql = sql + carta.getValor() + ",";
