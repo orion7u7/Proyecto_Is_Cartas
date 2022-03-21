@@ -29,7 +29,7 @@
                         <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1" style="">
                             <li><a class="dropdown-item" href="#">Usuario</a></li>
                             <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="#">Cerrar Sesion</a></li>
+                            <li><a class="dropdown-item" href="CerrarS">Cerrar Sesion</a></li>
                         </ul>
                     </div>
                 </div>
@@ -57,7 +57,8 @@
                                         Jugadores activos: <label for="inputEmail4">4/4</label>
                                         <br>
                                         <br>
-                                        <a href="juego.jsp" class="btn btn-primary"><button class="btn btn-primary" onclick="openSocket();">Ingresar</button></a>
+                                        <input type="hidden" id="usuario" value="<%=request.getSession().getAttribute("user")%>" />
+                                        <a href="juego.jsp" class="btn btn-primary"><button class="btn btn-primary" onclick="join();">Ingresar</button></a>
                                     </div>
                                 </div>
                             </div>

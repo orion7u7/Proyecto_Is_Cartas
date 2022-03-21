@@ -36,7 +36,7 @@
                         <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1" style="">
                             <li><a class="dropdown-item" >User</a></li>
                             <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="#">Cerrar Sesion</a></li>
+                            <li><a class="dropdown-item" href="CerrarS">Cerrar Sesion</a></li>
                         </ul>
                     </div>
                 </div>
@@ -77,7 +77,7 @@
                         for (int i = 1; i < a.length; i++) {
                     %>
 
-                    <img id="<%=a[i]%>" src="imagenes/dragonball/carta<%=a[i]%>.jpg" onclick="send();"/>
+                    <img id="<%=a[i]%>" src="imagenes/dragonball/carta<%=a[i]%>.jpg" onclick="send_message();"/>
                     <%
                         }
                     %>

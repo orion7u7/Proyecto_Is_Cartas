@@ -22,7 +22,7 @@ import javax.servlet.http.HttpServletResponse;
  * @author oguev
  */
 public class Consulta1 extends HttpServlet {
-    
+
     private MisConsultas misConsultas = new MisConsultas();
 
     /**
@@ -66,7 +66,7 @@ public class Consulta1 extends HttpServlet {
         //processRequest(request, response);
         response(response, request.getParameter("nombres"));
     }
-    
+
     private void response(HttpServletResponse resp, String texto) throws IOException {
         PrintWriter out = resp.getWriter();
         out.println("<!DOCTYPE html>");
@@ -116,9 +116,25 @@ public class Consulta1 extends HttpServlet {
                 }
             }
         } else {
-            
-            request.getRequestDispatcher("usuario.jsp").include(request, response);
-            
+            Persona per = new Persona();
+            per.setNickname(jugador);
+            per.setContraseña("");
+            for (Persona persona3 : persona) {
+                if ((persona3.getNickname()).equals(jugador)) {
+                    System.out.println(persona3.getNickname());
+                    System.out.println(jugador);
+                    request.getRequestDispatcher("index.jsp").forward(request, response);
+                    request.setAttribute("succes", 2);
+                } else {
+                    try {
+                        consulta.insertarUser(per);
+                    } catch (Exception e) {
+                    }
+                    request.getSession().setAttribute("user", jugador);
+                    request.getRequestDispatcher("usuario.jsp").forward(request, response);
+
+                }
+            }
         }
     }
 

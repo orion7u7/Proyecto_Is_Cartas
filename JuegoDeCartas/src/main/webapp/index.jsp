@@ -53,6 +53,12 @@
                                 </div>
                                 <input type="text" class="form-control" name="playeruser" placeholder="username" required>
                             </div>
+                            <c:if test="${succes==2}">
+                                <br>
+                                <div class="alert alert-danger" role="alert">
+                                    Jugador ya existe
+                                </div>
+                            </c:if>
                             <br>
                             <br>
                             <div class="form-group">
