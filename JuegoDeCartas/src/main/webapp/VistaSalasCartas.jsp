@@ -100,7 +100,7 @@
                                         </p>
                                         <br>
                                         <br>
-                                        <a href="juego.jsp" class="btn btn-primary">Visualizar Cartas</a>
+                                        <a href="VistaCartasYugi.jsp" class="btn btn-primary">Visualizar Cartas</a>
                                     </div>
                                 </div>
                             </div>
