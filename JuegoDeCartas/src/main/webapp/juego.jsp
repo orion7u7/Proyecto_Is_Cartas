@@ -33,7 +33,8 @@
                     </ul>
 
                     <input id="entrarW" class="btn btn-success" onclick="join('entrarW');" value="Entrar" type="button">
-                    <a href="#" class="btn btn-warning">Pausar</a>
+                    <a onclick="pausa();" class="btn btn-warning">Pausar</a>
+                    <a onclick="reanudar();" class="btn btn-info">Reanudar</a>
                     <a href="salas.jsp" class="btn btn-danger">Abandonar partida</a> 
                     <div class="dropdown text-end">
                         <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
