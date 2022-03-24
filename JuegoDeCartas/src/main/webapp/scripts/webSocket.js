@@ -5,7 +5,7 @@ var websocket = new WebSocket("ws://localhost:" + document.location.port + "/Jue
 websocket.onmessage = function (evt) {
     area = document.getElementById("area");
     area.innerHTML += evt.data + "\n";
-    //var el = document.getElementById("puestas");
+    //var el = document.getElementById("centro_m");
     //el.innerHTML = "<img src='imagenes/jojo/"+evt+".jpg'>";
 };
 
