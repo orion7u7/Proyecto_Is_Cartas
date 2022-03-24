@@ -10,11 +10,11 @@
 
 
     <body onload="capturar_user()">
-
+        
         <script src="scripts/webSocket.js"></script>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container-fluid">
-                <
+            	<
                 <a class="navbar-brand" href="usuario.jsp" style="font-weight: bolder; color: #63A4EC">PowerCards</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -22,10 +22,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <form action="Usuario" method="POST">
-                                <input type="hidden" name="usersigue" value="<%=request.getAttribute("jugadorS")%>">
-                                <input type="submit" class="nav-link active bg-dark" aria-current="page" value="Salas">
-                            </form>
+                            <a class="nav-link active" aria-current="page"  href="salas.jsp">Salas</a>
                         </li>
 
                     </ul>
@@ -35,7 +32,7 @@
                             <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
                         </a>
                         <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1" style="">
-
+                            
                             <li><a class="dropdown-item" ><%=request.getAttribute("jugadorS")%></a></li>
                             <li><hr class="dropdown-divider"></li>
                             <li><a class="dropdown-item" href="CerrarS">Cerrar Sesion</a></li>
@@ -71,7 +68,7 @@
                 <span class="visually-hidden">Next</span>
             </button>
         </div>
-
+        
 
         <section>
             <div class="w-50 mx-auto text-center" style="margin-top: 20px;">

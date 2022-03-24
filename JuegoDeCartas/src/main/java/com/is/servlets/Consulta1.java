@@ -104,7 +104,7 @@ public class Consulta1 extends HttpServlet {
         String menu = request.getParameter("menu");
         MisConsultas consulta = new MisConsultas();
         Collection<Persona> persona = consulta.consulta();
-
+        System.out.println(jugador + "------------------------------------");
         Collection<Persona> persona4 = consulta.consulta(jugador);
         if (menu.equals("admin")) {
             for (Persona persona2 : persona) {
@@ -118,7 +118,8 @@ public class Consulta1 extends HttpServlet {
                 }
             }
         } else {
-            if (persona4.size() >= 1) {
+            System.out.println(persona4.size());
+            if (persona4.size()>= 1) {
                 System.out.println(jugador);
                 request.setAttribute("succes", 2);
                 request.getRequestDispatcher("index.jsp").include(request, response);
@@ -133,7 +134,6 @@ public class Consulta1 extends HttpServlet {
                 }
                 request.getSession().setAttribute("user", jugador);
                 request.setAttribute("jugadorS", jugador);
-
                 request.getRequestDispatcher("usuario.jsp").include(request, response);
 
             }
