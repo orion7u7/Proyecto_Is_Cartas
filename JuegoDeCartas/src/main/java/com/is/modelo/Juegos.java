@@ -5,6 +5,8 @@
  */
 package com.is.modelo;
 
+import java.io.InputStream;
+
 /**
  *
  * @author oguev
@@ -13,12 +15,12 @@ public class Juegos {
 
     String nombre, descripcion;
     int total_cartas;
-    private byte[] foto;
+    InputStream foto;
 
     public Juegos() {
     }
 
-    public Juegos(String nombre, String descripcion, int total_cartas, byte[] foto) {
+    public Juegos(String nombre, String descripcion, int total_cartas, InputStream foto) {
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.total_cartas = total_cartas;
@@ -49,12 +51,13 @@ public class Juegos {
         this.total_cartas = total_cartas;
     }
 
-    public byte[] getFoto() {
+    public InputStream getFoto() {
         return foto;
     }
 
-    public void setFoto(byte[] foto) {
+    public void setFoto(InputStream foto) {
         this.foto = foto;
     }
+    
 
 }
