@@ -95,7 +95,7 @@
         
         
         <footer class="w-100 d-flex align-items justify-content-center flex-wrap">
-            <p class="fs-5 px-3 pt-3">Design. &copy; Todos los derechos Reservados PowerCards Games- Unillanos</p>
+            <p class="fs-5 px-3 pt-3">PowerCards Games- Unillanos</p>
         </footer>
     </body>
 </html>

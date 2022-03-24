@@ -79,11 +79,11 @@
                     <%
                         System.out.println(accesos);
                         if (accesos == 1) {
-
+                            
                             for (int i = 1; i < 4; i++) {
                     %>
 
-                    <img id="<%=a[i]%>" value="<%=a[i]%>" src="imagenes/jojo/<%=a[i]%>.jpg" onclick="send_message();"/>
+                    <img id="<%=a[i]%>" value="<%=a[i]%>" src="imagenes/jojo/<%=a[i]%>.jpg" onclick="send_message(<%=a[i]%>);"/>
                     <%
                         }
                     } else {
@@ -103,7 +103,7 @@
                             for (int i = 4; i < 7; i++) {
                     %>
 
-                    <img id="<%=a[i]%>" value="<%=a[i]%>" src="imagenes/jojo/<%=a[i]%>.jpg" onclick="send_message();"/>
+                    <img id="<%=a[i]%>" value="<%=a[i]%>" src="imagenes/jojo/<%=a[i]%>.jpg" onclick="send_cart(<%=a[i]%>);"/>
                     <%
                         }
                     } else {
@@ -123,8 +123,9 @@
                             for (int i = 7; i < 10; i++) {
                     %>
 
-                    <img id="<%=a[i]%>" value="<%=a[i]%>" src="imagenes/jojo/<%=a[i]%>.jpg" onclick="send_message();"/>
+                    <img id="<%=a[i]%>" value="<%=a[i]%>" src="imagenes/jojo/<%=a[i]%>.jpg" onclick="send_cart(<%=a[i]%>);"/>
                     <%
+                        
                         }
 
                     } else {
@@ -139,7 +140,7 @@
                 </div>
             </div>
             <div id="carata3" class="centro">
-                <div class="centrorow">
+                <div id="puestas" class="centrorow">
                     <img id="puesta1" src="imagenes/Reverso.jpg"/>
                     <img id="puesta2" src="imagenes/Reverso.jpg"/>
                     <img id="puesta3" src="imagenes/Reverso.jpg"/>
@@ -152,7 +153,7 @@
                             for (int i = 10; i < 13; i++) {
                     %>
 
-                    <img id="<%=a[i]%>" value="<%=a[i]%>" src="imagenes/jojo/<%=a[i]%>.jpg" onclick="send_message();"/>
+                    <img id="<%=a[i]%>" value="<%=a[i]%>" src="imagenes/jojo/<%=a[i]%>.jpg" onclick="send_cart(<%=a[i]%>);"/>
                     <%
                         }
                     } else {
