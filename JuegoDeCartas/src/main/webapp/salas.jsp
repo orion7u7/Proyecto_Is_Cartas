@@ -1,4 +1,5 @@
 
+<%@page import="com.is.modelo.Persona"%>
 <html>
     <head>
         <title>Salas</title>
@@ -27,7 +28,8 @@
                             <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
                         </a>
                         <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1" style="">
-                            <li><a id="nom" class="dropdown-item" value=""></a></li>
+                            <%Persona pers = (Persona) request.getAttribute("nombreper");%>
+                            <li><a id="nom" class="dropdown-item" name="user"><%= pers.getNickname() %></a></li>
                             <li><hr class="dropdown-divider"></li>
                             <li><a class="dropdown-item" href="CerrarS">Cerrar Sesion</a></li>
                         </ul>
@@ -57,7 +59,7 @@
                                         Jugadores activos: <label for="inputEmail4">4/4</label>
                                         <br>
                                         <br>
-                                        
+
                                         <a href="juego.jsp" class="btn btn-primary"><button class="btn btn-primary" onclick="join();">Ingresar</button></a>
                                     </div>
                                 </div>
