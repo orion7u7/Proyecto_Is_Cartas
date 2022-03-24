@@ -9,7 +9,7 @@ function capturar_user() {
 }
 function user(nom){
     nom = document.getElementById(nom);
-    nom.innerHTML = username;
+    nom.innerHTML= username;
 }
 
 websocket.onmessage = function (evt) {
