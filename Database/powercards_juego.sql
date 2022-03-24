@@ -37,7 +37,7 @@ CREATE TABLE `juego` (
 
 LOCK TABLES `juego` WRITE;
 /*!40000 ALTER TABLE `juego` DISABLE KEYS */;
-INSERT INTO `juego` VALUES ('Dragon Ball','Dragon Ball es un manga escrito e ilustrado por Akira Toriyama',50,NULL),('Pokemon','Son videojuegos de rol desarrollados por Game Freak y publicados para videoconsolas portátiles de Nintendo.',50,NULL),('Yu-Gi-Oh!','Es un juego de cartas coleccionables de origen japonés desarrollado y publicado por Konami.',50,NULL);
+INSERT INTO `juego` VALUES ('Dragon Ball','Dragon Ball es un manga escrito e ilustrado por Akira Toriyama',50,NULL),('Jojo Bizarre Adventure','JoJo\'s Bizarre Adventure es una serie de manga escrita e ilustrada por Hirohiko Araki. Su publicación comenzó en la revista Weekly Shōnen Jump en 1987 y continúa en la revista Ultra jump desde 2005.',50,NULL),('Pokemon','Son videojuegos de rol desarrollados por Game Freak y publicados para videoconsolas portátiles de Nintendo.',50,NULL);
 /*!40000 ALTER TABLE `juego` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -50,4 +50,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-03-23 20:35:13
+-- Dump completed on 2022-03-23 20:56:08
