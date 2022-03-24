@@ -1,5 +1,4 @@
 
-<%@page import="com.is.modelo.Persona"%>
 <html>
     <head>
         <title>Salas</title>
@@ -28,8 +27,7 @@
                             <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
                         </a>
                         <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1" style="">
-                            <li><a id="nom" class="dropdown-item" value=""><%Persona per = new Persona();
-                                        per.getNickname();%></a></li>
+                            <li><a id="nom" class="dropdown-item" value=""></a></li>
                             <li><hr class="dropdown-divider"></li>
                             <li><a class="dropdown-item" href="CerrarS">Cerrar Sesion</a></li>
                         </ul>
@@ -47,12 +45,12 @@
                             <div class="col-lg-4">
                                 <div class="card">
                                     <img
-                                        src="imagenes/jojologo.jpg"
+                                        src="imagenes/pokemon.jpg"
                                         class="card-img-top"
                                         alt="Waterfall"
                                         />
                                     <div class="card-body">
-                                        <h5 class="card-title">Jojo Bizzare Adventure</h5>
+                                        <h5 class="card-title">Pokemon</h5>
                                         <p class="card-text">
                                             Son videojuegos de rol desarrollados por Game Freak y publicados para videoconsolas portátiles de Nintendo.
                                         </p>

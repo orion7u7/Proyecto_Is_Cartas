@@ -28,8 +28,10 @@ import javax.servlet.http.Part;
  *
  * @author Laptop
  */
+@MultipartConfig
 public class Controlerjuego extends HttpServlet {
 
+    Juegos j = new Juegos();
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -42,12 +44,12 @@ public class Controlerjuego extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
+        try ( PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet Controlerjuego</title>");
+            out.println("<title>Servlet Controlerjuego</title>");            
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet Controlerjuego at " + request.getContextPath() + "</h1>");
@@ -82,40 +84,48 @@ public class Controlerjuego extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        Juegos j = new Juegos();
-        System.out.println(request.getParameter("txtjuego"));
-        String nombre = request.getParameter("txtjuego");
-        System.out.println(request.getParameter("txtcantidad"));
-        int total_cartas = Integer.parseInt(request.getParameter("txtcantidad"));
-        String descripcion = request.getParameter("txtdescripcion");
-        Part part = request.getPart("filefotojuego");
-        InputStream inputStream = part.getInputStream();
-        j.setNombre(nombre);
-        j.setTotal_cartas(total_cartas);
-        j.setDescripcion(descripcion);
-        j.setFoto(inputStream);
-        try {
-            if (insertarJuegos(j) == true) {
-                request.getRequestDispatcher("Juegoadmin.jsp").forward(request, response);
-            } else {
-                PrintWriter out = response.getWriter();
-                out.println("<!DOCTYPE html>");
-                out.println("<html>");
-                out.println("<head>");
-                out.println("<title> Servlet Consulta: Get </title>");
-                out.println("</head>");
-                out.println("<body>");
-                out.println("<p>");
-                out.println("<p>Error al intentar la informacion de la persona</p>");
-                out.println("</p>");
-                out.println("</body>");
-                out.println("</html>");
+            String accion = request.getParameter("accion");
+            switch(accion){
+                case "Agregar":
+                    System.out.println(request.getParameter("txtjuego"));
+            String nombre = request.getParameter("txtjuego");
+            System.out.println(request.getParameter("txtcantidad"));
+            int total_cartas = Integer.parseInt(request.getParameter("txtcantidad"));
+            String descripcion = request.getParameter("txtdescripcion");    
+            Part part = request.getPart("filefotojuego");
+            InputStream inputStream = part.getInputStream();
+            j.setNombre(nombre);
+            j.setTotal_cartas(total_cartas);
+            j.setDescripcion(descripcion);
+            j.setFoto(inputStream);
+            try {
+                if (insertarJuegos(j) == true) {
+                    request.getRequestDispatcher("Juegoadmin.jsp").forward(request, response);
+                } else {
+                    PrintWriter out = response.getWriter();
+                    out.println("<!DOCTYPE html>");
+                    out.println("<html>");
+                    out.println("<head>");
+                    out.println("<title> Servlet Consulta: Get </title>");
+                    out.println("</head>");
+                    out.println("<body>");
+                    out.println("<p>");
+                    out.println("<p>Error al intentar la informacion de la persona</p>");
+                    out.println("</p>");
+                    out.println("</body>");
+                    out.println("</html>");
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(ModificarInformacion.class.getName()).log(Level.SEVERE, null, ex);
             }
-        } catch (SQLException ex) {
-            Logger.getLogger(ModificarInformacion.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-
+                    break;
+                default:
+                    request.getRequestDispatcher("Controler?accion=Listar").forward(request, response);
+                    break;
+            }
+            
+}
+    
     public boolean insertarJuegos(Juegos juego) throws SQLException {
         int res = 0;
         Connection conne = BaseDatos.getConecction();

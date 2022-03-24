@@ -2,15 +2,16 @@ var username;
 var area;
 var nom;
 var websocket = new WebSocket("ws://localhost:" + document.location.port + "/JuegoDeCartas/myWebSocketEndpoint");
+
 var aux = 0;
 var pausador = 1001;
 function capturar_user() {
-    username = document.getElementById("usuario").value;
+    username =document.getElementById("usuario").value;
     console.log(username);
 }
-function user(nom) {
+function user(nom){
     nom = document.getElementById(nom);
-    nom.innerHTML = username;
+    nom.innerHTML= username;
 }
 
 websocket.onmessage = function (evt) {
@@ -65,6 +66,5 @@ function send_cart(cart) {
     for (var i = 0; i < 2; i++) {
         arribarow.removeChild(arribarow.cart);
     }
-
 
 }
