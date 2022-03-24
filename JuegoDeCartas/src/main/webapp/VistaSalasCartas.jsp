@@ -61,20 +61,20 @@
                                         alt="Waterfall"
                                         />
                                     <div class="card-body">
-                                        <%                            
+                                        <%
                                             MisConsultas consul = new MisConsultas();
 
                                             Collection<Juegos> lista = consul.consulta_juego();
-                                            Juegos juego = new Juegos();
                                             String[] part = new String[lista.size()];
-                                            for (int i = 0; i < lista.size(); i++) {
+                                            int i=0;
+                                            for (Juegos juego : lista) {
                                                 part[i] = juego.getNombre();
+                                                i++;
                                             }
-                                            out.print("<h5 class=" + "card-title" + ">" + part[0] + "</h5>");
-
+                                            out.println("<h5 class=" + "card-title" + ">" + part[0] + "</h5>");
                                         %>
                                         <p class="card-text">
-                                            Visualizar set de Cartas del Juego Pokemon.
+                                           
                                         </p>
                                         <br>
                                         <a href="VistaCartasPokemon.jsp" class="btn btn-primary">Visualizar Cartas</a>
