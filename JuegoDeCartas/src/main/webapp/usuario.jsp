@@ -70,7 +70,7 @@
         <section>
             <div class="w-50 mx-auto text-center" style="margin-top: 20px;">
                 <h1 class="p-3 fs-2 border-top border-4"><span class="text-primary">Bienvenido!</span>, aquí te garantizamos la experiencia de disfrutar</h1>
-                <p class="p-3 fs-4"><span class="text-primary">Comienza ya</span>, que tus amigos te esperan para iniciar una nueva partida. Yugi Oh, Dragon Ball, Pokemon.</p>
+                <p class="p-3 fs-4"><span class="text-primary">Comienza ya</span>, que tus amigos te esperan para iniciar una nueva partida. JoJo's Bizarre, Dragon Ball, Pokemon.</p>
             </div>
         </section>
 

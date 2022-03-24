@@ -91,7 +91,7 @@
                                         alt="Sunset over the Sea"
                                         />
                                     <div class="card-body">
-                                        <h5 class="card-title">Yu-Gi-Oh!</h5>
+                                        <h5 class="card-title">JoJo's Bizarre</h5>
                                         <p class="card-text">
                                             Es un juego de cartas coleccionables de origen japonés desarrollado y publicado por Konami.
                                         </p>

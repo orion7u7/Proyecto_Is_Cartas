@@ -81,7 +81,7 @@
                                             Visualizar set de cartas del juego Dragon Ball.
                                         </p>
                                         <br>
-                                        <a href="VistaCartasDragonBall.jsp" class="btn btn-primary">Visualizar Cartas</a>
+                                        <a href="VistaCartasDragonBall.jsp" class="btn btn-primary" id="Dragon">Visualizar Cartas</a>
                                     </div>
                                 </div>
                             </div>
@@ -94,13 +94,13 @@
                                         alt="Sunset over the Sea"
                                         />
                                     <div class="card-body">
-                                        <h5 class="card-title">Yu-Gi-Oh!</h5>
+                                        <h5 class="card-title">JoJo's Bizarre</h5>
                                         <p class="card-text">
-                                            Visualizar set de Cartas del Juego Yu-Gi-Oh!.
+                                            Visualizar set de Cartas del Juego JoJo's Bizarre!.
                                         </p>
                                         <br>
                                         <br>
-                                        <a href="VistaCartasYugi.jsp" class="btn btn-primary">Visualizar Cartas</a>
+                                        <a href="VistaCartasYugi.jsp" class="btn btn-primary" id="Jojo">Visualizar Cartas</a>
                                     </div>
                                 </div>
                             </div>
