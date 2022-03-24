@@ -9,7 +9,7 @@
     </head>
 
 
-    <body ">
+    <body onload="capturar_user()">
         
         <script src="scripts/webSocket.js"></script>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">

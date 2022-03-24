@@ -11,7 +11,7 @@
         <link rel="stylesheet" href="estilos/estilos_juego.css"/>
 
     </head>
-    <body onload="user()">
+    <body onload="user('nom');">
         <%!
             private int accesos = 0;
             private String usuario = "user";

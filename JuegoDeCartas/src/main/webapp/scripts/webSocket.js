@@ -3,12 +3,12 @@ var area;
 var nom;
 var websocket = new WebSocket("ws://localhost:" + document.location.port + "/JuegoDeCartas/myWebSocketEndpoint");
 
-function capturar_user(user) {
-    username = user;
-    console.log(user);
+function capturar_user() {
+    username =document.getElementById("usuario").value;
+    console.log(username);
 }
-function user(){
-    nom = document.getElementById("nom");
+function user(nom){
+    nom = document.getElementById(nom);
     nom.innerHTML = username;
 }
 

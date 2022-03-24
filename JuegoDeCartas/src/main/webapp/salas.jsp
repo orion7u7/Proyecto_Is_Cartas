@@ -8,7 +8,7 @@
         <script src="boostrap/js/bootstrap.min.js"></script>
 
     </head>
-    <body onload="user()">
+    <body onload="user('nom');">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container-fluid">
                 <a class="navbar-brand" href="usuario.jsp" style="font-weight: bolder; color: #63A4EC">PowerCards</a>
