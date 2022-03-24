@@ -22,7 +22,7 @@ public class MisConsultas {
         PreparedStatement pstatement = null;
         ResultSet resultSet = null;
         String sql = " SELECT * ";
-        sql = sql + " FROM persona where nickname like '%" + nombres + "%' ";
+        sql = sql + " FROM powercards.persona where nickname like '%" + nombres + "%' ";
         sql = sql + " order by 1 asc ";
 
         System.out.println("sql=" + sql);

@@ -56,7 +56,7 @@
                             <c:if test="${succes==2}">
                                 <br>
                                 <div class="alert alert-danger" role="alert">
-                                    Jugador ya existe
+                                    Jugador ya existe, esta en juego.
                                 </div>
                             </c:if>
                             <br>

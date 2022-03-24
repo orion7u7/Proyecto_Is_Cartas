@@ -8,7 +8,7 @@
         <script src="boostrap/js/bootstrap.min.js"></script>
 
     </head>
-    <body>
+    <body onload="user()">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container-fluid">
                 <a class="navbar-brand" href="usuario.jsp" style="font-weight: bolder; color: #63A4EC">PowerCards</a>
@@ -27,7 +27,7 @@
                             <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
                         </a>
                         <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1" style="">
-                            <li><a class="dropdown-item" href="#">Usuario</a></li>
+                            <li><a id="nom" class="dropdown-item" value=""></a></li>
                             <li><hr class="dropdown-divider"></li>
                             <li><a class="dropdown-item" href="CerrarS">Cerrar Sesion</a></li>
                         </ul>
