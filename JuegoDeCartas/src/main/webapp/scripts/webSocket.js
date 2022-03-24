@@ -1,10 +1,12 @@
 var username;
 var area;
-var websocket = new WebSocket("ws://localhost:"+ document.location.port +"/JuegoDeCartas/myWebSocketEndpoint");
+var websocket = new WebSocket("ws://localhost:" + document.location.port + "/JuegoDeCartas/myWebSocketEndpoint");
 
 websocket.onmessage = function (evt) {
     area = document.getElementById("area");
     area.innerHTML += evt.data + "\n";
+    //var el = document.getElementById("puestas");
+    //el.innerHTML = "<img src='imagenes/jojo/"+evt+".jpg'>";
 };
 
 function join(id) {
@@ -17,4 +19,7 @@ function join(id) {
 
 function send_message(cart) {
     websocket.send(username + ": " + cart);
+}
+function send_cart(cart) {
+    websocket.send(cart);
 }

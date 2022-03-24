@@ -119,7 +119,6 @@ public class Consulta1 extends HttpServlet {
 
             for (Persona persona3 : persona) {
                 if ((persona3.getNickname()).equals(jugador)) {
-
                     System.out.println(persona3.getNickname());
                     System.out.println(jugador);
                     request.getRequestDispatcher("index.jsp").forward(request, response);

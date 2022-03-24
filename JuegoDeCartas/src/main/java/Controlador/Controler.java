@@ -35,6 +35,7 @@ import javax.servlet.http.Part;
 @MultipartConfig
 public class Controler extends HttpServlet {
 
+    Cartaj c = new Cartaj();
     private MisConsultas MisConsultas = new MisConsultas();
     CartaDAO dao = new CartaDAO();
 
@@ -99,7 +100,6 @@ public class Controler extends HttpServlet {
                 request.getRequestDispatcher("VistaCartasPokemon.jsp").forward(request, response);
                 break;
             case "Guardar":
-                Cartaj c = new Cartaj();
                 String nombre = request.getParameter("txtnombre");
                 int ataque = Integer.parseInt(request.getParameter("txtataque"));
                 int defensa = Integer.parseInt(request.getParameter("txtdefensa"));
@@ -145,42 +145,6 @@ public class Controler extends HttpServlet {
             default:
                 request.getRequestDispatcher("Controler?accion=Listar").forward(request, response);
                 break;
-            /*
-                List<Cartaj> lista = dao.listar();
-                request.setAttribute("lista", lista);
-                request.getRequestDispatcher("VistaCartasPokemon.jsp").forward(request, response);
-                break;
-            case "Guardar":
-                String nombre = request.getParameter("txtnombre");
-                int ataque = Integer.parseInt(request.getParameter("txtataque"));
-                int defensa = Integer.parseInt(request.getParameter("txtdefensa"));
-                String descripcion = request.getParameter("txtdescripcion");
-                String Juego_nombre = request.getParameter("selectJuego");
-                String tipo = request.getParameter("selectTipo");
-                String atributo = request.getParameter("txtatributo1");
-                int valor = Integer.parseInt(request.getParameter("txtvalor1"));
-                Part part = request.getPart("filefoto");
-                InputStream inputStream = part.getInputStream();
-                c.setNombre(nombre);
-                c.setAtaque(ataque);
-                c.setDefensa(defensa);
-                c.setDescripcion(descripcion);
-                c.setJuego_nombre(Juego_nombre);
-                c.setTipo(tipo);
-                c.setAtributo(atributo);
-                c.setValor(valor);
-                c.setFoto(inputStream);
-                try {
-                    dao.agregar(c);
-                } catch (Exception e) {
-                }
-                request.getRequestDispatcher("Administrador.jsp").forward(request, response);
-
-                break;
-            default:
-                request.getRequestDispatcher("Controler?accion=Listar").forward(request, response);
-                break;
-        }*/
         }
 
     }
