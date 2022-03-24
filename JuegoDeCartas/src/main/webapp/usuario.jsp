@@ -9,8 +9,9 @@
     </head>
 
 
-    <body>
-
+    <body onload="capturar_user()">
+        
+        <script src="scripts/webSocket.js"></script>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container-fluid">
             	<
@@ -21,16 +22,18 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="salas.jsp">Salas</a>
+                            <a class="nav-link active" aria-current="page"  href="salas.jsp">Salas</a>
                         </li>
 
                     </ul>
+                    <input id="usuario" type="hidden" value="<%= request.getAttribute("jugadorS")%>">
                     <div class="dropdown text-end">
                         <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
                             <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
                         </a>
                         <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1" style="">
-                            <li><a class="dropdown-item" href="#">User</a></li>
+                            
+                            <li><a class="dropdown-item" ><%=request.getAttribute("jugadorS")%></a></li>
                             <li><hr class="dropdown-divider"></li>
                             <li><a class="dropdown-item" href="CerrarS">Cerrar Sesion</a></li>
                         </ul>
