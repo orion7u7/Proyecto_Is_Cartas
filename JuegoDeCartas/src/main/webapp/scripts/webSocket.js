@@ -11,15 +11,17 @@ websocket.onmessage = function (evt) {
 
 function join(id) {
     var elemento = document.getElementById(id);
-    elemento.style.display = "none";
     username = document.getElementById("usuario").value;
+    elemento.style.display = "none";
     console.log(username + " entra");
     websocket.send("*** " + username + " se ha unido!!");
 }
 
 function send_message(cart) {
+    username = document.getElementById("usuario").value;
     websocket.send(username + ": " + cart);
 }
 function send_cart(cart) {
-    websocket.send(cart);
+    username = document.getElementById("usuario").value;
+    websocket.send(username + ": " + cart);
 }

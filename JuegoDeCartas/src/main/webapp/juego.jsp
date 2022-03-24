@@ -30,7 +30,7 @@
                         </li>
 
                     </ul>
-                    <textarea type="hidden" id="usuario" name="usuario" value="<%request.getAttribute("jugars");%>" readonly></textarea>
+                    <input id="usuario" type="hidden" value="<%=request.getAttribute("jugars")%>">
                     <input id="entrarW" class="btn btn-success" onclick="join('entrarW');" value="Entrar" type="button">
                     <a href="#" class="btn btn-warning">Pausar</a>
                     <a href="salas.jsp" class="btn btn-danger">Abandonar partida</a> 
@@ -79,7 +79,7 @@
                     <%
                         System.out.println(accesos);
                         if (accesos == 1) {
-                            
+
                             for (int i = 1; i < 4; i++) {
                     %>
 
@@ -125,7 +125,7 @@
 
                     <img id="<%=a[i]%>" value="<%=a[i]%>" src="imagenes/jojo/<%=a[i]%>.jpg" onclick="send_cart(<%=a[i]%>);"/>
                     <%
-                        
+
                         }
 
                     } else {

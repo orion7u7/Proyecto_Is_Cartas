@@ -118,7 +118,7 @@ public class Consulta1 extends HttpServlet {
         } else {
 
             for (Persona persona3 : persona) {
-                if ((persona3.getNickname()).equals(jugador)) {
+                if ((persona3.getNickname()).equals(jugador) || (persona3.getNickname()).equals(user)) {
                     System.out.println(persona3.getNickname());
                     System.out.println(jugador);
                     request.getRequestDispatcher("index.jsp").forward(request, response);
@@ -131,8 +131,9 @@ public class Consulta1 extends HttpServlet {
                         consulta.insertarUser(per);
                     } catch (Exception e) {
                     }
-                    request.getSession().setAttribute("user", jugador);
+                    //request.getSession().setAttribute("user", jugador);
                     request.setAttribute("jugars", jugador);
+                    System.out.println(jugador);
                     request.getRequestDispatcher("usuario.jsp").forward(request, response);
 
                 }
