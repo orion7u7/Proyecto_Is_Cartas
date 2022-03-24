@@ -82,10 +82,9 @@
                                         <td>${dato.getJuego_nombre()}</td>
                                         <td>${dato.getAtributo()}</td>
                                         <td>${dato.getValor()}</td>
-                                        <td><img src="ControlerIMG?id=${dato.getIdCarta()}" width="250px" height="230px"></td>
+                                        <td><img src="ControlerIMG?idCarta=${dato.getIdCarta()}" width="250px" height="230px"></td>
                                     </tr>
-                                </c:forEach>
-                                
+                                </c:forEach>                                
                             </tbody>
                         </table>
                     </div>

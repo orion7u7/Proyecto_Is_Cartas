@@ -35,7 +35,7 @@ public class CartaDAO {
         List<Cartaj> lista = new ArrayList<>();
         String sql = "select *from carta";
         try {
-            con = cn.getConecction();
+            con = BaseDatos.getConecction();
             ps = con.prepareStatement(sql);
             rs = ps.executeQuery();
             while (rs.next()) {
@@ -58,7 +58,7 @@ public class CartaDAO {
     }
 
     public void listarImg(int idCarta, HttpServletResponse response) {
-        String sql = "select *from carta where id=" + idCarta;
+        String sql = "select * from carta where idCarta=" + idCarta;
         InputStream inputStream = null;
         OutputStream outputStream = null;
         BufferedInputStream bufferedInputStream = null;
@@ -66,7 +66,7 @@ public class CartaDAO {
         response.setContentType("image/*");
         try {
             outputStream = response.getOutputStream();
-            con = cn.getConecction();
+            con = BaseDatos. getConecction();
             ps = con.prepareStatement(sql);
             rs = ps.executeQuery();
             if (rs.next()) {
