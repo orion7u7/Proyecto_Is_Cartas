@@ -1,4 +1,5 @@
 
+<%@page import="com.is.modelo.Persona"%>
 <%@page import="java.util.Set"%>
 <%@page import="java.util.HashSet"%>
 <html>
@@ -30,7 +31,7 @@
                         </li>
 
                     </ul>
-                    
+
                     <input id="entrarW" class="btn btn-success" onclick="join('entrarW');" value="Entrar" type="button">
                     <a href="#" class="btn btn-warning">Pausar</a>
                     <a href="salas.jsp" class="btn btn-danger">Abandonar partida</a> 
@@ -39,7 +40,8 @@
                             <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
                         </a>
                         <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1" style="">
-                            <li><a id="njom" class="dropdown-item" value=""><%=request.getAttribute("jugadorS")%></a></li>
+                                    <li><a id="njom" class="dropdown-item" value=""><%Persona per = new Persona();
+                                        per.getNickname();%></a></li>
                             <li><hr class="dropdown-divider"></li>
                             <li><a class="dropdown-item" href="CerrarS">Cerrar Sesion</a></li>
                         </ul>

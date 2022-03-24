@@ -17,7 +17,12 @@ websocket.onmessage = function (evt) {
     area.innerHTML += evt.data + "\n";
     if (aux != 0) {
         centro_m = document.getElementById("centro_m");
+        for (var i = 0; i < 2; i++)  {
+            centro_m.removeChild(centro_m.firstChild);
+        }
         centro_m.innerHTML += '<img id="' + evt.data + '" src="imagenes/jojo/' + evt.data + '.jpg"/>';
+    } else {
+
     }
     aux++;
     //var el = document.getElementById("centro_m");

@@ -118,7 +118,6 @@ public class Consulta1 extends HttpServlet {
                 }
             }
         } else {
-            System.out.println(persona4.size());
             if (persona4.size() >= 1) {
                 System.out.println(jugador);
                 request.setAttribute("succes", 2);
@@ -134,8 +133,7 @@ public class Consulta1 extends HttpServlet {
                 }
                 request.getSession().setAttribute("user", jugador);
                 request.setAttribute("jugadorS", jugador);
-                request.getRequestDispatcher("salas.jsp");
-                request.getRequestDispatcher("juego.jsp");
+
                 request.getRequestDispatcher("usuario.jsp").include(request, response);
 
             }

@@ -1,4 +1,5 @@
 
+<%@page import="com.is.modelo.Persona"%>
 <html>
     <head>
         <title>Salas</title>
@@ -27,7 +28,8 @@
                             <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
                         </a>
                         <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1" style="">
-                            <li><a id="nom" class="dropdown-item" value=""><%=request.getAttribute("jugadorS")%></a></li>
+                            <li><a id="nom" class="dropdown-item" value=""><%Persona per = new Persona();
+                                        per.getNickname();%></a></li>
                             <li><hr class="dropdown-divider"></li>
                             <li><a class="dropdown-item" href="CerrarS">Cerrar Sesion</a></li>
                         </ul>
