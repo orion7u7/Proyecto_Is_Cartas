@@ -84,7 +84,7 @@
                             for (int i = 1; i < 4; i++) {
                     %>
 
-                    <img id="<%=a[i]%>" value="<%=a[i]%>" src="imagenes/jojo/<%=a[i]%>.jpg" onclick="send_message(<%=a[i]%>);"/>
+                    <img id="<%=a[i]%>" value="<%=a[i]%>" src="imagenes/jojo/<%=a[i]%>.jpg" onclick="send_cart(<%=a[i]%>);"/>
                     <%
                         }
                     } else {
