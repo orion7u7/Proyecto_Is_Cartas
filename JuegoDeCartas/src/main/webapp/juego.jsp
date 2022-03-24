@@ -30,7 +30,7 @@
                         </li>
 
                     </ul>
-                    <input type="hidden" id="usuario" value="<%request.getAttribute("jugars");%>"/>
+                    <textarea type="hidden" id="usuario" name="usuario" value="<%request.getAttribute("jugars");%>" readonly></textarea>
                     <input id="entrarW" class="btn btn-success" onclick="join('entrarW');" value="Entrar" type="button">
                     <a href="#" class="btn btn-warning">Pausar</a>
                     <a href="salas.jsp" class="btn btn-danger">Abandonar partida</a> 
@@ -140,7 +140,7 @@
                 </div>
             </div>
             <div id="carata3" class="centro">
-                <div id="puestas" class="centrorow">
+                <div id="centro_m" class="centrorow">
                     <img id="puesta1" src="imagenes/Reverso.jpg"/>
                     <img id="puesta2" src="imagenes/Reverso.jpg"/>
                     <img id="puesta3" src="imagenes/Reverso.jpg"/>

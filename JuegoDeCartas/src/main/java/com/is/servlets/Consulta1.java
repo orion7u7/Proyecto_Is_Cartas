@@ -132,8 +132,9 @@ public class Consulta1 extends HttpServlet {
                     } catch (Exception e) {
                     }
                     request.getSession().setAttribute("user", jugador);
-                    request.getRequestDispatcher("usuario.jsp").forward(request, response);
                     request.setAttribute("jugars", jugador);
+                    request.getRequestDispatcher("usuario.jsp").forward(request, response);
+
                 }
             }
         }
