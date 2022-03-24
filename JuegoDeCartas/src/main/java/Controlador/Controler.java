@@ -9,6 +9,7 @@ import com.is.database.BaseDatos;
 import com.is.database.MisConsultas;
 import com.is.modelo.CartaDAO;
 import com.is.modelo.Cartaj;
+import com.is.modelo.Juegos;
 import com.is.modelo.Persona;
 import com.is.servlets.ModificarInformacion;
 import java.io.IOException;
@@ -38,6 +39,7 @@ public class Controler extends HttpServlet {
     Cartaj c = new Cartaj();
     private MisConsultas MisConsultas = new MisConsultas();
     CartaDAO dao = new CartaDAO();
+    Juegos j = new Juegos();
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -142,6 +144,9 @@ public class Controler extends HttpServlet {
                     Logger.getLogger(ModificarInformacion.class.getName()).log(Level.SEVERE, null, ex);
                 }
                 break;
+            //case Agregar:
+                
+              //  break;
             default:
                 request.getRequestDispatcher("Controler?accion=Listar").forward(request, response);
                 break;
@@ -179,6 +184,7 @@ public class Controler extends HttpServlet {
             return false;
         }
     }
+    
 
     private void response(HttpServletResponse resp) throws IOException {
         PrintWriter out = resp.getWriter();
