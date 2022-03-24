@@ -1,0 +1,357 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="Multi-file class diagram">
+  <ClassDiagramComponents>
+    <Class name="Carta" package="com.is.modelo" visibility="public" xPosition="320.0" yPosition="420.0">
+      <Fields>
+        <Field name="idCarta" type="int" visibility="package"/>
+        <Field name="nombre" type="String" visibility="package"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="int" name="idCarta"/>
+          <Argument type="int" name="ataque"/>
+          <Argument type="int" name="defensa"/>
+          <Argument type="int" name="valor"/>
+          <Argument type="String" name="nombre"/>
+          <Argument type="String" name="descripcion"/>
+          <Argument type="String" name="tipo"/>
+          <Argument type="String" name="nombre_juego"/>
+          <Argument type="String" name="atributo"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getIdCarta" returnType="int" visibility="public"/>
+        <Method name="setIdCarta" returnType="void" visibility="public">
+          <Argument type="int" name="idCarta"/>
+        </Method>
+        <Method name="getAtaque" returnType="int" visibility="public"/>
+        <Method name="setAtaque" returnType="void" visibility="public">
+          <Argument type="int" name="ataque"/>
+        </Method>
+        <Method name="getDefensa" returnType="int" visibility="public"/>
+        <Method name="setDefensa" returnType="void" visibility="public">
+          <Argument type="int" name="defensa"/>
+        </Method>
+        <Method name="getValor" returnType="int" visibility="public"/>
+        <Method name="setValor" returnType="void" visibility="public">
+          <Argument type="int" name="valor"/>
+        </Method>
+        <Method name="getNombre" returnType="String" visibility="public"/>
+        <Method name="setNombre" returnType="void" visibility="public">
+          <Argument type="String" name="nombre"/>
+        </Method>
+        <Method name="getDescripcion" returnType="String" visibility="public"/>
+        <Method name="setDescripcion" returnType="void" visibility="public">
+          <Argument type="String" name="descripcion"/>
+        </Method>
+        <Method name="getTipo" returnType="String" visibility="public"/>
+        <Method name="setTipo" returnType="void" visibility="public">
+          <Argument type="String" name="tipo"/>
+        </Method>
+        <Method name="getNombre_juego" returnType="String" visibility="public"/>
+        <Method name="setNombre_juego" returnType="void" visibility="public">
+          <Argument type="String" name="nombre_juego"/>
+        </Method>
+        <Method name="getAtributo" returnType="String" visibility="public"/>
+        <Method name="setAtributo" returnType="void" visibility="public">
+          <Argument type="String" name="atributo"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="MyWebSocketEndpoint" package="webSocket" visibility="public" xPosition="620.0" yPosition="420.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="message" returnType="void" visibility="public">
+          <Argument type="String" name="message"/>
+          <Argument type="Session" name="client"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="CartaDAO" package="com.is.modelo" visibility="public" xPosition="920.0" yPosition="420.0">
+      <Fields>
+        <Field name="cn" type="BaseDatos" visibility="package"/>
+        <Field name="con" type="Connection" visibility="package"/>
+        <Field name="ps" type="PreparedStatement" visibility="package"/>
+        <Field name="rs" type="ResultSet" visibility="package"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="listar" returnType="List" visibility="public"/>
+        <Method name="listarImg" returnType="void" visibility="public">
+          <Argument type="int" name="idCarta"/>
+          <Argument type="HttpServletResponse" name="response"/>
+        </Method>
+        <Method name="agregar" returnType="void" visibility="public">
+          <Argument type="Cartaj" name="c"/>
+        </Method>
+        <Method name="agregar2" returnType="boolean" visibility="public">
+          <Argument type="Cartaj" name="c"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Juegos" package="com.is.modelo" visibility="public" xPosition="1220.0" yPosition="420.0">
+      <Fields>
+        <Field name="nombre" type="String" visibility="package"/>
+        <Field name="total_cartas" type="int" visibility="package"/>
+        <Field name="foto" type="InputStream" visibility="package"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="String" name="nombre"/>
+          <Argument type="String" name="descripcion"/>
+          <Argument type="int" name="total_cartas"/>
+          <Argument type="InputStream" name="foto"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getNombre" returnType="String" visibility="public"/>
+        <Method name="setNombre" returnType="void" visibility="public">
+          <Argument type="String" name="nombre"/>
+        </Method>
+        <Method name="getDescripcion" returnType="String" visibility="public"/>
+        <Method name="setDescripcion" returnType="void" visibility="public">
+          <Argument type="String" name="descripcion"/>
+        </Method>
+        <Method name="getTotal_cartas" returnType="int" visibility="public"/>
+        <Method name="setTotal_cartas" returnType="void" visibility="public">
+          <Argument type="int" name="total_cartas"/>
+        </Method>
+        <Method name="getFoto" returnType="InputStream" visibility="public"/>
+        <Method name="setFoto" returnType="void" visibility="public">
+          <Argument type="InputStream" name="foto"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="ConsultaAdmin" package="com.is.servlets" visibility="public" xPosition="1520.0" yPosition="420.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="processRequest" returnType="void" visibility="protected">
+          <Argument type="HttpServletRequest" name="request"/>
+          <Argument type="HttpServletResponse" name="response"/>
+        </Method>
+        <Method name="doGet" returnType="void" visibility="protected">
+          <Argument type="HttpServletRequest" name="request"/>
+          <Argument type="HttpServletResponse" name="response"/>
+        </Method>
+        <Method name="doPost" returnType="void" visibility="protected">
+          <Argument type="HttpServletRequest" name="request"/>
+          <Argument type="HttpServletResponse" name="response"/>
+        </Method>
+        <Method name="getServletInfo" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Controler" package="Controlador" visibility="public" xPosition="1820.0" yPosition="420.0">
+      <Fields>
+        <Field name="c" type="Cartaj" visibility="package"/>
+        <Field name="MisConsultas" type="MisConsultas" visibility="private"/>
+        <Field name="dao" type="CartaDAO" visibility="package"/>
+        <Field name="j" type="Juegos" visibility="package"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="processRequest" returnType="void" visibility="protected">
+          <Argument type="HttpServletRequest" name="request"/>
+          <Argument type="HttpServletResponse" name="response"/>
+        </Method>
+        <Method name="doGet" returnType="void" visibility="protected">
+          <Argument type="HttpServletRequest" name="request"/>
+          <Argument type="HttpServletResponse" name="response"/>
+        </Method>
+        <Method name="doPost" returnType="void" visibility="protected">
+          <Argument type="HttpServletRequest" name="request"/>
+          <Argument type="HttpServletResponse" name="response"/>
+        </Method>
+        <Method name="insertarCarta" returnType="boolean" visibility="public">
+          <Argument type="Cartaj" name="carta"/>
+        </Method>
+        <Method name="response" returnType="void" visibility="private">
+          <Argument type="HttpServletResponse" name="resp"/>
+        </Method>
+        <Method name="getServletInfo" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Consulta2" package="com.is.servlets" visibility="public" xPosition="2120.0" yPosition="420.0">
+      <Fields>
+        <Field name="misConsultas" type="MisConsultas" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="processRequest" returnType="void" visibility="protected">
+          <Argument type="HttpServletRequest" name="request"/>
+          <Argument type="HttpServletResponse" name="response"/>
+        </Method>
+        <Method name="doGet" returnType="void" visibility="protected">
+          <Argument type="HttpServletRequest" name="request"/>
+          <Argument type="HttpServletResponse" name="response"/>
+        </Method>
+        <Method name="doPost" returnType="void" visibility="protected">
+          <Argument type="HttpServletRequest" name="request"/>
+          <Argument type="HttpServletResponse" name="response"/>
+        </Method>
+        <Method name="getServletInfo" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="CerrarS" package="com.is.servlets" visibility="public" xPosition="20.0" yPosition="820.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="processRequest" returnType="void" visibility="protected">
+          <Argument type="HttpServletRequest" name="request"/>
+          <Argument type="HttpServletResponse" name="response"/>
+        </Method>
+        <Method name="doGet" returnType="void" visibility="protected">
+          <Argument type="HttpServletRequest" name="request"/>
+          <Argument type="HttpServletResponse" name="response"/>
+        </Method>
+        <Method name="doPost" returnType="void" visibility="protected">
+          <Argument type="HttpServletRequest" name="request"/>
+          <Argument type="HttpServletResponse" name="response"/>
+        </Method>
+        <Method name="getServletInfo" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="ControlerIMG" package="Controlador" visibility="public" xPosition="320.0" yPosition="820.0">
+      <Fields>
+        <Field name="dao" type="CartaDAO" visibility="package"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="processRequest" returnType="void" visibility="protected">
+          <Argument type="HttpServletRequest" name="request"/>
+          <Argument type="HttpServletResponse" name="response"/>
+        </Method>
+        <Method name="doGet" returnType="void" visibility="protected">
+          <Argument type="HttpServletRequest" name="request"/>
+          <Argument type="HttpServletResponse" name="response"/>
+        </Method>
+        <Method name="doPost" returnType="void" visibility="protected">
+          <Argument type="HttpServletRequest" name="request"/>
+          <Argument type="HttpServletResponse" name="response"/>
+        </Method>
+        <Method name="getServletInfo" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Cartaj" package="com.is.modelo" visibility="public" xPosition="620.0" yPosition="820.0">
+      <Fields>
+        <Field name="idCarta" type="int" visibility="package"/>
+        <Field name="nombre" type="String" visibility="package"/>
+        <Field name="foto" type="InputStream" visibility="package"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="int" name="idCarta"/>
+          <Argument type="int" name="ataque"/>
+          <Argument type="int" name="defensa"/>
+          <Argument type="int" name="valor"/>
+          <Argument type="String" name="nombre"/>
+          <Argument type="String" name="descripcion"/>
+          <Argument type="String" name="tipo"/>
+          <Argument type="String" name="Juego_nombre"/>
+          <Argument type="String" name="atributo"/>
+          <Argument type="InputStream" name="foto"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getIdCarta" returnType="int" visibility="public"/>
+        <Method name="setIdCarta" returnType="void" visibility="public">
+          <Argument type="int" name="idCarta"/>
+        </Method>
+        <Method name="getAtaque" returnType="int" visibility="public"/>
+        <Method name="setAtaque" returnType="void" visibility="public">
+          <Argument type="int" name="ataque"/>
+        </Method>
+        <Method name="getDefensa" returnType="int" visibility="public"/>
+        <Method name="setDefensa" returnType="void" visibility="public">
+          <Argument type="int" name="defensa"/>
+        </Method>
+        <Method name="getValor" returnType="int" visibility="public"/>
+        <Method name="setValor" returnType="void" visibility="public">
+          <Argument type="int" name="valor"/>
+        </Method>
+        <Method name="getNombre" returnType="String" visibility="public"/>
+        <Method name="setNombre" returnType="void" visibility="public">
+          <Argument type="String" name="nombre"/>
+        </Method>
+        <Method name="getDescripcion" returnType="String" visibility="public"/>
+        <Method name="setDescripcion" returnType="void" visibility="public">
+          <Argument type="String" name="descripcion"/>
+        </Method>
+        <Method name="getTipo" returnType="String" visibility="public"/>
+        <Method name="setTipo" returnType="void" visibility="public">
+          <Argument type="String" name="tipo"/>
+        </Method>
+        <Method name="getJuego_nombre" returnType="String" visibility="public"/>
+        <Method name="setJuego_nombre" returnType="void" visibility="public">
+          <Argument type="String" name="Juego_nombre"/>
+        </Method>
+        <Method name="getAtributo" returnType="String" visibility="public"/>
+        <Method name="setAtributo" returnType="void" visibility="public">
+          <Argument type="String" name="atributo"/>
+        </Method>
+        <Method name="getFoto" returnType="InputStream" visibility="public"/>
+        <Method name="setFoto" returnType="void" visibility="public">
+          <Argument type="InputStream" name="foto"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="session" package="com.is.servlets" visibility="public" xPosition="920.0" yPosition="820.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="processRequest" returnType="void" visibility="protected">
+          <Argument type="HttpServletRequest" name="request"/>
+          <Argument type="HttpServletResponse" name="response"/>
+        </Method>
+        <Method name="doGet" returnType="void" visibility="protected">
+          <Argument type="HttpServletRequest" name="request"/>
+          <Argument type="HttpServletResponse" name="response"/>
+        </Method>
+        <Method name="doPost" returnType="void" visibility="protected">
+          <Argument type="HttpServletRequest" name="request"/>
+          <Argument type="HttpServletResponse" name="response"/>
+        </Method>
+        <Method name="getServletInfo" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Controlerjuego" package="Controlador" visibility="public" xPosition="1220.0" yPosition="820.0">
+      <Fields>
+        <Field name="j" type="Juegos" visibility="package"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="processRequest" returnType="void" visibility="protected">
+          <Argument type="HttpServletRequest" name="request"/>
+          <Argument type="HttpServletResponse" name="response"/>
+        </Method>
+        <Method name="doGet" returnType="void" visibility="protected">
+          <Argument type="HttpServletRequest" name="request"/>
+          <Argument type="HttpServletResponse" name="response"/>
+        </Method>
+        <Method name="doPost" returnType="void" visibility="protected">
+          <Argument type="HttpServletRequest" name="request"/>
+          <Argument type="HttpServletResponse" name="response"/>
+        </Method>
+        <Method name="insertarJuegos" returnType="boolean" visibility="public">
+          <Argument type="Juegos" name="juego"/>
+        </Method>
+        <Method name="getServletInfo" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="dao" source="Controlador.Controler" target="com.is.modelo.CartaDAO" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="j" source="Controlador.Controlerjuego" target="com.is.modelo.Juegos" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="com.is.modelo.CartaDAO" target="com.is.modelo.Cartaj" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="Controlador.Controlerjuego" target="com.is.modelo.Juegos" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="j" source="Controlador.Controler" target="com.is.modelo.Juegos" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="Controlador.Controler" target="com.is.modelo.Cartaj" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="c" source="Controlador.Controler" target="com.is.modelo.Cartaj" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="dao" source="Controlador.ControlerIMG" target="com.is.modelo.CartaDAO" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
