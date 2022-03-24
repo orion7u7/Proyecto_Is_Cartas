@@ -28,6 +28,7 @@ import javax.servlet.http.Part;
  *
  * @author Laptop
  */
+@MultipartConfig
 public class Controlerjuego extends HttpServlet {
 
     Juegos j = new Juegos();
@@ -83,7 +84,10 @@ public class Controlerjuego extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-            System.out.println(request.getParameter("txtjuego"));
+            String accion = request.getParameter("accion");
+            switch(accion){
+                case "Agregar":
+                    System.out.println(request.getParameter("txtjuego"));
             String nombre = request.getParameter("txtjuego");
             System.out.println(request.getParameter("txtcantidad"));
             int total_cartas = Integer.parseInt(request.getParameter("txtcantidad"));
@@ -114,7 +118,13 @@ public class Controlerjuego extends HttpServlet {
             } catch (SQLException ex) {
                 Logger.getLogger(ModificarInformacion.class.getName()).log(Level.SEVERE, null, ex);
             }
-    }
+                    break;
+                default:
+                    request.getRequestDispatcher("Controler?accion=Listar").forward(request, response);
+                    break;
+            }
+            
+}
     
     public boolean insertarJuegos(Juegos juego) throws SQLException {
         int res = 0;

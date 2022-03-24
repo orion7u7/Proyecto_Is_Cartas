@@ -45,7 +45,7 @@
         <img src="imagenes/Crear.png" alt="Desarrollo" width="350" height="200">
     </div>
     <div class="container">
-            <form class="row g-3 needs-validation" action="Controlerjuego" method="POST">
+            <form class="row g-3 needs-validation" action="Controlerjuego" method="POST" enctype="multipart/form-data">
                 <div class="col-md-6">
                     <label for="validationCustom01" class="form-label">Nombre Juego</label>
                     <input type="text" class="form-control" id="nombre" name="txtjuego" required>
