@@ -104,6 +104,8 @@ public class Consulta1 extends HttpServlet {
         String menu = request.getParameter("menu");
         MisConsultas consulta = new MisConsultas();
         Collection<Persona> persona = consulta.consulta();
+        System.out.println(jugador + "------------------------------------");
+        Collection<Persona> persona4 = consulta.consulta(jugador);
         if (menu.equals("admin")) {
             for (Persona persona2 : persona) {
                 if ((persona2.getNickname()).equals(user) && (persona2.getContraseña()).equals(pass)) {
@@ -116,25 +118,24 @@ public class Consulta1 extends HttpServlet {
                 }
             }
         } else {
+            System.out.println(persona4.size());
+            if (persona4.size()>= 1) {
+                System.out.println(jugador);
+                request.setAttribute("succes", 2);
+                request.getRequestDispatcher("index.jsp").include(request, response);
 
-            for (Persona persona3 : persona) {
-                if ((persona3.getNickname()).equals(jugador)) {
-                    System.out.println(persona3.getNickname());
-                    System.out.println(jugador);
-                    request.getRequestDispatcher("index.jsp").forward(request, response);
-                    request.setAttribute("succes", 2);
-                } else {
-                    try {
-                        Persona per = new Persona();
-                        per.setNickname(jugador);
-                        per.setContraseña("");
-                        consulta.insertarUser(per);
-                    } catch (Exception e) {
-                    }
-                    request.getSession().setAttribute("user", jugador);
-                    request.getRequestDispatcher("usuario.jsp").forward(request, response);
-                    request.setAttribute("jugars", jugador);
+            } else {
+                try {
+                    Persona per = new Persona();
+                    per.setNickname(jugador);
+                    per.setContraseña("");
+                    consulta.insertarUser(per);
+                } catch (Exception e) {
                 }
+                request.getSession().setAttribute("user", jugador);
+                request.setAttribute("jugadorS", jugador);
+                request.getRequestDispatcher("usuario.jsp").include(request, response);
+
             }
         }
     }

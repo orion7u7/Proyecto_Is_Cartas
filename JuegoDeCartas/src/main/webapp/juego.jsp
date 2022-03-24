@@ -11,7 +11,7 @@
         <link rel="stylesheet" href="estilos/estilos_juego.css"/>
 
     </head>
-    <body>
+    <body onload="user('nom');">
         <%!
             private int accesos = 0;
             private String usuario = "user";
@@ -30,7 +30,7 @@
                         </li>
 
                     </ul>
-                    <input type="hidden" id="usuario" value="<%request.getAttribute("jugars");%>"/>
+                    
                     <input id="entrarW" class="btn btn-success" onclick="join('entrarW');" value="Entrar" type="button">
                     <a href="#" class="btn btn-warning">Pausar</a>
                     <a href="salas.jsp" class="btn btn-danger">Abandonar partida</a> 
@@ -39,7 +39,7 @@
                             <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
                         </a>
                         <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1" style="">
-                            <li><a class="dropdown-item" >User</a></li>
+                            <li><a id="nom" class="dropdown-item" value=""></a></li>
                             <li><hr class="dropdown-divider"></li>
                             <li><a class="dropdown-item" href="CerrarS">Cerrar Sesion</a></li>
                         </ul>
@@ -79,7 +79,7 @@
                     <%
                         System.out.println(accesos);
                         if (accesos == 1) {
-                            
+
                             for (int i = 1; i < 4; i++) {
                     %>
 
@@ -125,7 +125,7 @@
 
                     <img id="<%=a[i]%>" value="<%=a[i]%>" src="imagenes/jojo/<%=a[i]%>.jpg" onclick="send_cart(<%=a[i]%>);"/>
                     <%
-                        
+
                         }
 
                     } else {
@@ -140,7 +140,7 @@
                 </div>
             </div>
             <div id="carata3" class="centro">
-                <div id="puestas" class="centrorow">
+                <div id="centro_m" class="centrorow">
                     <img id="puesta1" src="imagenes/Reverso.jpg"/>
                     <img id="puesta2" src="imagenes/Reverso.jpg"/>
                     <img id="puesta3" src="imagenes/Reverso.jpg"/>

@@ -95,7 +95,7 @@
                                             Visualizar set de cartas del juego Dragon Ball.
                                         </p>
                                         <br>
-                                        <a href="VistaCartasDragonBall.jsp" class="btn btn-primary">Visualizar Cartas</a>
+                                        <a href="VistaCartasDragonBall.jsp" class="btn btn-primary" id="Dragon">Visualizar Cartas</a>
                                     </div>
                                 </div>
                             </div>
@@ -110,11 +110,11 @@
                                     <div class="card-body">
                                         <%out.print("<h5 class=" + "card-title" + ">" + part[2] + "</h5>");%>
                                         <p class="card-text">
-                                            Visualizar set de Cartas del Juego Yu-Gi-Oh!.
+                                            Visualizar set de Cartas del Juego JoJo's Bizarre!.
                                         </p>
                                         <br>
                                         <br>
-                                        <a href="VistaCartasYugi.jsp" class="btn btn-primary">Visualizar Cartas</a>
+                                        <a href="VistaCartasYugi.jsp" class="btn btn-primary" id="Jojo">Visualizar Cartas</a>
                                     </div>
                                 </div>
                             </div>

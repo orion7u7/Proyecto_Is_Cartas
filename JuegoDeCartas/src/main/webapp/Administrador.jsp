@@ -70,7 +70,7 @@
                     <label for="validationCustom04" class="form-label">Juego</label>
                     <select class="form-select" id="juego" name="selectJuego" required>
                         <option selected disabled value="">Choose...</option>
-                        <%                            MisConsultas consul = new MisConsultas();
+                        <% MisConsultas consul = new MisConsultas();
                             
                             Collection<Juegos> lista = consul.consulta_juego();
                             for (Juegos juego : lista) {
@@ -94,9 +94,9 @@
                 </div>
                 <div class="col-md-2">
                     <label for="validationCustom03" class="form-label" >Atributo</label>
-                    <input type="text" class="form-control" id="atributo1" name="txtatributo1" required>
+                    <input type="text" class="form-control" id="atributo1" name="txtatributo1" >
                     <label for="validationCustom03" class="form-label" >Valor</label>
-                    <input type="number" class="form-control" id="valoratri1" name="txtvalor1" required>
+                    <input type="number" class="form-control" id="valoratri1" name="txtvalor1" >
                 </div>
                 <div class="col-md-2">
                     <label for="validationCustom03" class="form-label">Atributo</label>
