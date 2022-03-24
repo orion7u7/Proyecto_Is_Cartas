@@ -24,7 +24,7 @@ websocket.onmessage = function (evt) {
     if (pausador==1001) {
         area = document.getElementById("area");
         area.innerHTML += evt.data + "\n";
-        if (aux != 0) {
+        if (aux > 2) {
             centro_m = document.getElementById("centro_m");
             for (var i = 0; i < 2; i++) {
                 centro_m.removeChild(centro_m.firstChild);
