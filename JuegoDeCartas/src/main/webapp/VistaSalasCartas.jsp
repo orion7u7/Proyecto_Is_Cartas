@@ -3,6 +3,9 @@
     Created on : 20 mar. 2022, 17:36:20
     Author     : Laptop
 --%>
+<%@page import="com.is.modelo.Juegos"%>
+<%@page import="java.util.Collection"%>
+<%@page import="com.is.database.MisConsultas"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -25,7 +28,7 @@
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="Administrador.jsp">Administración</a>
                         </li>
-                        
+
                     </ul>
                     <div class="dropdown text-end">
                         <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
@@ -40,10 +43,10 @@
                 </div>
             </div>
         </nav>
-        
+
         <!-- Carousel wrapper -->
         <div id="carouselMultiItemExample" class="carousel slide carousel-dark text-center" data-mdb-ride="carousel" >
-            
+
             <!-- Inner -->
             <div class="carousel-inner py-4">
                 <!-- Single item -->
@@ -58,7 +61,18 @@
                                         alt="Waterfall"
                                         />
                                     <div class="card-body">
-                                        <h5 class="card-title">Pokemon</h5>
+                                        <%                            
+                                            MisConsultas consul = new MisConsultas();
+
+                                            Collection<Juegos> lista = consul.consulta_juego();
+                                            Juegos juego = new Juegos();
+                                            String[] part = new String[lista.size()];
+                                            for (int i = 0; i < lista.size(); i++) {
+                                                part[i] = juego.getNombre();
+                                            }
+                                            out.print("<h5 class=" + "card-title" + ">" + part[0] + "</h5>");
+
+                                        %>
                                         <p class="card-text">
                                             Visualizar set de Cartas del Juego Pokemon.
                                         </p>
@@ -76,7 +90,7 @@
                                         alt="Sunset Over the Sea"
                                         />
                                     <div class="card-body">
-                                        <h5 class="card-title">Dragon Ball</h5>
+                                        <%out.print("<h5 class=" + "card-title" + ">" + part[1] + "</h5>");%>
                                         <p class="card-text">
                                             Visualizar set de cartas del juego Dragon Ball.
                                         </p>
@@ -94,7 +108,7 @@
                                         alt="Sunset over the Sea"
                                         />
                                     <div class="card-body">
-                                        <h5 class="card-title">Yu-Gi-Oh!</h5>
+                                        <%out.print("<h5 class=" + "card-title" + ">" + part[2] + "</h5>");%>
                                         <p class="card-text">
                                             Visualizar set de Cartas del Juego Yu-Gi-Oh!.
                                         </p>
@@ -232,10 +246,10 @@
             </div>
             <!-- Inner -->
         </div>
-        
+
         <footer class="w-100 d-flex align-items justify-content-center flex-wrap">
             <p class="fs-5 px-3 pt-3">Design. &copy; Todos los derechos Reservados PowerCards Games- Unillanos</p>
         </footer>
-        
+
     </body>
 </html>
