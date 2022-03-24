@@ -22,7 +22,7 @@ public class MisConsultas {
         PreparedStatement pstatement = null;
         ResultSet resultSet = null;
         String sql = " SELECT * ";
-        sql = sql + " FROM persona where nickname like '%" + nombres + "%' ";
+        sql = sql + " FROM powercards.persona where nickname like '%" + nombres + "%' ";
         sql = sql + " order by 1 asc ";
 
         System.out.println("sql=" + sql);
@@ -107,7 +107,7 @@ public class MisConsultas {
                 juego.setNombre(resultSet.getString(1));
                 juego.setDescripcion(resultSet.getString(2));
                 juego.setTotal_cartas(resultSet.getInt(3));
-                juego.setFoto(resultSet.getBytes(4));
+                juego.setFoto(resultSet.getBinaryStream(4));
                 listado.add(juego);
             }
         } catch (SQLException ex) {
@@ -174,5 +174,7 @@ public class MisConsultas {
         }
         return id;
     }
+    
+   
 
 }

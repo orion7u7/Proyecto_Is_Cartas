@@ -34,6 +34,10 @@
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="VistaSalasCartas.jsp">Visualizar Cartas</a>
                         </li>
+                        <li class="nav-item" style="padding: 0 50px">
+                            <a class="nav-link active" aria-current="page" href="Juegoadmin.jsp">Juegos</a>
+                        </li>
+                        
                     </ul>
                 </div>
                 <div class="dropdown text-end">
@@ -48,6 +52,7 @@
                 </div>
             </div>
         </nav>
+        <br>
         <div class="container">
             <form class="row g-3 needs-validation" action="Controler" method="POST" enctype="multipart/form-data" novalidate>
                 <div class="col-md-6">

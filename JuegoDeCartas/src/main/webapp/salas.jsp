@@ -8,7 +8,7 @@
         <script src="boostrap/js/bootstrap.min.js"></script>
 
     </head>
-    <body>
+    <body onload="user('nom');">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container-fluid">
                 <a class="navbar-brand" href="usuario.jsp" style="font-weight: bolder; color: #63A4EC">PowerCards</a>
@@ -27,7 +27,7 @@
                             <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
                         </a>
                         <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1" style="">
-                            <li><a class="dropdown-item" href="#">Usuario</a></li>
+                            <li><a id="nom" class="dropdown-item" value=""><%=request.getAttribute("jugadorS")%></a></li>
                             <li><hr class="dropdown-divider"></li>
                             <li><a class="dropdown-item" href="CerrarS">Cerrar Sesion</a></li>
                         </ul>
@@ -45,12 +45,12 @@
                             <div class="col-lg-4">
                                 <div class="card">
                                     <img
-                                        src="imagenes/pokemon.jpg"
+                                        src="imagenes/jojologo.jpg"
                                         class="card-img-top"
                                         alt="Waterfall"
                                         />
                                     <div class="card-body">
-                                        <h5 class="card-title">Pokemon</h5>
+                                        <h5 class="card-title">Jojo Bizzare Adventure</h5>
                                         <p class="card-text">
                                             Son videojuegos de rol desarrollados por Game Freak y publicados para videoconsolas portátiles de Nintendo.
                                         </p>
