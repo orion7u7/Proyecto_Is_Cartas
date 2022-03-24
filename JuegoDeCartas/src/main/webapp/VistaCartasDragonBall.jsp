@@ -50,9 +50,11 @@
                 <!-- Single item -->
                 <center>
                     <div style="width: 100%">
+                        <br>
                         <form action="Controler" method="POST">
                             <input type="submit" name="accion" value="Listar">
                         </form>
+                        <br>
                         <table>
                             <thead>
                                 <tr>

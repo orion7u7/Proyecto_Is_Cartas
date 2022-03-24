@@ -53,8 +53,10 @@
                 <center>
                     <div style="width: 100%">
                         <form action="Controler" method="POST">
+                            <br>
                             <input type="submit" name="accion" value="Listar">
                         </form>
+                        <br>
                         <table>
                             <thead>
                                 <tr>
